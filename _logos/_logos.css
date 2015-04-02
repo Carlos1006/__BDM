@@ -1,0 +1,149 @@
+body{
+		background:rgb(33,33,33);
+	}
+.superLogo,.superLogo2,.superLogo3,.superLogo4,.superLogo5,.superLogo6,.superLogo7,.superLogo8{
+	float:left;
+	margin-left:1%;
+}
+.superLogo{
+	width:100px;
+	height:100px;
+	background-color:rgb(0,134,250);
+	border-radius:50px;
+	border:2px solid;
+	border-color:rgba(0,0,0,0) !important;
+}
+.superLogo img
+{
+	width:100%;
+	height:100%;
+}
+
+.superLogo:hover{
+	cursor:pointer;
+	-webkit-filter:invert(100%);
+	filter: invert(100%);
+}
+
+.superLogo img:active{
+	-webkit-filter: invert(100%);
+	filter: invert(100%);
+}
+	
+	/* otra version*/
+.superLogo2{
+	width:100px;
+	height:100px;
+	background-color:rgb(0,134,250);
+	border-radius:50px;
+	border:2px solid;
+	border-color:rgba(0,0,0,0) !important;
+}
+.superLogo2 img{
+	width:100%;
+	height:100%;
+}
+.superLogo2:hover{
+	-webkit-filter: invert(100%); filter: invert(100%);
+	cursor:pointer;
+}
+.superLogo2:active{
+	-webkit-filter: invert(0%); filter: invert(0%);
+	background-color:black;
+}
+.superLogo2 img:active{
+	-webkit-filter: invert(100%); filter: invert(100%);
+}
+
+/*Logo 3*/
+.superLogo3{
+	width:100px;
+	height:100px;
+	background-color:rgb(0,0,0);
+	border-radius:50px;
+	border:2px solid;
+	border-color:rgba(0,0,0,0) !important;
+}
+.superLogo3 img{
+	width:100%;
+	height:100%;
+	border-radius:50px;
+}
+
+	
+/*Logo 4*/
+.superLogo4{
+	width:100px;
+	height:100px;
+	background-color:rgb(0,0,0);
+	border-radius:50px;
+	border:2px solid;
+	border-color:rgba(0,0,0,0) !important;
+}
+.superLogo4 img{
+	width:100%;
+	height:100%;
+	border-radius:50px;
+}
+
+/*Logo 5*/
+.superLogo5{
+	width:100px;
+	height:100px;
+	background-color:rgb(0,0,0);
+	border-radius:50px;
+	border:1px solid;
+	border-color:rgba(0,0,0,0) !important;
+}
+.superLogo5 img{
+	width:100%;
+	height:100%;
+	border-radius:50px;
+}
+
+/*Logo 6*/
+.superLogo6{
+	width:100px;
+	height:100px;
+	background-color:rgb(240,240,240);
+	border-radius:50px;
+	border:1px solid;
+	border-color:rgba(0,0,0,0) !important;
+}
+.superLogo6 img{
+	width:100%;
+	height:100%;
+	border-radius:50px;
+}
+
+/*Logo 6*/
+.superLogo7{
+	width:100px;
+	height:100px;
+	background-color:rgba(0,0,0,0.2);
+	border-radius:50px;
+	border:1px solid;
+	border-color:rgba(0,0,0,0) !important;
+}
+.superLogo7 img{
+	width:100%;
+	height:100%;
+	border-radius:50px;
+}
+
+/*Logo 6*/
+.superLogo8{
+	width:100px;
+	height:100px;
+	background-color:rgba(0,0,0,0.2);
+	border-radius:50px;
+	border:1px solid;
+	border-color:rgba(0,0,0,0) !important;
+	text-align:center;
+	padding:1px;
+}
+.superLogo8 img{
+	margin-top:5%;
+	height:90%;
+	border-radius:50px;
+}

@@ -1,0 +1,129 @@
+body{
+	background-color:rgb(33,33,33);
+}
+
+.bgBody{
+	background-image:url("img/backgrounds/bg_00.jpg");
+	position:fixed;
+	width:100%;
+	height:105%;
+	opacity:0.5;
+	-webkit-filter: blur(3px); 
+	filter: blur(3px);
+}
+
+.superHeader{
+	float:none;
+	clear:both;
+	position:absolute;
+	width:95%;
+	height:25%;
+	margin-left: 2.5%;
+	z-index:10;
+}
+
+.headerContainer{
+	width:100%;
+	height:25%;
+	clear:both;
+}
+
+.expandContainer{
+	width:100%;
+	height:75%;
+	clear:both;
+}
+
+.logoContainer{
+	float:left;
+	width:5%;
+	height:100%;
+	background-color:green;
+}
+.extraContainer_1{
+	float:left;
+	width:10%;
+	height:100%;
+	background-color:yellow;
+}
+.extraContainer_2{
+	float:left;
+	width:10%;
+	height:100%;
+	background-color:Brown;
+}
+.extraContainer_3{
+	float:left;
+	width:10%;
+	height:100%;
+	background-color:Tomato;
+}
+.searchBarContainer{
+	float:left;
+	width:40%;
+	height:100%;
+	background-color:orange;
+}
+.sessionContainer{
+	float:left;
+	width:15%;
+	height:100%;
+	background-color:gray;
+}
+.registerContainer {
+	float:left;
+	width:10%;
+	height:100%;
+	background-color:purple;
+}
+
+.invisible_1{
+	float:left;
+	width:25%;
+	height:100%;
+	background-color:BlueViolet;
+	opacity:0.3;
+}
+.searchBarExtraContainer{
+	float:left;
+	width:40%;
+	height:100%;
+	background-color:LawnGreen;
+}
+.invisible_2{
+	float:left;
+	width:35%;
+	height:100%;
+	background-color:Violet;
+	opacity:0.3;
+}
+
+.superContainer{
+	position:absolute;
+	width:95%;
+	height:90%;
+	margin-top:5%;
+	margin-left:2.5%;
+	z-index:9;
+}
+.leftSkyscraper{
+	float:left;
+	width:15%;
+	height:100%;
+	background-color:DarkSeaGreen;
+	opacity:0.7;
+}
+.centerSkyscraper{
+	float:left;
+	width:70%;
+	height:100%;
+	background-color:DodgerBlue;
+}
+.rightSkyscraper{
+	float:left;
+	width:15%;
+	height:100%;
+	background-color:MediumPurple;
+	opacity:0.7;
+}
+

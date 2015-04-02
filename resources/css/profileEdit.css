@@ -1,0 +1,203 @@
+.superInfo_edit{
+    width:100%;
+    height:100%;
+    background-color:rgba(55,55,55,0.9);
+}
+
+.infoImageSrc{
+    width:100%;
+    height:100%;
+    border-radius:10%;
+}
+
+.infoContainer{
+    width:100%;
+    height:8%;
+    margin-bottom:5%;
+}
+
+.infoContainerExtra{
+    width:100%;
+    height:12%;
+    margin-bottom:5%;
+}
+
+.infoHead {
+    width:100%;
+    height:30%;
+    color:black;
+    padding-top:1%;
+    font-size:100%;
+    font-weight:600;
+    padding-left:5%;
+    background-color:rgb(19,19,19);
+}
+
+.infoHeadEdit{
+    width:100%;
+    height:30%;
+    color:black;
+    font-size:100%;
+    font-weight:600;
+    padding-left:5%;
+    background-color:rgb(19,19,19);
+}
+
+.verifyUserEdit{
+    float:right;
+    height:100%;
+    width:10%;
+    background-color:rgb(0,134,250);
+}
+
+.infoBodyEdit{
+    width:100%;
+    height:70%;
+    color:black;
+    padding-top:2%;
+    font-size:110%;
+    text-align:center;
+    background-color:rgb(33,33,33);
+    color:rgb(244,244,244);
+    word-break: break-all;
+}
+
+.infoBodyEditExtra{
+    width:100%;
+    height:35%;
+    color:black;
+    padding-top:2%;
+    font-size:110%;
+    text-align:center;
+    background-color:rgb(33,33,33);
+    color:rgb(244,244,244);
+    word-break: break-all;
+}
+
+.infoImageEdit{
+    width:100%;
+    height:12%;
+    background-color:rgb(33,33,33);
+    padding-top:7%;
+    padding-bottom:7%;
+    padding-left:35%;
+    padding-right:35%;
+    margin-bottom:5%;
+}
+
+.userUpload,
+.fileInputUserUpload{
+    height:100% !important;
+    border-radius:0px;
+    background-color:rgb(33,33,33);
+    color:rgb(244,244,244);
+    border-color:transparent;
+}
+
+.fileInputUserUpload:hover{
+    background-color:rgb(44,44,44);
+}
+
+.actionEditUser{
+    width:100%;
+    height:5%;
+    margin-top:10%;
+    background-color:rgb(20,20,20);
+}
+
+.actionEditUser .deleteUser{
+    width:100%;
+    height:100%;
+    color:rgb(244,244,244);
+    text-align:center;
+    font-weight:600;
+    padding-top:1%;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition:    all 0.2s ease;
+    -o-transition:      all 0.2s ease;
+    -ms-transition:     all 0.2s ease;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.actionEditUser .ok,
+.actionEditUser .cancel{
+    width:50%;
+    float:left;
+    height:100%;
+    color:rgb(244,244,244);
+    text-align:center;
+    font-weight:600;
+    padding-top:1%;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition:    all 0.2s ease;
+    -o-transition:      all 0.2s ease;
+    -ms-transition:     all 0.2s ease;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.actionEditUser .ok{
+    background:rgb(40,40,40);
+}
+
+.actionEditUser .deleteUser:hover{
+    background-color:rgb(255,0,0);
+    color:rgb(200,200,200);
+    cursor:pointer;
+}
+.actionEditUser .ok:hover{
+    background-color:rgb(0,250,134);
+    color:rgb(1,1,1);
+    cursor:pointer;
+}
+.actionEditUser .cancel:hover{
+    background-color:rgb(250,70,70);
+    color:rgb(1,1,1);
+    cursor:pointer;
+}
+
+.actionEditUser .deleteUser:active,
+.actionEditUser .ok:active,
+.actionEditUser .cancel:active{
+    font-size:105%;
+    filter:brightness(120%);
+    -moz-filter:brightness(120%);
+    -webkit-filter:brightness(120%);
+}
+
+.name{
+    color:rgb(134,0,250) !important;
+}
+
+.last{
+    color:rgb(250,134,0) !important;
+}
+
+.email{
+    color:rgb(0,134,250) !important;
+}
+
+.phone{
+    color:rgb(0,250,134) !important;
+}
+
+.image{
+    color:rgb(250,0,134) !important;
+}
+
+.nick{
+    color:rgb(244,244,244) !important;
+}
+
+.password {
+    color:rgb(84,134,134) !important;
+}

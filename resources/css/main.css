@@ -1,0 +1,248 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,800,700,600);
+
+body{
+	background-color:rgb(19,19,19);
+}
+
+.superContainer{
+	position:absolute;
+	width:95%;
+	height:90%;
+	margin-top:5%;
+	margin-left:2.5%;
+}
+
+.leftSkyscraper{
+    border-top-left-radius:10px;
+	float:left;
+	width:15%;
+	height:100%;
+    padding:1%;
+	background-color:DarkSeaGreen;
+}
+.centerSkyscraper{
+	float:left;
+	width:70%;
+	height:100%;
+    padding:1%;
+	background-color:DodgerBlue;
+}
+.rightSkyscraper{
+    border-top-right-radius:10px;
+	float:left;
+	width:15%;
+	height:100%;
+    padding:1%;
+	background-color:MediumPurple;
+}
+
+.superAds{
+    width:100%;
+    height:100%;
+}
+
+.adHeader{
+    width:100%;
+    height:5%;
+    background-color:rgb(33,33,33);
+    color:rgb(244,244,244);
+    font-size:125%;
+}
+
+.headerImagen       {width:10%;}
+.headerDescripcion  {width:40%;}
+.headerPrecio       {width:10%;}
+.headerNickname     {width:15%;}
+.headerFecha        {width:15%;}
+.headerHora         {width:10%;}
+
+.headerImagen,
+.headerDescripcion,
+.headerPrecio,
+.headerNickname,
+.headerFecha,
+.headerHora{
+    float:left;
+    height:100%;
+    background-color:rgb(19,19,19);
+    color:rgb(244,244,244);
+    font-size:115%;
+    font-family:"open sans";
+    font-weight:600;
+    text-align:center;
+    padding-top:0.5%;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition:    all 0.2s ease;
+    -o-transition:      all 0.2s ease;
+    -ms-transition:     all 0.2s ease;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;	
+}
+
+.headerImagen:hover,
+.headerDescripcion:hover,
+.headerPrecio:hover,
+.headerNickname:hover,
+.headerFecha:hover,
+.headerHora:hover{
+    cursor:pointer;
+    background-color:rgb(33,33,33);
+}
+
+.headerImagen:active,
+.headerDescripcion:active,
+.headerPrecio:active,
+.headerNickname:active,
+.headerFecha:active,
+.headerHora:active{
+    font-size:120%;
+    background-color:rgb(55,55,55);
+}
+
+.adsContainer{
+    width:100%;
+    height:95%;
+    position:relative;
+    overflow:hidden;
+    background-color:rgba(55,55,55,0.9);
+    padding-top:1%;
+}
+
+.ad {
+    width:100%;
+    height:12%;
+    background-color:rgb(33,33,33);
+    color:rgb(244,244,244);
+    font-size:100%;
+    font-weight:600;
+    margin-bottom:1.5%;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition:    all 0.2s ease;
+    -o-transition:      all 0.2s ease;
+    -ms-transition:     all 0.2s ease;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;	
+}
+
+.ad:hover{
+    background-color:rgb(40,40,40);
+    cursor:pointer;
+}
+
+.ad:active{
+    background-color:rgb(44,44,44);
+    padding:0.1%;
+}
+
+.imagen{
+    float:left;
+    width:10%;
+    height:100%;
+    padding:1%;
+    text-align:center;
+}
+
+.descripcion{
+    float:left;
+    width:40%;
+    height:100%;
+    padding:1%;
+    text-align:justify;
+}
+
+.precio{
+    float:left;
+    width:10%;
+    height:100%;
+    padding:1%;
+    text-align:justify;   
+}
+
+.nickname{
+    float:left;
+    width:15%;
+    height:100%;
+    padding:1%;
+    text-align:justify;   
+}
+
+.fecha{
+    float:left;
+    width:15%;
+    height:100%;
+    padding:1%;
+    text-align:justify; 
+}
+
+.hora{
+    float:left;
+    width:10%;
+    height:100%;
+    padding:1%;
+    text-align:justify;
+}
+
+.adImagen{
+    border-radius:5px;
+    height:100%;
+}
+
+.adDescripcion{
+    widht:100%;
+    height:100%;
+    border-radius:5px;
+    background-color:rgb(22,22,22);
+    padding-top:4.5%;
+    padding-left:2%;
+    text-align:justify;
+    word-break: break-all;
+}
+
+.adPrecio{
+    widht:100%;
+    height:100%;
+    border-radius:5px;
+    background-color:rgb(22,22,22);
+    padding-top:20%;
+    text-align:center;
+    word-break: break-all;
+}
+
+.adNickname{
+    widht:100%;
+    height:100%;
+    border-radius:5px;
+    background-color:rgb(22,22,22);
+    padding-top:12.5%;
+    word-break: break-all;
+    text-align:center;
+    font-size:85%;
+}
+
+.adFecha{
+    widht:100%;
+    height:100%;
+    border-radius:5px;
+    background-color:rgb(22,22,22);
+    padding-top:1%;
+    padding-top:12.5%;
+    text-align:center;
+    font-size:90%;
+}
+
+.adHora{
+    widht:100%;
+    height:100%;
+    border-radius:5px;
+    background-color:rgb(22,22,22);
+    padding-top:20%;
+    text-align:center;
+}

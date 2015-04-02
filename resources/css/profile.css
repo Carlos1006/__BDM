@@ -1,0 +1,1417 @@
+.superProfile {
+    width:100%;
+    height:100%;
+}
+
+.superInfo{
+    width:100%;
+    height:100%;
+    background-color:rgba(55,55,55,0.9);
+}
+
+.headerProfile{
+    width:100%;
+    height:7%;
+    background-color:rgb(29,29,29);
+}
+
+.headerAds,
+.headerProducts,
+.headerQuestion,
+.headerExtra1,
+.headerExtra2{
+    float:left;
+    height:100%;
+    width:15%;
+    background-color:rgb(19,19,19);
+    color:rgb(244,244,244);
+    font-size:115%;
+    font-family:"open sans";
+    font-weight:600;
+    text-align:center;
+    padding-top:1%;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition:    all 0.2s ease;
+    -o-transition:      all 0.2s ease;
+    -ms-transition:     all 0.2s ease;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.headerAds:hover,
+.headerProducts:hover,
+.headerQuestion:hover,
+.headerExtra1:hover,
+.headerExtra2:hover{
+    cursor:pointer;
+    background-color:rgb(33,33,33);
+}
+
+.headerAds:active,
+.headerProducts:active,
+.headerQuestion:active,
+.headerExtra1:active,
+.headerExtra2:active{
+    font-size:120%;
+    background-color:rgb(55,55,55);
+}
+
+.headerProfile div[check="true"] {
+    background-color:rgb(25,25,25) !important;
+    color:rgb(0,250,134) !important;
+}
+
+.profileContainer{
+    width:100%;
+    height:93%;
+    position:relative;
+    overflow:hidden;
+}
+
+.profileData,
+.profileAds,
+.profileProducts,
+.profileQuestions,
+.profileRequests,
+.profileSales,
+.profileUpload_Product,
+.profileUpload_Ad{
+    padding-top:2%;
+    width:100%;
+    height:100%;
+    background-color:rgba(55,55,55,0.9);
+}
+
+/*--Skyscrapper derecho---*/
+.infoHeader{
+    width:100%;
+    height:5%;
+    background-color:rgb(33,33,33);
+    color:rgb(244,244,244);
+    font-size:125%;
+    font-family:"open sans",sans-serif;
+    font-weight:600;
+    text-align:center;
+    margin-bottom:5%;
+    padding-top:2.5%;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition:    all 0.2s ease;
+    -o-transition:      all 0.2s ease;
+    -ms-transition:     all 0.2s ease;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;	
+}
+
+.infoImage{
+    width:100%;
+    height:25%;
+    background-color:rgb(33,33,33);
+    padding-top:7%;
+    padding-bottom:7%;
+    padding-left:10%;
+    padding-right:10%;
+    margin-bottom:5%;
+}
+
+.infoImageSrc{
+    width:100%;
+    height:100%;
+    border-radius:10%;
+}
+
+.infoContainer{
+    width:100%;
+    height:8%;
+    margin-bottom:5%;
+}
+
+.infoHead {
+    width:100%;
+    height:30%;
+    color:black;
+    padding-top:1%;
+    font-size:100%;
+    font-weight:600;
+    padding-left:5%;
+    background-color:rgb(19,19,19);
+}
+
+.infoBody {
+    width:100%;
+    height:70%;
+    color:black;
+    padding-top:2%;
+    font-size:110%;
+    text-align:center;
+    background-color:rgb(33,33,33);
+    color:rgb(244,244,244);
+    word-break: break-all;
+}
+
+.name{
+    color:rgb(134,0,250) !important;
+}
+
+.last{
+    color:rgb(250,134,0) !important;
+}
+
+.email{
+    color:rgb(0,134,250) !important;
+}
+
+.phone{
+    color:rgb(0,250,134) !important;
+}
+
+/*--Modificacion de usuario--*/
+
+
+
+
+
+
+
+
+/*--Pagina 1---*/
+
+.filterContainer{
+    width:100%;
+    height:7%;
+    background-color:rgb(33,33,33);
+    padding:0.7%;
+}
+
+.filter{
+    float:left;
+    width:50%;
+    height:100%;
+    margin-right:5%; 
+}
+
+.createAd{
+    text-align:center;
+    padding-top:0.3%;
+    float:left;
+    width:20%;
+    height:100%;
+    background-color:rgb(0,250,134);
+    color:rgb(19,19,19);
+    font-size:100%;
+    font-weight:600;
+    border-radius:5px;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition:    all 0.2s ease;
+    -o-transition:      all 0.2s ease;
+    -ms-transition:     all 0.2s ease;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;	
+}
+
+.createAd:hover{
+    cursor:pointer;
+    font-size:105%;
+}
+
+.createAd:active{
+    filter:brightness(150%);
+    -webkit-filter:brightness(150%);
+    -moz-filter:brightness(150%);
+    -o-filter:brightness(150%);
+}
+
+.profileAdHeader{
+    margin-top:2%;
+    width:100%;
+    height:5%;
+    background-color:rgb(22,22,22);
+}
+
+.profileAdContainer{
+    width:100%;
+    height:85%;
+    background:transparent;
+    overflow:hidden;
+    padding-top:2%;
+    position:relative;
+}
+
+.imageProfileAdHeader,
+.descriptionProfileAdHeader,
+.priceProfileAdHeader,
+.dateProfileAdHeader,
+.actionsProfileAdHeader{
+    height:100%;
+    float:left;
+    background:rgb(22,22,22);
+    color:rgb(244,244,244);
+    text-align:center;
+    font-weight:600;
+    padding-top:0.5%;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition:    all 0.2s ease;
+    -o-transition:      all 0.2s ease;
+    -ms-transition:     all 0.2s ease;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;	
+}
+
+.imageProfileAdHeader:hover,
+.descriptionProfileAdHeader:hover,
+.priceProfileAdHeader:hover,
+.dateProfileAdHeader:hover,
+.actionsProfileAdHeader:hover{
+    background-color:rgb(27,27,27);
+    font-size:110%;
+    cursor:default;
+}
+
+.imageProfileAdHeader{
+    margin-left:8.5%;
+    width:10%;
+}
+.descriptionProfileAdHeader{
+    margin-left:1.5%;
+    width:25%;
+}
+.priceProfileAdHeader{
+    margin-left:2%;
+    width:10%;
+}
+.dateProfileAdHeader{
+    margin-left:2%;
+    width:15%;
+}
+.actionsProfileAdHeader{
+    margin-left:1.5%;
+    width:14.9%;
+}
+
+.profileAd{
+    width:100%;
+    height:14%;
+    background-color:rgb(33,33,33);
+    padding:0.8%;
+    color:rgb(244,244,244);
+    font-size:100%;
+    font-weight:600;
+    margin-bottom:2%;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition:    all 0.2s ease;
+    -o-transition:      all 0.2s ease;
+    -ms-transition:     all 0.2s ease;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;	
+}
+.profileAd:hover{
+    background-color:rgb(40,40,40);
+}
+
+.profileImageAd{
+    margin-left:8%;
+    float:left;
+    height:100%;
+    width:10%;
+    text-align:center;
+    border-radius:5px;
+}
+.profileDescriptionAd{
+    float:left;
+    margin-left:2%;
+    height:100%;
+    width:25%;
+    background-color:rgb(22,22,22);
+    border-radius:5px;
+    padding:0.5%;
+    word-break: break-all;
+    text-align:left;
+    font-size:80%;
+    padding-top:1.7%;
+    padding-left:1.5%;
+}
+.profilePriceAd{
+    float:left;
+    margin-left:2%;
+    height:100%;
+    width:10%;
+    background-color:rgb(22,22,22);
+    border-radius:5px;
+    padding:0.5%;
+    padding-top:1.5%;
+    word-break: break-all;
+    text-align:center;
+}
+.profileDateAd{
+    float:left;
+    margin-left:2%;
+    height:100%;
+    width:15%;
+    background-color:rgb(22,22,22);
+    border-radius:5px;
+    padding:0.5%;
+    padding-top:1.5%;
+    word-break: break-all;
+    text-align:center;
+}
+
+.profileActionAd{
+    float:left;
+    margin-left:2%;
+    height:100%;
+    width:15%;
+    background-color:rgb(22,22,22);
+    border-radius:5px;
+    padding:1%;
+}
+
+.profileImageAdSrc{
+    height:100%;
+    border-radius:5px;
+}
+
+.deleteAction,
+.editAction,
+.viewAction{
+    float:left;
+    width:30%;
+    height:100%;
+    border-radius:100px;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition:    all 0.3s ease;
+    -o-transition:      all 0.3s ease;
+    -ms-transition:     all 0.3s ease;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    text-align: center;
+    padding:5%;
+}
+
+.deleteAction{
+    background-color:rgb(250,34,34);
+    margin-right:2.5%;
+}
+
+.editAction{
+    background-color:rgb(250,134,0);
+    margin-right:2.5%;
+    margin-left:2.5%;
+}
+
+.viewAction{
+    background-color:rgb(0,134,250);
+    margin-left:2.5%;
+}
+
+.deleteAction:hover,
+.editAction:hover,
+.viewAction:hover{
+    cursor:pointer;
+    -webkit-filter:brightness(200%);
+    -moz-filter:brightness(200%);
+    -o-filter:brightness(200%);
+    filter:brightness(200%);
+}
+
+.deleteAction:active,
+.editAction:active,
+.viewAction:active{
+    -moz-transform:scale(0.9);
+    -o-transform:scale(0.9);
+    transform:scale(0.9);
+    -webkit-transform:scale(0.9);
+}
+
+.editImg,
+.deleteImg,
+.viewImg{
+    height:100%;
+    -webkit-filter:brightness(50%);
+    -moz-filter:brightness(50%);
+    -o-filter:brightness(50%);
+    filter:brightness(50%);
+}
+
+
+
+
+
+
+
+
+
+/*--Pagina 2---*/
+
+.profileProductHeader{
+    margin-top:2%;
+    width:100%;
+    height:5%;
+    background-color:rgb(22,22,22);
+}
+
+
+.imageProfileProductHeader,
+.nameProfileProductHeader,
+.stockProfileProductHeader,
+.dateProfileProductHeader,
+.actionsProfileProductHeader{
+    height:100%;
+    float:left;
+    background:rgb(22,22,22);
+    color:rgb(244,244,244);
+    text-align:center;
+    font-weight:600;
+    padding-top:0.5%;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition:    all 0.2s ease;
+    -o-transition:      all 0.2s ease;
+    -ms-transition:     all 0.2s ease;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;	
+}
+
+.imageProfileProductHeader:hover,
+.nameProfileProductHeader:hover,
+.stockProfileProductHeader:hover,
+.dateProfileProductHeader:hover,
+.actionsProfileProductHeader:hover{
+    background-color:rgb(27,27,27);
+    font-size:110%;
+    cursor:default;
+}
+
+.imageProfileProductHeader{
+    margin-left:8.5%;
+    width:10%;
+}
+.nameProfileProductHeader{
+    margin-left:1.5%;
+    width:25%;
+}
+.stockProfileProductHeader{
+    margin-left:2%;
+    width:10%;
+}
+.dateProfileProductHeader{
+    margin-left:2%;
+    width:15%;
+}
+.actionsProfileProductHeader{
+    margin-left:1.5%;
+    width:14.9%;
+}
+
+
+.profileProductContainer{
+    width:100%;
+    height:85%;
+    background:transparent;
+    overflow:hidden;
+    padding-top:2%;
+    position:relative;
+}
+
+.profileProduct{
+    width:100%;
+    height:14%;
+    background-color:rgb(33,33,33);
+    padding:0.8%;
+    color:rgb(244,244,244);
+    font-size:100%;
+    font-weight:600;
+    margin-bottom:2%;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition:    all 0.2s ease;
+    -o-transition:      all 0.2s ease;
+    -ms-transition:     all 0.2s ease;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;	
+}
+.profileProduct:hover{
+    background-color:rgb(40,40,40);
+}
+
+.profileImageProduct{
+    margin-left:8%;
+    float:left;
+    height:100%;
+    width:10%;
+    text-align:center;
+    border-radius:5px;
+}
+.profileNameProduct{
+    float:left;
+    margin-left:2%;
+    height:100%;
+    width:25%;
+    background-color:rgb(22,22,22);
+    border-radius:5px;
+    padding:0.5%;
+    word-break: break-all;
+    text-align:left;
+    font-size:90%;
+    padding-top:1.7%;
+    padding-left:1.5%;
+}
+.profileStockProduct{
+    float:left;
+    margin-left:2%;
+    height:100%;
+    width:10%;
+    background-color:rgb(22,22,22);
+    border-radius:5px;
+    padding:0.5%;
+    padding-top:1.5%;
+    word-break: break-all;
+    text-align:center;
+}
+.profileDateProduct{
+    float:left;
+    margin-left:2%;
+    height:100%;
+    width:15%;
+    background-color:rgb(22,22,22);
+    border-radius:5px;
+    padding:0.5%;
+    padding-top:1.5%;
+    word-break: break-all;
+    text-align:center;
+}
+
+.profileActionProduct{
+    float:left;
+    margin-left:2%;
+    height:100%;
+    width:15%;
+    background-color:rgb(22,22,22);
+    border-radius:5px;
+    padding:1%;
+}
+
+.profileImageProductSrc{
+    height:100%;
+    border-radius:5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*-----Pagina 3----*/
+.profileQuestionHeader{
+    height:7%;
+    width:100%;
+    background-color:rgb(22,22,22);
+}
+
+.userProfileQuestionHeader,
+.descriptionProfileQuestionHeader,
+.adProfileQuestionHeader,
+.answerProfileQuestionHeader{
+    height:100%;
+    float:left;
+    background:rgb(22,22,22);
+    color:rgb(244,244,244);
+    text-align:center;
+    font-weight:600;
+    padding-top:0.5%;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition:    all 0.2s ease;
+    -o-transition:      all 0.2s ease;
+    -ms-transition:     all 0.2s ease;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;	
+}
+
+.userProfileQuestionHeader:hover,
+.descriptionProfileQuestionHeader:hover,
+.adProfileQuestionHeader:hover,
+.answerProfileQuestionHeader:hover{
+    background-color:rgb(27,27,27);
+    font-size:110%;
+    cursor:default;
+}
+
+.userProfileQuestionHeader{    
+    width:15%;
+}
+.descriptionProfileQuestionHeader{
+    width:25%;
+}
+.adProfileQuestionHeader{
+    width:25%;
+}
+.answerProfileQuestionHeader{
+    width:35%
+}
+
+.profileQuestionContainer{
+    height:93%;
+    width:100%;
+    padding-top:1.5%;
+    position:relative;
+    overflow:hidden;
+}
+
+.profileQuestion{
+    width:100%;
+    height:12%;
+    background:rgb(33,33,33);
+    padding:0.7%;
+    margin-bottom:2%;
+}
+
+.profileQuestion:hover{
+    background-color:rgb(40,40,40);
+    cursor:default;
+}
+
+.profileQuestionUser,
+.profileQuestionDescription,
+.profileQuestionAd,
+.profileQuestionAnswer {
+    float:left;
+    background-color:rgb(22,22,22);
+    height:100%;
+    color:rgb(244,244,244);
+    font-size:100%;
+    font-weight:600;
+    padding-top:1.5%;
+    padding-left:1.5%;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition:    all 0.2s ease;
+    -o-transition:      all 0.2s ease;
+    -ms-transition:     all 0.2s ease;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border-radius:5px;
+}
+
+
+
+.profileQuestionUser{
+    width:15%;
+    margin-right:1%;
+}
+.profileQuestionDescription{
+    width:24%;
+    font-size:85%;
+    word-break:break-all;
+    margin-right:1%;
+}
+.profileQuestionAd{
+    width:24%;
+    font-size:85%;
+    word-break:break-all;
+    margin-right:1%;
+}
+.profileQuestionAnswer{
+    padding:1%;
+    width:34%;
+}
+
+.profileQuestionAnswerInput{
+    float:left;
+    height:100%;
+    width:80% !important;
+    border-radius:4px;
+    border-bottom-right-radius:0px !important;
+    border-top-right-radius:0px !important;
+    margin:0% !important;
+}
+
+.answerButton{
+    border-radius:4px;
+    border-bottom-left-radius:0px !important;
+    border-top-left-radius:0px !important;
+    float:left;
+    width:20%;
+    height:100%;
+    font-size:80%;
+    padding-top:2%;
+    text-align:center;
+    color:rgb(22,22,22);
+    background-color:rgb(0,134,250);
+    -webkit-transition: all 0.2s ease;
+    -moz-transition:    all 0.2s ease;
+    -o-transition:      all 0.2s ease;
+    -ms-transition:     all 0.2s ease;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;	
+}
+
+.answerButton:hover{
+    cursor:pointer;
+    filter:brightness(110%);
+    font-size:85%;
+}
+
+.answerButton:active{
+    -webkit-filter:brightness(120%);
+    -moz-filter:brightness(110%);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*-------Pagina 4---------*/
+
+.profileRequestHeader{
+    height:7%;
+    width:100%;
+    background-color:rgb(22,22,22);
+}
+
+.userProfileRequestHeader,
+.adProfileRequestHeader,
+.quantityProfileRequestHeader,
+.payProfileRequestHeader,
+.confirmProfileRequestHeader {
+    height:100%;
+    float:left;
+    background:rgb(22,22,22);
+    color:rgb(244,244,244);
+    text-align:center;
+    font-weight:600;
+    padding-top:0.5%;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition:    all 0.2s ease;
+    -o-transition:      all 0.2s ease;
+    -ms-transition:     all 0.2s ease;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;	
+}
+
+.userProfileRequestHeader:hover,
+.adProfileRequestHeader:hover,
+.quantityProfileRequestHeader:hover,
+.payProfileRequestHeader:hover,
+.confirmProfileRequestHeader:hover {
+    background-color:rgb(27,27,27);
+    font-size:110%;
+    cursor:default;
+}
+
+.userProfileRequestHeader{
+    width:15%;
+}
+.adProfileRequestHeader{
+    width:25%;
+}
+.quantityProfileRequestHeader{
+    width:15%;
+}
+.payProfileRequestHeader{
+    width:25%;
+}
+.confirmProfileRequestHeader{
+    width:20%;
+}
+
+.profileRequestContainer{
+    height:93%;
+    width:100%;
+    padding-top:1.5%;
+    position:relative;
+    overflow:hidden;
+}
+
+.profileRequest {
+    width:100%;
+    height:12%;
+    background:rgb(33,33,33);
+    padding:0.7%;
+    margin-bottom:2%;
+}
+
+.profileRequest:hover {
+    background-color:rgb(40,40,40);
+    cursor:default;
+}
+
+.profileRequestUser,
+.profileRequestAd,
+.profileRequestQuantity,
+.profileRequestPay,
+.profileRequestConfirm{
+    float:left;
+    background-color:rgb(22,22,22);
+    height:100%;
+    color:rgb(244,244,244);
+    font-size:100%;
+    font-weight:600;
+    padding-top:1.5%;
+    padding-left:1.5%;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition:    all 0.2s ease;
+    -o-transition:      all 0.2s ease;
+    -ms-transition:     all 0.2s ease;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border-radius:5px;
+}
+
+.profileRequestUser{
+    width:14%;
+    margin-right:1%;
+}
+.profileRequestAd{
+    width:24%;
+    font-size:85%;
+    word-break: break-all;
+    margin-right:1%;
+}
+.profileRequestQuantity{
+    width:14%;
+    margin-right:1%;
+    padding-left:0%;
+    text-align:center;
+}
+.profileRequestPay{
+    width:24%;
+    font-size:85%;
+    word-break: break-all;
+    margin-right:1%;
+}
+.profileRequestConfirm{
+    padding:1%;
+    width:20%;
+}
+
+.confirmBottom{
+    height:100%;
+    width:100%;
+    background-color:rgb(0,250,134);
+    color:rgb(22,22,22);
+    border-radius:7px;
+    text-align:center;
+    padding-top:2.5%;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition:    all 0.2s ease;
+    -o-transition:      all 0.2s ease;
+    -ms-transition:     all 0.2s ease;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.confirmBottom:hover{
+    cursor:pointer;
+    filter:brightness(110%);
+    -webkit-filter:brightness(110%);
+    font-size:95%;
+}
+
+.confirmBottom:active{
+    filter:brightness(90%);
+    -webkit-filter:brightness(90%);
+    -moz-filter:brightness(90%);
+}
+
+
+
+
+
+
+
+
+
+/*-------------Pagina 5--------------*/
+.profileSalesHeader{
+    height:7%;
+    width:100%;
+    background-color:rgb(22,22,22);
+}
+
+.dateProfileSaleHeader,
+.productProfileSaleHeader,
+.descriptionProfileSaleHeader,
+.quantityProfileSaleHeader,
+.priceProfileSaleHeader,
+.subtotalProfileSaleHeader,
+.payProfileSaleHeader,
+.userProfileSaleHeader,
+.totalProfileSale{
+    height:100%;
+    float:left;
+    background:rgb(22,22,22);
+    color:rgb(244,244,244);
+    text-align:center;
+    font-weight:600;
+    padding-top:1%;
+    font-size:90%;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition:    all 0.2s ease;
+    -o-transition:      all 0.2s ease;
+    -ms-transition:     all 0.2s ease;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;	
+}
+
+.totalProfileSale {
+    padding-top:0.5%;
+    font-size:90%;
+    float:right;
+}
+.totalProfileSale .total{
+    color:rgb(0,134,250);
+}
+
+.totalProfileSale .total:before{
+    content:"$ ";
+    color:rgb(0,250,134);
+}
+
+.dateProfileSaleHeader:hover,
+.productProfileSaleHeader:hover,
+.descriptionProfileSaleHeader:hover,
+.quantityProfileSaleHeader:hover,
+.priceProfileSaleHeader:hover,
+.subtotalProfileSaleHeader:hover,
+.payProfileSaleHeader:hover,
+.userProfileSaleHeader:hover{    
+    background-color:rgb(27,27,27);
+    cursor:default;
+    color:rgb(0,134,250);
+}
+
+.dateProfileSaleHeader{width:8%;}
+.productProfileSaleHeader{width:12%;}
+.descriptionProfileSaleHeader{width:21%;}
+.quantityProfileSaleHeader{width:6%;}
+.priceProfileSaleHeader{width:8%;}
+.subtotalProfileSaleHeader{width:11%;}
+.payProfileSaleHeader{width:14%;}
+.userProfileSaleHeader{width:10%;}
+.totalProfileSale{width:10%;}
+
+.profileSalesContainer{
+    height:93%;
+    width:100%;
+    padding-top:1.5%;
+    position:relative;
+    overflow:hidden;
+}
+
+.profileSale {
+    width:100%;
+    height:12%;
+    background:rgb(33,33,33);
+    padding:0.7%;
+    margin-bottom:2%;
+}
+
+.profileSale:hover {
+    background-color:rgb(40,40,40);
+    cursor:default;
+}
+
+.profileSaleDate,
+.profileSaleProduct,
+.profileSaleDescription,
+.profileSaleQuantity,
+.profileSalePrice,
+.profileSaleSubtotal,
+.profileSaleUser,
+.profileSalePay{
+    float:left;
+    background-color:rgb(22,22,22);
+    height:100%;
+    color:rgb(244,244,244);
+    font-size:100%;
+    font-weight:600;
+    padding-top:1.5%;
+    padding-left:1.5%;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition:    all 0.2s ease;
+    -o-transition:      all 0.2s ease;
+    -ms-transition:     all 0.2s ease;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border-radius:5px;
+}
+
+.profileSaleDate{
+    padding-left:0;
+    width:7%;
+    margin-right:1%;
+    font-size:80%;
+    text-align: center;
+}
+
+.profileSaleProduct{
+    padding-left:0.3%;
+    width:11%;
+    margin-right:1%;
+    font-size:80%;
+    text-align: left;
+    word-break:break-all;
+}
+.profileSaleDescription{
+    padding-left:0.3%;
+    width:20%;
+    margin-right:1%;
+    font-size:80%;
+    text-align: left;
+    word-break:break-all;
+}
+.profileSaleQuantity{
+    padding-left:0.3%;
+    width:6%;
+    margin-right:1%;
+    font-size:80%;
+    text-align:center;
+    word-break:break-all;
+}
+.profileSalePrice{
+    padding-left:0.3%;
+    width:7%;
+    margin-right:1%;
+    font-size:80%;
+    text-align:center;
+    word-break:break-all;
+}
+.profileSaleSubtotal{
+    padding-left:0.3%;
+    width:10%;
+    margin-right:1%;
+    font-size:80%;
+    text-align:center;
+    word-break:break-all;
+}
+.profileSalePay{
+    padding-left:0.3%;
+    width:13%;
+    font-size:80%;
+    margin-right:1%;
+    text-align:left;
+    word-break:break-all;
+}
+.profileSaleUser{
+    padding-left:0.3%;
+    width:10%;
+    font-size:80%;
+    text-align:center;
+    word-break:break-all;
+}
+
+
+
+
+
+
+
+
+
+/*--Pagina 6 y 7--*/
+.profileUpload_Product{
+    width:100%;
+    height:100%;
+}
+
+.profileUpload_Ad{
+    height:100%;
+    width:100%;
+    display:none;
+}
+
+.new{
+    width:100%;
+    height:93%;
+    padding:2%;
+}
+
+.headerUpload{
+    height:7%;
+    background-color:rgb(21,21,21);
+    color:rgb(244,244,244);
+    font-size:150%;
+    padding-top:0.5%;
+    font-weight:600;
+    text-align:center;
+}
+
+.leftColumn{
+    float:left;
+    height:100%;
+    width:50%;
+    background:rgb(33,33,33);
+    border-top-left-radius:5px;
+    border-bottom-left-radius:5px;
+    padding:1%;
+}
+
+.rightColumn{
+    float:right;
+    height:100%;
+    width:50%;
+    background:rgb(33,33,33);
+    border-top-right-radius:5px;
+    border-bottom-right-radius:5px;
+    padding:1%;
+}
+
+.verifyAd{
+    width:100%;
+    height:8%;
+    margin-bottom:2%;
+}
+
+.titleInput{
+    float:left;
+    height:100%;
+    width:27%;
+    background-color:rgb(22,22,22);
+    border-bottom-left-radius:5px;
+    border-top-left-radius:5px;
+    color:rgb(244,244,244);
+    text-align:center;
+    padding-top:2%;
+}
+.adInput{
+    float:left;
+    height:100%;
+    width:63%;
+    background-color:rgb(22,22,22);
+}
+.verifyAdInput{
+    float:left;
+    height:100%;
+    width:10%;
+    background-color:#60addd;
+    border-bottom-right-radius:5px;
+    border-top-right-radius:5px;
+}
+.inputNewAd {
+    height:100% !important;
+    width:100%;
+    border-radius:0px;
+}
+
+.verifyAdExtend {
+    width:100%;
+    height:20%;
+    margin-bottom:2%;
+}
+
+.titleInputExtend{
+    height:30%;
+    width:100%%;
+    clear:both;
+    background-color:rgb(22,22,22);
+    border-top-right-radius:5px;
+    border-top-left-radius:5px;
+    color:rgb(244,244,244);
+    text-align:center;
+    padding-top:0.5%;
+}
+
+.adInputExtend{
+    height:60%;
+    width:100%;
+    background-color:rgb(22,22,22);
+}
+
+.verifyAdInputExtend{
+    height:10%;
+    width:100%;
+    background-color:#60addd;
+    border-bottom-left-radius:5px;
+    border-bottom-right-radius:5px;
+}
+
+.errorAds{
+    width:100%;
+    height:16%;
+    background:rgb(34,59,84);
+    border-radius:5px;
+    padding:2%;
+    overflow:hidden;
+    position:relative;
+}
+
+.errorAdsBox{
+    min-height:100%;
+    width:100%;
+}
+
+.errorAd{
+    width:100%;
+    height:auto;
+    color:rgb(5,5,5);
+    font-weight:600;
+    background-color:rgb(24,49,74);
+    border-radius:3px;
+    padding:1%;
+    word-break:break-all;
+    margin-bottom:1%;
+    font-size:90%;
+}
+
+textarea {
+    resize: none;
+    overflow-x:auto;
+}
+
+.actionsAd{
+    height:12%;
+    width:50%;
+    margin-top:20%;
+    margin-left:25%;
+    text-align:center;
+    font-size:100%;
+    font-weight:600;
+}
+
+.cancel{
+    font-size:90%;
+    padding-top:8%;
+    background-color:rgb(55,55,55);
+    color:rgb(244,244,244);
+    float:left;
+    height:100%;
+    width:40%;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition:    all 0.2s ease;
+    -o-transition:      all 0.2s ease;
+    -ms-transition:     all 0.2s ease;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border-top-left-radius:5px;
+    border-bottom-left-radius:5px;
+    border-top-right-radius:0px !important;
+    border-bottom-right-radius:0px !important;
+}
+
+.ok{
+    background:rgb(44,44,44);
+    color:rgb(244,244,244);
+    padding-top:8%;
+    float:left;
+    height:100%;
+    width:60%;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition:    all 0.2s ease;
+    -o-transition:      all 0.2s ease;
+    -ms-transition:     all 0.2s ease;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border-top-left-radius:0px !important;
+    border-bottom-left-radius:0px !important;
+    border-top-right-radius:5px;
+    border-bottom-right-radius:5px;
+}
+
+.ok:hover{
+    background-color:rgb(0,250,134);
+    color:rgb(22,22,22);
+    cursor:pointer;
+}
+
+.ok:active{
+    font-size:105%;
+    filter:brightness(120%);
+    -moz-filter:brightness(120%);
+    -webkit-filter:brightness(120%);
+}
+
+.cancel:hover{
+    background-color:rgb(250,70,70);
+    color:rgb(22,22,22);
+    cursor:pointer;
+}
+
+.cancel:active{
+    font-size:105%;
+    filter:brightness(120%);
+    -moz-filter:brightness(120%);
+    -webkit-filter:brightness(120%);
+}
+
+.label-vigenciaProducto{
+    text-align:center;
+}

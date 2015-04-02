@@ -1,0 +1,2 @@
+1-17    : Errores de header
+18-24   : Errores de profile
