@@ -5,10 +5,10 @@ class Categoria {
     var $nombreCategoria;
 	var $activoCategoria;
     
-    function __construct($nombre,$activo) {
+    /*function __construct($nombre,$activo) {
         $this->nombreCategoria = $nombre;
         $this->activoCategoria = $activo;
-    }
+    }*/
     function __construct($id,$nombre,$activo) {
         $this->idCategoria     = $id;
         $this->nombreCategoria = $nombre;

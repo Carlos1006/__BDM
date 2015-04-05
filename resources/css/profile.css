@@ -1332,7 +1332,7 @@ textarea {
 .actionsAd{
     height:12%;
     width:50%;
-    margin-top:20%;
+    margin-top:5%;
     margin-left:25%;
     text-align:center;
     font-size:100%;
@@ -1414,4 +1414,71 @@ textarea {
 
 .label-vigenciaProducto{
     text-align:center;
+}
+
+.payContainer{
+    height:45%;
+    background-color:rgb(22,22,22);
+    border-radius:5px;
+}
+
+.verifyAdPay{
+    height:10%;
+    border-bottom-left-radius:5px;
+    border-bottom-right-radius:5px;
+    background-color:#60addd;
+}
+
+.titlePay{
+    height:15%;
+    width:100%%;
+    clear:both;
+    background-color:rgb(22,22,22);
+    border-top-right-radius:5px;
+    border-top-left-radius:5px;
+    color:rgb(244,244,244);
+    text-align:center;
+    padding-top:0.5%;
+}
+
+.payBody{
+    background-color:rgb(44,44,44);
+    width:100%;
+    height:75%;
+    padding-top:2.5%;
+}
+
+.pay{
+    height:20%;
+    margin-bottom:2.5%;
+    text-align:center;
+    font-size:110%;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition:    all 0.2s ease;
+    -o-transition:      all 0.2s ease;
+    -ms-transition:     all 0.2s ease;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color:rgb(30,30,30);
+}
+
+.pay[check="false"] {
+    
+    color:rgb(244,244,244);
+}
+.pay[check="true"] {
+    color:rgb(0,134,250);
+}
+
+.pay:hover{
+    cursor:pointer;
+    font-size:115%;
+}
+
+.pay:active{
+    background-color:rgb(35,35,35);
 }

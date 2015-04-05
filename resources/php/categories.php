@@ -1,9 +1,15 @@
+<?php
+    include $_SESSION['raiz']."/__BDM/model/Categoria.php";
+?>
 <div class="superCategories">
-    <div idCategoria="1" class="categorie">Categoria</div>
-    <div idSubcategoria="1" class="subcategorie">Subcategoria</div>
-    <div idSubcategoria="1" class="subcategorie">Subcategoria</div>
-    <div idSubcategoria="1" class="subcategorie">Subcategoria</div>
-    <div idCategoria="2" class="categorie">Categoria</div>
-    <div idCategoria="3" class="categorie">Categoria</div>
-    <div idCategoria="4" class="categorie">Categoria</div>
+    <?php
+        $categorias = unserialize($_SESSION['categoria']);
+        foreach($categorias as $categoria) {
+            if($categoria->activoCategoria==1) {
+    ?>
+                <div idCategoria="<?php echo $categoria->idCategoria; ?>" class="categorie"><?php echo $categoria->nombreCategoria ?></div>
+    <?php
+            }
+        }
+    ?>
 </div>

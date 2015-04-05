@@ -25,7 +25,7 @@
                         </div>
                     </div>
                     <div class="mainTitleAd">
-                        iPhone 6 64Gb multiples colores.
+                        Lorem ipsum dolor sit amet
                     </div>
                     <div class="infoAd">
                         <div class="mediaAd">
@@ -52,7 +52,7 @@
                         </div>
                         <div class="descriptionAd_1">
                             <div class="priceAd">12,000</div>
-                            <div class="descriptionAd">iphone iphone iphone iphoneiphone iphone iphone iphone iphoneiphone iphone iphone iphoneiphone iphone iphone iphoneiphone iphone iphone iphoneiphone iphone iphone iphoneiphone iphone iphone iphoneiphone iphone iphone iphoneiphone iphone iphone iphoneiphone iphone iphone iphoneiphone iphone iphone iphoneiphone iphone iphone iphoneiphone iphone iphone iphoneiphone</div>
+                            <div class="descriptionAd">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus a tellus semper, molestie arcu in, luctus risus. Nulla molestie est at eros auctor tincidunt. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam mollis bibendum ex eget fringilla. Nullam id accumsan velit. Nulla facilisi. Nulla sit amet magna id nunc sollicitudin pellentesque</div>
                             <div class="dateAd">12/Octubre/2016</div>
                             <div class="buyAd">
                                 <div class="stockAd">
@@ -74,18 +74,18 @@
                     <div class="questionsContainer">
                         <div class="questionAd">
                             <div class="question">
-                                De que color es?
+                                Lorem ipsum dolor sit amet
                             </div>
                             <div class="answer">
-                                Negro
+                                consectetur adipiscing elit
                             </div>
                         </div>
                         <div class="questionAd">
                             <div class="question">
-                                De que color es?
+                                Lorem ipsum dolor sit amet
                             </div>
                             <div class="answer">
-                                Negro
+                                consectetur adipiscing elit
                             </div>
                         </div>
                     </div>

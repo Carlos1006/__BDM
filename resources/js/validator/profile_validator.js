@@ -29,7 +29,8 @@ var aValidator = {
     descripcionLarga: false,
     producto    :false,
     categoria   :false,
-    subcategoria:false
+    subcategoria:false,
+    metodo_pago :false
 };
 
 var error;
@@ -58,6 +59,7 @@ function setAllValidator() {
     $("#aProduct")     .change({type:"Product"},validateASelect);
     $("#aCategory")    .change({type:"Category"},validateASelect);
     $("#aSubcategory") .change({type:"Subcategory"},validateASelect);
+    $(".pay").click(checkPay);
     validateNewProduct();
     validateNewAd();
     $(".errorAds").perfectScrollbar({suppressScrollX: true});
@@ -94,7 +96,8 @@ function validateNewAd() {
          aValidator.categoria    == true &&
          aValidator.subcategoria == true &&
          aValidator.descripcionCorta == true &&
-         aValidator.descripcionLarga == true
+         aValidator.descripcionLarga == true &&
+         aValidator.metodo_pago == true
        ) 
     {
         $("#okNewAd").attr("disabled",false);
@@ -350,7 +353,16 @@ function validateASelect(e) {
     validateNewAd();
 }
 
-
+function validatePay() {
+    var object = $("#vAPay");
+    if( $( ".pay[check='true']" ).length > 0 ) {
+        object.css("background",colorResult.yes);
+        aValidator.metodo_pago==true;
+    } else {
+        object.css("background",colorResult.wait);
+        aValidator.metodo_pago==false;
+    }
+}
 
 /*--------Funciones no validatorias---------*/
 function paTrimNames(){
@@ -370,11 +382,22 @@ function paPadFloat() {
     $(this).val(string);
 }
 
+function checkPay(){
+    var string = $(this).attr("check");
+    if(string=="true") {
+        string='false';
+    }else {
+        string='true';
+    }
+    $(this).attr("check",string);
+    validatePay();
+}
+
 /*-------------Caja de errores-------------*/
 function addAError(errorN) {
     $div = $("<div>",{class:"errorAd",id:"aError"+errorN});
     $div.text( error[errorN] );
-    if( $("#pError"+errorN).length == 0 ) {
+    if( $("#aError"+errorN).length == 0 ) {
         $("#aErrors").append($div);
     }
 }

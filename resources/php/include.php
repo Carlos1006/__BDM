@@ -30,6 +30,8 @@
 <link rel="stylesheet" href="/__BDM/resources/css/product.css">
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,800,700,600' rel='stylesheet' type='text/css'>
 
+<script src="/__BDM/resources/js/subcategory.js"></script>
+
 <style>
     *{
         font-family:"open sans",sans-serif;
