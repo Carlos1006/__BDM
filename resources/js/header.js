@@ -108,4 +108,5 @@ function toggleProfileEdit(e) {
         $("#superEditProfile").hide();
         $("#superShowProfile").show();
     }
+    $(".profileMore").trigger("click");
 }

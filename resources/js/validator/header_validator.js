@@ -423,7 +423,7 @@ function validatePriceRange() {
 
 function validateSearchbar() {
     var searchBar = $(this).val();
-    if( !searchBar.match(/\s+/) ) {
+    if( !searchBar.match(/^\s+$/) ) {
         resultSearch.searchBar = true;
     }else {
         resultSearch.searchBar = false;
@@ -702,7 +702,7 @@ function totalReset() {
     $('.searchBarExtraContainer input').val("");
     $('.searchBarExtraContainer .checkbox,.searchBarExtraContainer .radio').prop('checked', false);
     resetSearchValues();
-    disabledTops();
+    disabledTop();
 }
 
 function disabledTop() {
@@ -712,7 +712,7 @@ function disabledTop() {
 function resetTop() {
     $(".topInputText").val(null);
     $('.searchBarExtraContainer .radio').prop('checked', false);
-    disabledTops();
+    disabledTop();
 }
 
 function resetSearch() {

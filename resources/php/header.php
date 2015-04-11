@@ -26,7 +26,7 @@
                         <img class="igmTool" src="/__BDM/img/icons/tool.png"/>
                     </div>
                 </div>
-                <div class="go">
+                <div class="go" id="#searchButton">
                     <div class="boton_2 btn btn-black" id="searchButton">
                         <img class="imgSearch" src="/__BDM/img/icons/search2.png"/>
                     </div>
@@ -348,7 +348,7 @@
                     <div class="topSearch">
                         <div class="top_1Container">
                             <div class="topCheckbox">
-                                <input type="radio" class="radio" name="top" checked/>
+                                <input type="radio" class="radio" name="top" id="timeTop"/>
                             </div>
                             <div class="toptitle">
                                 <span> Mas recientes.</span>
@@ -356,7 +356,7 @@
                         </div>
                         <div class="top_2Container">
                             <div class="topCheckbox">
-                                <input type="radio" class="radio" name="top"/>
+                                <input type="radio" class="radio" name="top" id="commentTop"/>
                             </div>
                             <div class="toptitle">
                                 <span> Mas comentados.</span>
@@ -366,7 +366,7 @@
                     <div class="topSearch">
                         <div class="top_1Container">
                             <div class="topCheckbox">
-                                <input type="radio" class="radio" name="top"/>
+                                <input type="radio" class="radio" name="top" id="sellTop"/>
                             </div>
                             <div class="toptitle">
                                 <span> Mas vendidos.</span>
@@ -374,7 +374,7 @@
                         </div>
                         <div class="top_2Container">
                             <div class="topCheckbox">
-                                <input type="radio" class="radio" name="top"/>
+                                <input type="radio" class="radio" name="top" id="expTop"/>
                             </div>
 
                             <div class="toptitle">

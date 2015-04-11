@@ -7,7 +7,7 @@
         foreach($categorias as $categoria) {
             if($categoria->activoCategoria==1) {
     ?>
-                <div idCategoria="<?php echo $categoria->idCategoria; ?>" class="categorie"><?php echo $categoria->nombreCategoria ?></div>
+                <div idCategoria="<?php echo $categoria->getIdCategoria(); ?>" class="categorie"><?php echo $categoria->getNombreCategoria() ?></div>
     <?php
             }
         }

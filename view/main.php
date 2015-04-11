@@ -4,7 +4,9 @@
         <title>Main</title>
         <?php  
                 session_start();
-                include $_SESSION['raiz']."/__BDM/resources/php/include.php"; ?>
+                include $_SESSION['raiz']."/__BDM/resources/php/include.php";
+                include $_SESSION['raiz']."/__BDM/model/Aviso.php";
+        ?>
         <script src="/__BDM/resources/js/main.js"></script>
     </head>
     <body>
@@ -24,6 +26,39 @@
                         <div class="headerHora" >Hora</div>
                     </div>
                     <div class="adsContainer">
+                        <?php
+                            $avisos = null;
+                            if(isset($_SESSION['aviso'])) {
+                                $avisos = unserialize($_SESSION['aviso']);
+                                unset($_SESSION['aviso']);
+                            } else {
+                                $avisos = unserialize($_SESSION['default']);
+                            }
+                            foreach($avisos as $aviso) {
+                        ?>
+                                <div class="ad" idAviso="<?php echo $aviso->getIdAviso(); ?>">
+                                    <div class="imagen">
+                                        <img class="adImagen" src="<?php echo $aviso->getPathThumbnail(); ?>"/>
+                                    </div>
+                                    <div class="descripcion">
+                                        <div class="adDescripcion"><?php echo $aviso->getDescripcionAviso(); ?></div>
+                                    </div>
+                                    <div class="precio">
+                                        <div class="adPrecio"><?php echo $aviso->getPrecioAviso(); ?></div>
+                                    </div>
+                                    <div class="nickname">
+                                        <div class="adNickname"><?php echo $aviso->getUsuarioAviso(); ?></div>
+                                    </div>
+                                    <div class="fecha">
+                                        <div class="adFecha"><?php echo $aviso->getFechaAviso(); ?></div>
+                                    </div>
+                                    <div class="hora">
+                                        <div class="adHora"><?php echo $aviso->getHoraAviso(); ?></div>
+                                    </div>
+                                </div>
+                        <?php
+                            }
+                        ?>
                         <div class="ad" idAviso="1">
                             <div class="imagen">
                                 <img class="adImagen" src="http://guiamexico.com.mx/Imagenes/b/201139757-1-refri-mar.jpeg"/>

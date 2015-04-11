@@ -1,84 +1,58 @@
 <?php
-include_once "Subcategoria.php";
-include_once "Producto.php";
-
 class Aviso {
-    var $idAviso;
+    var $idAviso = null;
+    var $pathThumbnail;
     var $cantidadAviso;
     var $descripcionAviso;
     var $fechaAviso;
     var $horaAviso;
     var $activoAviso;
-    
-    var $subcategoria;
-    var $producto;
-    
-	function __construct($cantida,$descripcion,$fecha,$hora,$activo,$subcategoria,$producto) {
-		$this->cantidadAviso 	= $cantida;
-		$this->descripcionAviso = $descripcion;
-		$this->fecha 			= $fecha;
-		$this->hora 			= $hora;
-		$this->activoAviso 		= $activo;
-		
-		$subcategoria = new Subcategoria();
-		$producto = new Producto();
-		
-		$this->subcategoria = new Subcategoria(	$subcategoria->idSubcategoria,
-												$subcategoria->nombreSubcategoria,
-												$subcategoria->activoSubcategoria,
-												$subcategoria->categoria);
-		
-		$this->producto = new Producto(	$producto->idProducto,
-										$producto->nombreProducto,
-										$producto->descripcionProducto,
-										$producto->precioProducto,
-										$producto->existenciaProducto,
-										$producto->vigenciaProducto,
-										$producto->caracteristicaProducto,
-										$producto->fechaProducto,
-										$producto->horaProducto,
-										$producto->activoProducto,
-										$producto->usuario);
-	}
 
-	function __construct($id,$cantida,$descripcion,$fecha,$hora,$activo,$subcategoria,$producto) {
-		$this->idAviso 			= $id;
-		$this->cantidadAviso 	= $cantida;
-		$this->descripcionAviso = $descripcion;
-		$this->fecha 			= $fecha;
-		$this->hora 			= $hora;
-		$this->activoAviso 		= $activo;
-		
-		$subcategoria = new Subcategoria();
-		$producto = new Producto();
-		
-		$this->subcategoria = new Subcategoria(	$subcategoria->idSubcategoria,
-												$subcategoria->nombreSubcategoria,
-												$subcategoria->activoSubcategoria,
-												$subcategoria->categoria);
-		
-		$this->producto = new Producto(	$producto->idProducto,
-										$producto->nombreProducto,
-										$producto->descripcionProducto,
-										$producto->precioProducto,
-										$producto->existenciaProducto,
-										$producto->vigenciaProducto,
-										$producto->caracteristicaProducto,
-										$producto->fechaProducto,
-										$producto->horaProducto,
-										$producto->activoProducto,
-										$producto->usuario);
-	}
+    var $precioAviso;
+    var $descripcionLarga;
+
+    var $subcategoria   = null;
+    var $producto       = null;
+    var $usuario        = null;
     
-    function getIdAviso             () { return $this->idAviso;				}
-	function getCantidadAviso       () { return $this->cantidadAviso;		}
-    function getDescripcionAviso    () { return $this->descripcionAviso;	}
-    function getFechaAviso          () { return $this->fecha;				}
-    function getHoraAviso           () { return $this->hora;				}
-    function getActivoAviso         () { return $this->activoAviso;			}
-    function getSubcategoriaAviso   () { return $this->subcategoria;		}	
-    function getProductoAviso       () { return $this->producto;			}
-    function getAviso               () { return $this;						}
+	function __construct($thumbnail,$cantida,$descripcion,$fecha,$hora,$activo,$precio,$descripcionLarga) {
+        $this->pathThumbnail = $thumbnail;
+        $this->cantidadAviso = $cantida;
+        $this->descripcionAviso = $descripcion;
+        $this->fechaAviso = $fecha;
+        $this->horaAviso = $hora;
+        $this->activoAviso = $activo;
+        $this->precioAviso = $precio;
+        $this->descripcionLarga = $descripcionLarga;
+    }
+
+    function setIdAviso($id) {
+        $this->idAviso = $id;
+    }
+
+    function setSubcategoria($data) {
+        $this->subcategoria = $data;
+    }
+    function setProducto($data) {
+        $this->producto = $data;
+    }
+    function setUsuario($data) {
+        $this->usuario = $data;
+    }
+
+    function getPathThumbnail           () { return $this->pathThumbnail;       }
+    function getIdAviso                 () { return $this->idAviso;				}
+	function getCantidadAviso           () { return $this->cantidadAviso;		}
+    function getDescripcionAviso        () { return $this->descripcionAviso;	}
+    function getFechaAviso              () { return $this->fechaAviso;		    }
+    function getHoraAviso               () { return $this->horaAviso;			}
+    function getActivoAviso             () { return $this->activoAviso;			}
+    function getSubcategoriaAviso       () { return $this->subcategoria;		}
+    function getPrecioAviso             () { return $this->precioAviso;         }
+    function getDescripcionLargaAviso   () { return $this->descripcionLarga;    }
+    function getUsuarioAviso            () { return $this->usuario;             }
+    function getProductoAviso           () { return $this->producto;            }
+    function getAviso                   () { return $this;						}
 }
 
 ?>
