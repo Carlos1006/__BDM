@@ -18,7 +18,12 @@ jQuery(function() {
     $('.adsContainer').perfectScrollbar({suppressScrollX: true});
     $(".headerImagen,.headerDescripcion,.headerPrecio,.headerNickname,.headerFecha,.headerHora").click(sortChange);
     $(".ad").click(goTo);
+    $("#returnBtn").click(goToMain);
 });
+
+function goToMain() {
+    window.location.href = "/__BDM/view/main.php";
+}
 
 function resetHeaderArray(){
     header.headerImagen      =0;
@@ -287,7 +292,8 @@ function getLetterValue(word) {
 }
 
 function removeOldAds() {
-    $(".adsContainer").empty();
+    //$(".adsContainer").empty();
+    $(".ad").remove();
 }
 
 function setNewAds() {

@@ -363,6 +363,7 @@ function validateDateRange() {
         removeError(13);
     }
 
+    
     if( compareDates_header(date_1,dateNow) || compareDates_header(date_2,dateNow) ) {
         resultSearch.dateRange = false;
         appendError(14);
@@ -634,19 +635,31 @@ function getSplitDateArray(dateString) {
 
 function compareDates_header(date1,date2) {
     var devolve = null;
-    if( date1[3] > date2[3] ) {
+    
+    console.log("Comparando = "+date1+" y "+date2);
+    
+    if(date1[3] >  date2[3]) {
         devolve = true;
-    } else {
-        if( date1[2] > date2[2] ) {
+    }else if(date1[3] <  date2[3]) {
+        devolve = false;
+    }else if(date1[3] == date2[3]) {
+        
+        if(date1[2] >  date2[2]) {
             devolve = true;
-        } else {
-            if( date1[1] > date2[1] ) {
+        }else if(date1[2] <  date2[2]) {
+            devolve = false;
+        }else if(date1[2] == date2[2]) {
+            
+            if(date1[1] >  date2[1]) {
                 devolve = true;
-            } else {
+            }else if(date1[1] <  date2[1]) {
+                devolve = false;
+            }else if(date1[1] == date2[1]) {
                 devolve = false;
             }
         }
     }
+    
     return devolve;
 }
 

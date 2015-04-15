@@ -13,11 +13,11 @@
 		<link rel="stylesheet" href="bootstrap-3.3.2-dist/css/bootstrap.min.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
 		<link rel="stylesheet" href="bootstrap-3.3.2-dist/css/bootstrap-theme.min.css">
-		<link rel="stylesheet" href="_header.css">
+		<link rel="stylesheet" href="Copy_of_header.css">
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,800,700,600' rel='stylesheet' type='text/css'>
 	</head>
 	<body>
-		<img class="bgBody" src="img/backgrounds/bg_00.jpg"/>
+		<img class="bgBody" src="/__BDM/img/backgrounds/bg_00.jpg"/>
 		<div class="superHeader">
 			<div class="headerContainer">
 				<div class="logoContainer">

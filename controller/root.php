@@ -7,6 +7,7 @@
 
     $_SESSION['raiz']       = $_SERVER["DOCUMENT_ROOT"];
     $_SESSION['categoria']  = serialize(categoriaDao::outCategories());
+    $_SESSION['aviso']      = null;
     $_SESSION['aviso']      = serialize(avisoDao::getAvisosRecientes());
     $_SESSION['default']    = serialize(avisoDao::getAvisosRecientes());
 

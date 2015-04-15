@@ -14,6 +14,7 @@
 <script tipo="plugin"       src="/__BDM/resources/js/plugin/jquery.splendid.textchange.js"  ></script>
 <script tipo="plugin"       src="/__BDM/resources/js/plugin/perfect-scrollbar.js"           ></script>
 <script tipo="actions"      src="/__BDM/resources/js/actions/header_actions.js"             ></script>
+<script tipo="actions"      src="/__BDM/resources/js/actions/categories_actions.js"         ></script>
 
 <link rel="stylesheet" href="/__BDM/resources/css/plugin/perfect-scrollbar.css">
 <link rel="stylesheet" href="/__BDM/resources/css/style.css">

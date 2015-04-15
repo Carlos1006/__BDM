@@ -18,13 +18,13 @@
             <div class="centerSkyscraper">
                 <div class="superProfile">
                     <div class="headerProfile">
-                        <div class="profileHeader headerAds"      check="false" for="profileAds"       > Avisos      </div>
+                        <div class="profileHeader headerAds"      check="true" for="profileAds"       > Avisos      </div>
                         <div class="profileHeader headerProducts" check="false" for="profileProducts"  > Productos   </div>
                         <div class="profileHeader headerQuestion" check="false" for="profileQuestions" > Preguntas   </div>
                         <div class="profileHeader headerExtra1"   check="false" for="profileRequests"  > Solicitudes </div>
                         <div class="profileHeader headerExtra2"   check="false" for="profileSales"     > Ventas      </div>
                         <div class="profileHeader headerUploadProduct"      check="false"  for="profileUpload_Product" style="display:none"></div>
-                        <div class="profileHeader headerUploadAd"           check="true"  for="profileUpload_Ad"      style="display:none"></div>
+                        <div class="profileHeader headerUploadAd"           check="false"  for="profileUpload_Ad"      style="display:none"></div>
                     </div>
                     <div class="profileContainer">
                         <!--Pagina 1-->

@@ -1,6 +1,7 @@
 <?php
 
 class Busqueda {
+    var $idSubcategoria;
     var $barraBuscadora;
     var $texto;
     var $fecha;
@@ -25,6 +26,10 @@ class Busqueda {
         $this->top = $top;
     }
 
+    function setIdSubcategoria($idSubcategoria) {
+        $this->idSubcategoria = $idSubcategoria;
+    }
+
     function getTop()            { return $this->top;            }
     function getBarraBuscadora() { return $this->barraBuscadora; }
     function getTexto()          { return $this->texto;          }
@@ -32,5 +37,7 @@ class Busqueda {
     function getNickname()       { return $this->nickname;       }
     function getFechaRangos ()   { return $this->fechaRangos;    }
     function getPrecioRangos ()  { return $this->precioRangos;   }
+    function getIdSubcategoria() { return $this->idSubcategoria; }
+
 }
 ?>

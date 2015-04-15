@@ -1,7 +1,7 @@
 $(function() {
     
-    $("#fileLabel").hover(function(){
-        mostrarMessage("Extensiones permitidas: png, jpg o bmp");
+    $("#label0").hover(function(){
+        mostrarMessage("Extensiones permitidas: png, jpg , bmp o gif");
     },function(){
         mostrarMessage("...");
     });

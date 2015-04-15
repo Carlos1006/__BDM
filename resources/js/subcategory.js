@@ -1,15 +1,12 @@
+//funcion de categories_actions: subcategorieSearch
+
 var currentCategory = 0 ;
 
 $(subcategory);
 
 function subcategory() {
     $(".categorie").click(getSubcategoriesAJAX);
-    $(".subcategorie").click(subcategorie);
     $(".superCategories").perfectScrollbar({suppressScrollX:true});
-}
-
-function subcategorie() {
-    alert($(this).attr("idSubcategoria"));
 }
 
 function getSubcategoriesAJAX() {
@@ -35,7 +32,7 @@ function getSubcategoriesAJAX() {
                 $div.text(object.nombreSubcategoria);
                 $div.insertAfter(father);
             });
-            $(".subcategorie").click(subcategorie);
+            $(".subcategorie").click(subcategorieSearch);
         });
         request.fail(function(jqXHR,textStatus) { console.log("Error al traer las subcategorias :"+textStatus);  });
         request.always(function() { console.log("Las subcategorias se han conseguido"); });
