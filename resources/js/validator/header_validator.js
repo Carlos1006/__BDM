@@ -28,7 +28,7 @@ var currentErrors = new Array(null,null,null,null,null,null,null,null,null,null)
 
 var error;
 
-var regexImgFile 		= /.+\.([jJ][pP][gG]|[pP][nN][gG]|[bB][mM][pP])/;
+var regexImgFile 		= /.+\.(jpg|png|bmp|gif)/i;
 var regexSpaceNames 	= /^\s+$/;
 var regexCapitalNames 	= /^([A-Z][a-z]+\s?)+$/;
 var regexCapitalNames2 	= /^([A-Z][a-z]+\s*)+$/;
@@ -635,9 +635,7 @@ function getSplitDateArray(dateString) {
 
 function compareDates_header(date1,date2) {
     var devolve = null;
-    
-    console.log("Comparando = "+date1+" y "+date2);
-    
+
     if(date1[3] >  date2[3]) {
         devolve = true;
     }else if(date1[3] <  date2[3]) {

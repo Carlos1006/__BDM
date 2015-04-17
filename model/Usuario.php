@@ -24,30 +24,21 @@ class Usuario{
         $this->activoUsuario        = $activo;
     }
     
-    function __construct($id,$email,$password,$nickname,$apellido,$nombre,$telefono,$avatar,$confirmado,$activo){
+    public function setIdUsuario($id){
         $this->idUsuario            = $id;
-        $this->emailUsuario         = $email;
-        $this->passwordUsuario      = $password;
-        $this->nicknameUsuario      = $nickname;
-        $this->apellidoUsuario      = $apellido;
-        $this->nombreUsuario        = $nombre;
-        $this->telefonoUsuario      = $telefono;
-        $this->avatarUsuario        = $avatar;
-        $this->confirmadoUsuario    = $confirmado;
-        $this->activoUsuario        = $activo;
     }
     
-    function getIdUsuario           (){ return $this->idUsuario;         }
-    function getEmailUsuario        (){ return $this->emailUsuario;      }
-    function getPasswordUsuario     (){ return $this->passwordUsuario;   }
-    function getNicknameUsuario     (){ return $this->nicknameUsuario;   }
-    function getApellidoUsuario     (){ return $this->apellidoUsuario;   }
-    function getNombreUsuario       (){ return $this->nombreUsuario;     }
-    function getTelefonoUsuario     (){ return $this->telefonoUsuario;   }
-    function getAvatarUsuario       (){ return $this->avatarUsuario;     }
-    function getConfirmadoUsuario   (){ return $this->confirmadoUsuario; }
-    function getActivoUsuario       (){ return $this->activoUsuario;     }
-    function getUsuario             (){ return $this; }
+    public function getIdUsuario           (){ return $this->idUsuario;         }
+    public function getEmailUsuario        (){ return $this->emailUsuario;      }
+    public function getPasswordUsuario     (){ return $this->passwordUsuario;   }
+    public function getNicknameUsuario     (){ return $this->nicknameUsuario;   }
+    public function getApellidoUsuario     (){ return $this->apellidoUsuario;   }
+    public function getNombreUsuario       (){ return $this->nombreUsuario;     }
+    public function getTelefonoUsuario     (){ return $this->telefonoUsuario;   }
+    public function getAvatarUsuario       (){ return $this->avatarUsuario;     }
+    public function getConfirmadoUsuario   (){ return $this->confirmadoUsuario; }
+    public function getActivoUsuario       (){ return $this->activoUsuario;     }
+    public function getUsuario             (){ return $this; }
 }
 
 ?>

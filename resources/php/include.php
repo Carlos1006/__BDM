@@ -1,6 +1,7 @@
 <meta author="Carlos" description="Header proyecto final"/>
 <meta id="colorValidator" yes="#8dd456" no="#d45656" wait="#60addd"/>
 <meta charset="UTF-8"/>
+<link rel="icon" type="image/png" href="/__BDM/img/icons/favicon.png" />
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="/__BDM/resources/js/jquery-2.1.3.js"></script>
@@ -30,6 +31,7 @@
 <link rel="stylesheet" href="/__BDM/resources/css/profileEdit.css">
 <link rel="stylesheet" href="/__BDM/resources/css/ad.css">
 <link rel="stylesheet" href="/__BDM/resources/css/product.css">
+<link rel="stylesheet" href="/__BDM/resources/css/mail.css">
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,800,700,600' rel='stylesheet' type='text/css'>
 
 <script src="/__BDM/resources/js/subcategory.js"></script>

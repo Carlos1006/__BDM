@@ -1,4 +1,6 @@
 <?php
+    include_once $_SERVER["DOCUMENT_ROOT"]."/__BDM/mailSender/class.phpmailer.php";
+    include_once $_SERVER["DOCUMENT_ROOT"]."/__BDM/mailSender/class.smtp.php";
 
     class MySQL {
 
@@ -9,6 +11,10 @@
             $database   = "tienda_bdm";
             $link       = mysqli_connect($host,$user,$password,$database) or die("Conexion erronea");
             return $link;
+        }
+
+        static function getConexionPDO() {
+            return new PDO("mysql:host=localhost;dbname=tienda_bdm", 'root', '');
         }
 
         static function dateToString($date) {
@@ -71,6 +77,53 @@
 
         static function verifySet($var) {
             strcmp(trim($var),'') != 0 ? $devolver = $var : $devolver = null;
+            return $devolver;
+        }
+        
+        private static function createEmailMessage($mensaje,$enlace) {
+            $content = file_get_contents($_SERVER["DOCUMENT_ROOT"]."/__BDM/resources/html/confirmation.html");
+            $dom = new DOMDocument();
+            $dom->loadHTML($content);
+            $dom->getElementById("mensaje")->appendChild( $dom->createTextNode($mensaje) );
+            $dom->getElementById("link")->setAttribute("href",$enlace);
+            $html = $dom->saveHTML();
+            return $html;
+        }
+
+        static function createGetLink($valores,$enlace) {
+            $final = $enlace;
+            if(isset($valores) && count($valores) > 0) {
+                $final .= "?";
+            }
+            foreach($valores as $nombre => $valor) {
+                $final .= $nombre."=".$valor."&";
+            }
+            return $final;
+        }
+
+        static function sendEmail($mensaje,$enlace,$asunto,$destino,$nombreDestino) {
+            $devolver = null;
+            $mail 				= new PHPMailer();
+            $mail->IsSMTP();
+            $mail->SMTPAuth 	= true;
+            $mail->SMTPSecure 	= "ssl";
+            $mail->Host 		= "smtp.gmail.com";
+            $mail->Port 		= 465;
+            $mail->Username 	= "cdgzz19@gmail.com";
+            $mail->Password 	= "carlos06";
+            $mail->From 		= "cdgzz19@gmail.com";
+            $mail->FromName 	= "Carlos Daniel";
+            $mail->Subject 		= $asunto;
+            $mail->AltBody 		= mysql::createEmailMessage($mensaje,$enlace);
+            $mail->MsgHTML(mysql::createEmailMessage($mensaje,$enlace));
+            $mail->AddAddress($destino,$nombreDestino);
+            $mail->IsHTML(true);
+
+            if(!$mail->Send()) {
+                $devolver = false;
+            }else {
+                $devolver = true;
+            }
             return $devolver;
         }
 

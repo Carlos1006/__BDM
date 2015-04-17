@@ -3,11 +3,14 @@
     <words>
       <w>abril</w>
       <w>activo</w>
+      <w>apellido</w>
+      <w>asunto</w>
       <w>automovil</w>
       <w>avanzada</w>
       <w>aviso</w>
       <w>avisos</w>
       <w>barra</w>
+      <w>busca</w>
       <w>buscadora</w>
       <w>busqueda</w>
       <w>cantida</w>
@@ -20,44 +23,74 @@
       <w>comentados</w>
       <w>comentarios</w>
       <w>conexion</w>
+      <w>confirmacion</w>
+      <w>confirmado</w>
+      <w>confirmar</w>
+      <w>contenido</w>
+      <w>contraseña</w>
+      <w>correctamente</w>
+      <w>corto</w>
+      <w>cuerpo</w>
+      <w>dbname</w>
       <w>defualt</w>
       <w>descripcion</w>
+      <w>destinatario</w>
+      <w>destino</w>
       <w>devolver</w>
       <w>diciembre</w>
+      <w>elemento</w>
       <w>enero</w>
+      <w>enlace</w>
+      <w>entra</w>
       <w>erronea</w>
       <w>febrero</w>
       <w>fecha</w>
+      <w>fopen</w>
+      <w>getimagesize</w>
       <w>imagen</w>
+      <w>imgfp</w>
+      <w>insercion</w>
       <w>junio</w>
       <w>kilometraje</w>
       <w>larga</w>
       <w>marca</w>
       <w>marzo</w>
+      <w>mensaje</w>
+      <w>naker</w>
+      <w>nodo</w>
       <w>nombre</w>
       <w>noviembre</w>
+      <w>nuevo</w>
+      <w>obtener</w>
       <w>octubre</w>
+      <w>origen</w>
       <w>perro</w>
       <w>poco</w>
       <w>precio</w>
       <w>precios</w>
       <w>producto</w>
+      <w>prueba</w>
       <w>raiz</w>
       <w>rango</w>
       <w>rangos</w>
       <w>recientes</w>
+      <w>registro</w>
+      <w>resultado</w>
       <w>resultados</w>
       <w>seminuevo</w>
       <w>septiembre</w>
       <w>subcategoria</w>
       <w>subcategorias</w>
+      <w>telefono</w>
       <w>texto</w>
       <w>tiempo</w>
       <w>tienda</w>
       <w>todas</w>
       <w>usuario</w>
+      <w>valores</w>
       <w>vendedor</w>
       <w>vendidos</w>
+      <w>wwww</w>
     </words>
   </dictionary>
 </component>

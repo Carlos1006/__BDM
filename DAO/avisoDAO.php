@@ -68,8 +68,6 @@
             return $devolver;
         }
 
-
-
         private static function execAvisosQuery($query) {
             $result = mysqli_query(mysql::getConexion(),$query);
             $avisos = array();

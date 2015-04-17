@@ -15,10 +15,24 @@ var search = {
     top_exp:       false
 };
 
-$(setSearch);
+$(setHeader_Actions);
+
+
+function setHeader_Actions() {
+    setSearch();
+    setUserRegister();
+}
 
 function setSearch() {
     $("#searchButton").click(evalSearchInput);
+}
+
+function setUserRegister() {
+    $("#sendRegister").click(runNewUserForm);
+}
+
+function runNewUserForm() {
+    $("#formNewUser").submit();
 }
 
 function evalSearchInput() {

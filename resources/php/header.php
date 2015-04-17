@@ -63,81 +63,81 @@
         <div class="xregisterExpandContainer"></div>
         <div class="registerExpandContainer">
             <div class="registerExpand">
-                <div class="registerInput pictureContainer">
-                    <div class="registerTitle">
-                        <span>Fotografia</span>
-                    </div>
-                    <div class="registerProfilePicture">
-                        <form method="post" enctype="multipart/form-data">
-                          <label class="fileInput" for="file_0" id="label0">Archivo...</label>
-                          <input type="file" name="file" id="file_0" number="0"/>
-                        </form>
-                    </div>
-                    <div class="verify verifyProfilePicture" id="verifyProfilePicture"></div>
-                </div>
-                <div class="registerInput nameContainer">
-                    <div class="registerTitle">
-                        <span>Nombre</span>
-                    </div>
-                    <div class="registerName">
-                        <div class="firstName">
-                            <input class="firstNameInput form-control" placeholder="Nombre(s)..." id="firstName"/>
+                <form method="POST" enctype="multipart/form-data" action="/__BDM/controller/setUsuario.php" id="formNewUser">
+                    <div class="registerInput pictureContainer">
+                        <div class="registerTitle">
+                            <span>Fotografia</span>
                         </div>
-                        <div class="lastName">
-                            <input class="lastNameInput form-control" placeholder="Apellido(s)..." id="lastName"/>
+                        <div class="registerProfilePicture">
+                              <label class="fileInput" for="file_0" id="label0">Archivo...</label>
+                              <input type="file" name="file" id="file_0" number="0"/>
+                        </div>
+                        <div class="verify verifyProfilePicture" id="verifyProfilePicture"></div>
+                    </div>
+                    <div class="registerInput nameContainer">
+                        <div class="registerTitle">
+                            <span>Nombre</span>
+                        </div>
+                        <div class="registerName">
+                            <div class="firstName">
+                                <input class="firstNameInput form-control" placeholder="Nombre(s)..." id="firstName" name="registroNombre"/>
+                            </div>
+                            <div class="lastName">
+                                <input class="lastNameInput form-control" placeholder="Apellido(s)..." id="lastName" name="registroApellido"/>
+                            </div>
+                        </div>
+                        <div class="verify verifyName" id="verifyName"></div>
+                    </div>
+                    <div class="registerInput nickContainer">
+                        <div class="registerTitle">
+                            <span>Nickname</span>
+                        </div>
+                        <div class="registerNick">
+                            <input class="nickInput form-control" placeholder="Nickname..." id="nickName" name="registroNickname"/>
+                        </div>
+                        <div class="verify verifyNick" id="verifyNick"></div>
+                    </div>
+                    <div class="registerInput emailContainer">
+                        <div class="registerTitle">
+                            <span>E-mail</span>
+                        </div>
+                        <div class="registerEmail">
+                            <input class="emailInput form-control" placeholder="Email..." id="email" name="registroEmail"/>
+                        </div>
+                        <div class="verify verifyEmail" id="verifyEmail"></div>
+                    </div>
+                    <div class="registerInput phoneContainer">
+                        <div class="registerTitle">
+                            <span>Telefono</span>
+                        </div>
+                        <div class="registerPhone">
+                            <input class="phoneInput form-control" placeholder="Telefono..." id="phone" name="registroTelefono"/>
+                        </div>
+                        <div class="verify verifyPhone" id="verifyPhone"></div>
+                    </div>
+                    <div class="registerInput passwordContainer">
+                        <div class="registerTitle">
+                            <span>Contraseña</span>
+                        </div>
+                        <div class="registerPassword">
+                            <div class="firstPassword">
+                                <input type="password" class="firstPassInput form-control" placeholder="Contraseña" id="password_1" name="registroPassword"/>
+                            </div>
+                            <div class="lastPassword">
+                                <input type="password" class="lastPassInput form-control" placeholder="Contraseña" id="password_2"/>
+                            </div>
+                        </div>
+                        <div class="verify verifyPassword" id="verifyPassword"></div>
+                    </div>
+                    <div class="registerInput sendContainer" style="height:11.5%">
+                        <div class="registerResult">
+                            <span id="registerMessage" >...</span>
+                        </div>
+                        <div class="registerSend btn btn-black" id="sendRegister">
+                            <span>Crear</span>
                         </div>
                     </div>
-                    <div class="verify verifyName" id="verifyName"></div>
-                </div>
-                <div class="registerInput nickContainer">
-                    <div class="registerTitle">
-                        <span>Nickname</span>
-                    </div>
-                    <div class="registerNick">
-                        <input class="nickInput form-control" placeholder="Nickname..." id="nickName"/>
-                    </div>
-                    <div class="verify verifyNick" id="verifyNick"></div>
-                </div>
-                <div class="registerInput emailContainer">
-                    <div class="registerTitle">
-                        <span>E-mail</span>
-                    </div>
-                    <div class="registerEmail">
-                        <input class="emailInput form-control" placeholder="Email..." id="email"/>
-                    </div>
-                    <div class="verify verifyEmail" id="verifyEmail"></div>
-                </div>
-                <div class="registerInput phoneContainer">
-                    <div class="registerTitle">
-                        <span>Telefono</span>
-                    </div>
-                    <div class="registerPhone">
-                        <input class="phoneInput form-control" placeholder="Telefono..." id="phone"/>
-                    </div>
-                    <div class="verify verifyPhone" id="verifyPhone"></div>
-                </div>
-                <div class="registerInput passwordContainer">
-                    <div class="registerTitle">
-                        <span>Contraseña</span>
-                    </div>
-                    <div class="registerPassword">
-                        <div class="firstPassword">
-                            <input type="password" class="firstPassInput form-control" placeholder="Contraseña" id="password_1"/>
-                        </div>
-                        <div class="lastPassword">
-                            <input type="password" class="lastPassInput form-control" placeholder="Contraseña" id="password_2"/>
-                        </div>
-                    </div>
-                    <div class="verify verifyPassword" id="verifyPassword"></div>
-                </div>
-                <div class="registerInput sendContainer">
-                    <div class="registerResult">
-                        <span id="registerMessage" >...</span>
-                    </div>
-                    <div class="registerSend btn btn-black" id="sendRegister">
-                        <span>Crear</span>
-                    </div>
-                </div>
+                </form>
             </div>
         </div>
         <div class="invisible_1"></div>

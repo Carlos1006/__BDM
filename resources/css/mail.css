@@ -1,0 +1,160 @@
+.superMessage{
+    width:100%;
+    height:100%;
+}
+
+.messageHeader{
+    width:100%;
+    height:5%;
+    background-color:rgb(21,21,21);
+    color:rgb(244,244,244);
+    font-size:150%;
+}
+
+.headerMessage{
+    padding-top:0.25%;
+    width:100%;
+    height:100%;
+    text-align:center;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition:    all 0.2s ease;
+    -o-transition:      all 0.2s ease;
+    -ms-transition:     all 0.2s ease;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.headerMessage:hover{
+    font-size:105%;
+    cursor:default;
+}
+
+.messageContainer{
+    width:100%;
+    height:95%;
+    position:relative;
+    overflow:hidden;
+    background-color:rgba(55,55,55,0.9);
+    padding-top:1%;
+}
+
+.messageAd{
+    text-align:center;
+    font-size:130%;
+    padding-top:2%;
+    width:100%;
+    height:12%;
+    background-color:rgb(33,33,33);
+    color:rgb(244,244,244);
+    font-weight:600;
+    margin-bottom:1.5%;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition:    all 0.2s ease;
+    -o-transition:      all 0.2s ease;
+    -ms-transition:     all 0.2s ease;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.messageAd:hover{
+    background-color:rgb(40,40,40);
+}
+
+.goToMainBtn{
+    margin-left:1%;
+    background-color:rgb(0,134,250) !important;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition:    all 0.2s ease;
+    -o-transition:      all 0.2s ease;
+    -ms-transition:     all 0.2s ease;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.goToMail{
+    height:75%;
+    width:4%;
+    border-radius:80px;
+    background-color:rgb(10,10,10) !important;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition:    all 0.2s ease;
+    -o-transition:      all 0.2s ease;
+    -ms-transition:     all 0.2s ease;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    padding:0%;
+}
+
+.btnMailImage{
+    height:100%;
+    width:100%;
+    border-radius:80px;
+    zoom:150%;
+    position:relative;
+    overflow:hidden;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition:    all 0.5s ease;
+    -o-transition:      all 0.5s ease;
+    -ms-transition:     all 0.5s ease;
+}
+
+.centerMailBtn{
+    margin-left:2.5%;
+    margin-right:2.5%;
+}
+
+.goToMail:hover{
+    transform:scale(1.1);
+    -webkit-transform:scale(1.1);
+    -moz-transform:scale(1.1);
+    -mz-transform:scale(1.1);
+    cursor:pointer;
+}
+
+.goToMail:active{
+    opacity:0.5;
+}
+
+.goToMainBtn:active{
+    filter: brightness(120%);
+    -webkit-filter: brightness(120%);
+    -moz-filter: brightness(120%);
+    -o-filter: brightness(120%);
+}
+
+.countToRefresh{
+    margin-left:1%;
+    /*color:rgb(158,250,134);*/
+    /*color:rgb(158,166,134);*/
+    color:rgb(58,166,169);
+    background-color:transparent!important;
+    font-size:120%;
+    font-weight:600;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition:    all 0.2s ease;
+    -o-transition:      all 0.2s ease;
+    -ms-transition:     all 0.2s ease;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.countToRefresh:hover{
+    color:rgb(58,166,169);
+    cursor:default;
+}

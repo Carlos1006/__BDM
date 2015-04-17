@@ -106,9 +106,9 @@ function toggleProfileEdit(e) {
     if(e.data.action == "edit") {
         $("#superEditProfile").show();
         $("#superShowProfile").hide();
+        $(".profileMore").trigger("click");
     } else if (e.data.action == "cancel") {
         $("#superEditProfile").hide();
         $("#superShowProfile").show();
     }
-    $(".profileMore").trigger("click");
 }
