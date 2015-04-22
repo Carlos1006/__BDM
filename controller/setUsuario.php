@@ -17,7 +17,7 @@
 
     $resultadoUsuario   = usuarioDAO::setUsuario($usuario);
     $resultadoMail      = mysql::sendEmail(  "Entra en el enlace para confirmar tu usuario",
-                                             mysql::createGetLink(array("email"=>$resultadoUsuario),"//localhost/__BDM/controller/setConfirmation.php"),
+                                             mysql::createGetLink(array("email"=>$resultadoUsuario),"http://localhost/__BDM/controller/setConfirmation.php"),
                                              "Confirmar email",
                                              $usuario->getEmailUsuario(),
                                              "Nuevo Usuario"
@@ -29,5 +29,5 @@
         $_SESSION['insercion'] = 0;
     }
 
-    header('Location: /__BDM/view/main.php');
+    header('Location: /__BDM/view/mail.php');
 ?>

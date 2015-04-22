@@ -39,7 +39,7 @@
                                     </div>
                                 </div>
                                 <div class='messageAd'>
-                                    <div class='btn goToMail' url="https://accounts.google.com/ServiceLogin">
+                                    <div class='btn goToMail' url="https://mail.google.com">
                                         <img src="/__BDM/img/icons/gmail.png" class="btnMailImage">
                                     </div>
                                     <div class='btn centerMailBtn goToMail' url="http://www.outlook.com">

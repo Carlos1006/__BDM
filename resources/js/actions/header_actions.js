@@ -15,12 +15,21 @@ var search = {
     top_exp:       false
 };
 
+var loginData =  {
+    user:null,
+    mail:null,
+    password:null
+};
+
 $(setHeader_Actions);
+
+
 
 
 function setHeader_Actions() {
     setSearch();
     setUserRegister();
+    setLoginAction();
 }
 
 function setSearch() {
@@ -138,4 +147,80 @@ function createSearchForm_GET(name,value) {
     var $form = $("<form>",{action:"/__BDM/controller/getAviso.php",method:"GET"});
     $form.append($set,$parameters);
     $form.submit();
+}
+
+function setLoginAction() {
+    $("#loginButton").click(loginAction_AJAX);
+}
+
+function loginAction_AJAX() {
+    var userMail = $("#userLogin").val();
+    var password = $("#passwordLogin").val();
+    var parameters = null;
+    loginData.password = password;
+    if(isMail(userMail)) {
+        parameters = {
+            mail:userMail,
+            password:password
+        }
+        loginData.mail = userMail;
+    }else {
+        parameters = {
+            user:userMail,
+            password:password
+        }
+        loginData.user = userMail;
+    }
+    var ajax = {
+        url      :"/__BDM/controller/getUsuarioLogin.php",
+        method   :"POST",
+        data     :parameters,
+        dataType :"json"
+    };
+    
+    var request = $.ajax(ajax);
+    
+    request.done(function(response){
+        if(response) {
+            loginAction_POST();
+        } else{
+            $("#userLogin,#passwordLogin").val('');
+            validateUserPassword(); //de validator
+            $("#verifyLogin").css("background-color",colorResult.no);
+            $("#loginMessage").text("Usuario inexistente");
+            loginData.mail = null;
+            loginData.user = null;
+            loginData.password = null;
+        }
+    });
+    request.fail(function(jqXHR,textStatus){
+        console.log("Error al traer el usuario :"+textStatus);
+        console.log(jqXHR);
+    });
+}
+
+function isMail(data) {
+    var devole = false;
+    if(data.match(/^.+\@.+$/)) {
+        devole = true;
+    } else {
+        devole = false;
+    }
+    return devole;
+}
+
+function loginAction_POST() {
+    var $form = $("<form>",{action:"/__BDM/controller/setSession.php",method:"POST"});
+    var $pass = $("<input>",{type:"hidden",name:"password"});
+    var $emailUser = null;
+    if(loginData.mail) {
+       $emailUser = $("<input>",{type:"hidden",name:"mail"});
+       $emailUser.val(loginData.mail);
+    }else {
+       $emailUser = $("<input>",{type:"hidden",name:"user"}); 
+       $emailUser.val(loginData.user);
+    }
+    $pass.val(loginData.password);
+    $form.append($pass,$emailUser);
+    $form.submit(); 
 }

@@ -34,7 +34,7 @@
 <link rel="stylesheet" href="/__BDM/resources/css/mail.css">
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,800,700,600' rel='stylesheet' type='text/css'>
 
-<script src="/__BDM/resources/js/subcategory.js"></script>
+<script src="/__BDM/resources/js/actions/subcategory_actions.js"></script>
 
 <style>
     *{

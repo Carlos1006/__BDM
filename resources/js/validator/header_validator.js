@@ -499,11 +499,11 @@ function validateUserPassword() {
     var password    = $("#passwordLogin").val(); 
     var verify      = $("#verifyLogin");
 
-    if( user.match(/s/) ) {
+    if( user.match(/^\s+$/) ) {
         resultLogin.user = false;
     }
 
-    if( password.match(/s/) ) {
+    if( password.match(/^\s+$/) ) {
         resultLogin.password = false;
     }
 

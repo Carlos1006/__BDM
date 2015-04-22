@@ -1,5 +1,6 @@
 <?php
     include_once $_SERVER["DOCUMENT_ROOT"]."/__BDM/model/Usuario.php";
+    include_once $_SERVER["DOCUMENT_ROOT"]."/__BDM/model/Login.php";
     include_once $_SERVER["DOCUMENT_ROOT"]."/__BDM/DAO/mysql.php";
 
     class usuarioDAO {
@@ -56,7 +57,58 @@
             if ($resultado != 0) {
                 $devolver = true;
             }
+            mysqli_close($con);
             return $devolver;
         }
+
+        static function getUsuarioLogin($login) {
+            $nick    = $login->getUsernameLogin();
+            $email   = $login->getEmailLogin();
+            $pass    = $login->getPasswordLogin();
+
+            is_null($email) ? $email    = "null" : $email = "'".$email."'";
+            is_null($nick)  ? $nick     = "null" : $nick  = "'".$nick."'";
+
+            $query   = "CALL sesionUsuario($nick,$email,'$pass')";
+            $con     = mysql::getConexion();
+            $result  = mysqli_query($con,$query);
+            $usuario = null;
+            while($row = mysqli_fetch_object($result)) {
+                $usuario = new Usuario( $row->emailUsuario,
+                                        $row->passwordUsuario,
+                                        $row->nicknameUsuario,
+                                        $row->apellidoUsuario,
+                                        $row->nombreUsuario,
+                                        $row->telefonoUsuario,
+                                        base64_encode($row->avatarUsuario),
+                                        $row->confirmadoUsuario,
+                                        $row->activoUsuario
+                                       );
+                $usuario->setIdUsuario($row->idUsuario);
+            }
+            return $usuario;
+        }
+
+        static function getUsuarioLoginExist($login) {
+            $nick    = $login->getUsernameLogin();
+            $email   = $login->getEmailLogin();
+            $pass    = $login->getPasswordLogin();
+
+            is_null($email) ? $email = "null" : $email = "'".$email."'";
+            is_null($nick)  ? $nick  = "null" : $nick  = "'".$nick."'";
+
+            $query   = "CALL sesionUsuario($nick,$email,'$pass')";
+            $result  = mysqli_query(mysql::getConexion(),$query);
+            $usuarioExiste = mysqli_num_rows($result);
+
+            $retorno = false;
+
+            if($usuarioExiste > 0) {
+                $retorno = true;
+            }
+            return $retorno;
+        }
+
+
     }
 ?>
