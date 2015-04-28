@@ -23,13 +23,11 @@ var loginData =  {
 
 $(setHeader_Actions);
 
-
-
-
 function setHeader_Actions() {
     setSearch();
     setUserRegister();
     setLoginAction();
+    unsetSession();
 }
 
 function setSearch() {
@@ -42,6 +40,10 @@ function setUserRegister() {
 
 function runNewUserForm() {
     $("#formNewUser").submit();
+}
+
+function unsetSession() {
+    $("#unsetSessionBtn").click(unsetSessionForm);
 }
 
 function evalSearchInput() {
@@ -223,4 +225,9 @@ function loginAction_POST() {
     $pass.val(loginData.password);
     $form.append($pass,$emailUser);
     $form.submit(); 
+}
+
+function unsetSessionForm() {
+    var $form = $("<form>",{action:"/__BDM/controller/unsetSession.php",method:"POST"});
+    $form.submit();
 }

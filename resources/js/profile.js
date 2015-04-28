@@ -26,7 +26,7 @@ function setAll(){
     $("#filterProducts").on("textchange",filterProducts);
     /*-upload-*/
     $("#newAd").click({toggle:true},toggleNewAdTab);
-    $("#cancelNewAd").click({toggle:false},toggleNewAdTab)
+    $("#cancelNewAd").click({toggle:false},toggleNewAdTab);
     $("#newProduct").click({toggle:true},toggleNewProductTab);
     $("#cancelNewProduct").click({toggle:false},toggleNewProductTab);
 };

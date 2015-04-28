@@ -11,6 +11,8 @@
         $login->setUsername($_POST['user']);
     }
 
-    $_SESSION["sesion"] = UsuarioDao::getUsuarioLogin($login);
+    $_SESSION["sesion"] = serialize(UsuarioDao::getUsuarioLogin($login));
+
+    header('Location: /__BDM/view/main.php');
 ?>
-<img src="data:image/png;base64,<?php echo $_SESSION["sesion"]->getAvatarUsuario();?>" alt="photo" download="imagen">
+<!--<img src="data:image/png;base64,<?php echo $_SESSION["sesion"]->getAvatarUsuario();?>" alt="photo" download="imagen">-->

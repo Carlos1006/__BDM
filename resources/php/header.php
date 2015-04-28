@@ -1,3 +1,6 @@
+<?php
+    include_once $_SESSION['raiz']."/__BDM/model/Usuario.php";
+?>
 <div class="superHeader">
     <div class="headerContainer">
         <div class="logoContainer">
@@ -35,28 +38,41 @@
         </div>
         <div class="extraContainer_3"></div>
         <div class="loginContainer">
-            <div class="login">
-                <div class="loginLock">
-                    <img class="imgLock" src="/__BDM/img/icons/signin.png"/>
+            <?php
+                if(!isset($_SESSION["sesion"])) {
+            ?>
+                <div class="login">
+                    <div class="loginLock">
+                        <img class="imgLock" src="/__BDM/img/icons/signin.png"/>
+                    </div>
+                    <div class="loginMessage">
+                        <span>Inicia sesion</span>
+                    </div>
                 </div>
-                <div class="loginMessage">
-                    <span>Inicia sesion</span>
-                </div>
-            </div>
+            <?php
+                }
+            ?>
         </div>
         <div class="extraContainer_1"></div>
         <div class="sessionContainer">
-            <div class="session">
-                <div class="profilePic">
-                    <img class="imgProfile" src="/__BDM/img/icons/profile.png">
+            <?php
+                if(isset($_SESSION["sesion"])) {
+                    $usuario = unserialize($_SESSION["sesion"]);
+            ?>
+                <div class="session">
+                    <div class="profilePic">
+                        <img class="imgProfile" src="data:image/png;base64,<?php echo $usuario->getAvatarUsuario();?>" alt="photo" download="imagen">
+                    </div>
+                    <div class="profileName">
+                        <span><?php echo $usuario->getNicknameUsuario();?></span>
+                    </div>
+                    <div class="profileMore btn btn-black">
+                        <img class="imgMore" src="/__BDM/img/icons/down.png">
+                    </div>
                 </div>
-                <div class="profileName">
-                    <span>Carlos Daniel</span>
-                </div>
-                <div class="profileMore btn btn-black">
-                    <img class="imgMore" src="/__BDM/img/icons/down.png">
-                </div>
-            </div>
+            <?php
+                }
+            ?>
         </div>
     </div>
     <div class="expandContainer">
@@ -169,7 +185,6 @@
                             </div>
                             <div class="verifySearchContainer" id="validateTextSearch"></div>
                         </div>
-
                     </div>
                     <div class="searchInputContainer">
                         <div class="searchInput">
@@ -434,7 +449,7 @@
                 <div class="imgSessionConfig">
                     <img src="/__BDM/img/icons/off.png" class="imgExtraSession"/>
                 </div>
-                <div class="sessionConfig">
+                <div class="sessionConfig" id="unsetSessionBtn">
                     <span>Cerrar sesion</span>
                 </div>
             </div>
