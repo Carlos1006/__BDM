@@ -28,6 +28,7 @@ function setHeader_Actions() {
     setUserRegister();
     setLoginAction();
     unsetSession();
+    goToProfile();
 }
 
 function setSearch() {
@@ -44,6 +45,10 @@ function runNewUserForm() {
 
 function unsetSession() {
     $("#unsetSessionBtn").click(unsetSessionForm);
+}
+
+function goToProfile() {
+    $("#thumbnailSession,#nicknameSession").click(goToProfileForm);
 }
 
 function evalSearchInput() {
@@ -230,4 +235,8 @@ function loginAction_POST() {
 function unsetSessionForm() {
     var $form = $("<form>",{action:"/__BDM/controller/unsetSession.php",method:"POST"});
     $form.submit();
+}
+
+function goToProfileForm() {
+    window.location.href = "/__BDM/controller/getProfile.php";
 }

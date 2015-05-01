@@ -1,9 +1,8 @@
 <?php
 
-include "Usuario.php";
-
 class Producto{
-	var $idProducto;
+	var $idProducto = null;
+    var $pathThumbnail;
     var $nombreProducto;
     var $descripcionProducto;
     var $precioProducto;
@@ -16,7 +15,8 @@ class Producto{
     
     var $usuario;
     
-	function __construct($nombre,$descripcion,$precio,$existencia,$vigencia,$caracteristica,$fecha,$hora,$activo,$usuario) {
+	function __construct($pathThumbnail,$nombre,$descripcion,$precio,$existencia,$vigencia,$caracteristica,$fecha,$hora,$activo) {
+		$this->pathThumbnail          = $pathThumbnail;
 		$this->nombreProducto         = $nombre;
 		$this->descripcionProducto    = $descripcion;
 		$this->precioProducto         = $precio;
@@ -25,40 +25,15 @@ class Producto{
 		$this->fechaProducto          = $fecha;
 		$this->horaProducto           = $hora;
 		$this->activoProducto         = $activo;
-		$this->usuario = new Usuario(	$usuario->idUsuario,
-										$usuario->emailUsuario,
-										$usuario->passwordUsuario,
-										$usuario->nicknameUsuario,
-										$usuario->apellidoUsuario,
-										$usuario->nombreUsuario,
-										$usuario->telefonoUsuario,
-										$usuario->avatarUsuario,
-										$usuario->confirmadoUsuario,
-										$usuario->activoUsuario
-									);
 	}
-	function __construct($id,$nombre,$descripcion,$precio,$existencia,$vigencia,$caracteristica,$fecha,$hora,$activo,$usuario) {
-		$this->idProducto 			  = $id;
-		$this->nombreProducto         = $nombre;
-		$this->descripcionProducto    = $descripcion;
-		$this->precioProducto         = $precio;
-		$this->existenciaProducto     = $existencia;
-		$this->vigenciaProducto       = $caracteristica;
-		$this->fechaProducto          = $fecha;
-		$this->horaProducto           = $hora;
-		$this->activoProducto         = $activo;
-		$this->usuario = new Usuario(	$usuario->idUsuario,
-										$usuario->emailUsuario,
-										$usuario->passwordUsuario,
-										$usuario->nicknameUsuario,
-										$usuario->apellidoUsuario,
-										$usuario->nombreUsuario,
-										$usuario->telefonoUsuario,
-										$usuario->avatarUsuario,
-										$usuario->confirmadoUsuario,
-										$usuario->activoUsuario
-									);
+
+	function setIdProducto($id) {
+		$this->idProducto = $id;
 	}
+
+    function setUsuarioProducto($usuario) {
+        $this->usuario = $usuario;
+    }
     
     function getIdProducto          () { return $this->idProducto;			}
     function getNombreProducto      () { return $this->nombreProducto;		}
@@ -70,6 +45,7 @@ class Producto{
     function getHoraProducto        () { return $this->horaProducto;		}
     function getActivoProducto      () { return $this->activoProducto;		}
     function getUsuarioProducto     () { return $this->usuario;				}
+    function getPathThumbnail       () { return $this->pathThumbnail;	    }
     function getProducto            () { return $this;						}
 }
 

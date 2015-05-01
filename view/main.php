@@ -8,6 +8,7 @@
                 include $_SESSION['raiz']."/__BDM/model/Aviso.php";
         ?>
         <script src="/__BDM/resources/js/main.js"></script>
+        <script src="/__BDM/resources/js/actions/main_actions.js"></script>
     </head>
     <body>
         <?php include $_SESSION['raiz']."/__BDM/resources/php/header.php"; ?>

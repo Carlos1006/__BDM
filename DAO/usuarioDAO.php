@@ -46,6 +46,42 @@
             return $devolver;
         }
 
+        static function resetUsuario($usuario) {
+            $usuarioAvatar = $usuario->getAvatarUsuario();
+
+            if(is_uploaded_file($usuarioAvatar["tmp_name"]) && getimagesize($usuarioAvatar["tmp_name"])!= false) {
+                $imgfp = fopen($usuarioAvatar["tmp_name"], 'rb');
+            } else {
+                $imgfp = NULL;
+            }
+
+            $id         = $usuario->getIdUsuario();
+            $nombre     = $usuario->getNombreUsuario();
+            $apellido   = $usuario->getApellidoUsuario();
+            $email      = $usuario->getEmailUsuario();
+            $telefono   = $usuario->getTelefonoUsuario();
+            $nickname   = $usuario->getNicknameUsuario();
+            $password   = $usuario->getPasswordUsuario();
+
+            $dbh = mysql::getConexionPDO();
+            $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $query = "CALL editaUsuario(?,?,?,?,?,?,?,?)";
+            $stmt = $dbh->prepare($query);
+            $stmt->bindParam(1, $id);
+            $stmt->bindParam(2, $email);
+            $stmt->bindParam(3, $password);
+            $stmt->bindParam(4, $nickname);
+            $stmt->bindParam(5, $nombre);
+            $stmt->bindParam(6, $apellido);
+            $stmt->bindParam(7, $telefono);
+            if(is_null($imgfp)) {
+                $stmt->bindParam(8, $imgfp);
+            } else {
+                $stmt->bindParam(8, $imgfp, PDO::PARAM_LOB);
+            }
+            $stmt->execute();
+        }
+
 
         static function setUsuarioConfirmacion($idUsuario) {
             $devolver = false;
@@ -107,6 +143,27 @@
                 $retorno = true;
             }
             return $retorno;
+        }
+
+        static function getUsuarioAviso($idAviso) {
+            $query   = "CALL usuarioAviso($idAviso)";
+            $con     = mysql::getConexion();
+            $result  = mysqli_query($con,$query);
+            $usuario = null;
+            while($row = mysqli_fetch_object($result)) {
+                $usuario = new Usuario( $row->emailUsuario,
+                    $row->passwordUsuario,
+                    $row->nicknameUsuario,
+                    $row->apellidoUsuario,
+                    $row->nombreUsuario,
+                    $row->telefonoUsuario,
+                    base64_encode($row->avatarUsuario),
+                    $row->confirmadoUsuario,
+                    $row->activoUsuario
+                );
+                $usuario->setIdUsuario($row->idUsuario);
+            }
+            return $usuario;
         }
 
 

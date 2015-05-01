@@ -16,6 +16,7 @@
 <script tipo="plugin"       src="/__BDM/resources/js/plugin/perfect-scrollbar.js"           ></script>
 <script tipo="actions"      src="/__BDM/resources/js/actions/header_actions.js"             ></script>
 <script tipo="actions"      src="/__BDM/resources/js/actions/categories_actions.js"         ></script>
+<script tipo="actions"      src="/__BDM/resources/js/actions/profile_edit_actions.js"         ></script>
 
 <link rel="stylesheet" href="/__BDM/resources/css/plugin/perfect-scrollbar.css">
 <link rel="stylesheet" href="/__BDM/resources/css/style.css">
@@ -32,9 +33,11 @@
 <link rel="stylesheet" href="/__BDM/resources/css/ad.css">
 <link rel="stylesheet" href="/__BDM/resources/css/product.css">
 <link rel="stylesheet" href="/__BDM/resources/css/mail.css">
+<link rel="stylesheet" href="/__BDM/resources/css/image_resize.css">
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,800,700,600' rel='stylesheet' type='text/css'>
 
 <script src="/__BDM/resources/js/actions/subcategory_actions.js"></script>
+<script src="/__BDM/resources/js/image_resize.js"></script>
 
 <style>
     *{

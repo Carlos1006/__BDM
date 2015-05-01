@@ -60,10 +60,13 @@
                     $usuario = unserialize($_SESSION["sesion"]);
             ?>
                 <div class="session">
-                    <div class="profilePic">
-                        <img class="imgProfile" src="data:image/png;base64,<?php echo $usuario->getAvatarUsuario();?>" alt="photo" download="imagen">
+                    <div class="profilePic" id="thumbnailSession">
+                        <img class="imgProfile toResize" 
+                             src="data:image/png;base64,<?php echo $usuario->getAvatarUsuario();?>" 
+                             alt="photo"                                          
+                             download="imagen">
                     </div>
-                    <div class="profileName">
+                    <div class="profileName" id="nicknameSession">
                         <span><?php echo $usuario->getNicknameUsuario();?></span>
                     </div>
                     <div class="profileMore btn btn-black">

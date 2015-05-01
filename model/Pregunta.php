@@ -1,8 +1,5 @@
 <?php
 
-include_once "Aviso.php";
-include_once "Usuario.php";
-
 class Pregunta{
     var $idPregunta;
     var $descripcionPregunta;
@@ -12,55 +9,22 @@ class Pregunta{
     var $usuario;
     var $aviso;
     
-    function __construct($descripcion,$fecha,$hora,$usuario,$aviso) {
+    function __construct($descripcion,$fecha,$hora) {
 		$this->descripcionPregunta 	= $descripcion;
 		$this->fechaPregunta 		= $fecha;
 		$this->horaPregunta 		= $hora;
-		
-		$this->usuario = new Usuario(	$usuario->idUsuario,
-										$usuario->emailUsuario,
-										$usuario->passwordUsuario,
-										$usuario->nicknameUsuario,
-										$usuario->apellidoUsuario,
-										$usuario->nombreUsuario,
-										$usuario->telefonoUsuario,
-										$usuario->avatarUsuario,
-										$usuario->confirmadoUsuario,
-										$usuario->activoUsuario
-									);
-		$this->aviso = new Aviso(	$aviso->idAviso,
-									$aviso->descripcionAviso,
-									$aviso->fechaAviso,
-                                    $aviso->horaAviso,
-                                    $aviso->subcategoria,
-                                    $aviso->producto);
     }
     
-    function __construct($id,$descripcion,$fecha,$hora,$usuario,$aviso) {
+    function setIdPregunta($id) {
     	$this->idPregunta 			= $id;
-		$this->descripcionPregunta 	= $descripcion;
-		$this->fechaPregunta 		= $fecha;
+    }
 
+    function setUsuarioPregunta($usuario) {
+        $this->usuario = $usuario;
+    }
 
-		$this->horaPregunta = $hora;
-		
-		$this->usuario = new Usuario(	$usuario->idUsuario,
-										$usuario->emailUsuario,
-										$usuario->passwordUsuario,
-										$usuario->nicknameUsuario,
-										$usuario->apellidoUsuario,
-										$usuario->nombreUsuario,
-										$usuario->telefonoUsuario,
-										$usuario->avatarUsuario,
-										$usuario->confirmadoUsuario,
-										$usuario->activoUsuario
-									);
-		$this->aviso = new Aviso(	$aviso->idAviso,
-									$aviso->descripcionAviso,
-									$aviso->fechaAviso,
-                                    $aviso->horaAviso,
-                                    $aviso->subcategoria,
-                                    $aviso->producto);
+    function setAvisoPregunta($aviso) {
+        $this->aviso = $aviso;
     }
     
     function getIdPregunta          () { return $this->idPregunta; 			}

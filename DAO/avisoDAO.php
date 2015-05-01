@@ -81,5 +81,11 @@
             return $avisos;
         }
 
+
+        static function getMisAvisos($id) {
+            $query = "CALL misAvisos($id)";
+            return avisoDao::execAvisosQuery($query);
+        }
+
     }
 ?>

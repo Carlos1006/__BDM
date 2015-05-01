@@ -15,6 +15,8 @@
       <w>busqueda</w>
       <w>cantida</w>
       <w>cantidad</w>
+      <w>cantidas</w>
+      <w>caracteristica</w>
       <w>cargar</w>
       <w>caros</w>
       <w>categoria</w>
@@ -24,6 +26,7 @@
       <w>comentarios</w>
       <w>conexion</w>
       <w>confirmacion</w>
+      <w>confirmada</w>
       <w>confirmado</w>
       <w>confirmar</w>
       <w>contenido</w>
@@ -38,12 +41,15 @@
       <w>destino</w>
       <w>devolver</w>
       <w>diciembre</w>
+      <w>edicion</w>
+      <w>elegido</w>
       <w>elemento</w>
       <w>enero</w>
       <w>enlace</w>
       <w>entra</w>
       <w>erronea</w>
       <w>existe</w>
+      <w>existencia</w>
       <w>febrero</w>
       <w>fecha</w>
       <w>fopen</w>
@@ -57,6 +63,7 @@
       <w>marca</w>
       <w>marzo</w>
       <w>mensaje</w>
+      <w>metodo</w>
       <w>naker</w>
       <w>nodo</w>
       <w>nombre</w>
@@ -65,11 +72,15 @@
       <w>obtener</w>
       <w>octubre</w>
       <w>origen</w>
+      <w>pago</w>
       <w>perro</w>
       <w>poco</w>
       <w>precio</w>
       <w>precios</w>
+      <w>pregunta</w>
+      <w>preguntas</w>
       <w>producto</w>
+      <w>productos</w>
       <w>prueba</w>
       <w>raiz</w>
       <w>rango</w>
@@ -82,6 +93,7 @@
       <w>seminuevo</w>
       <w>septiembre</w>
       <w>sesion</w>
+      <w>solicitudes</w>
       <w>subcategoria</w>
       <w>subcategorias</w>
       <w>telefono</w>
@@ -93,6 +105,9 @@
       <w>valores</w>
       <w>vendedor</w>
       <w>vendidos</w>
+      <w>venta</w>
+      <w>ventas</w>
+      <w>vigencia</w>
       <w>wwww</w>
     </words>
   </dictionary>

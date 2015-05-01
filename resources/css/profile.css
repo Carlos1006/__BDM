@@ -121,9 +121,8 @@
     margin-bottom:5%;
 }
 
-.infoImageSrc{
-    width:100%;
-    height:100%;
+.infoImageSrc_view,
+.infoImageSrc_default{
     border-radius:10%;
 }
 
