@@ -9,10 +9,8 @@ class MetodoPago {
         $this->nombreMetodoPago = $nombre;
         $this->activoMetodoPago = $activo;
     }
-    function  __construct($id,$nombre,$activo) {
-        $this->idMetodoPago     = $id;
-        $this->nombreMetodoPago = $nombre;
-        $this->activoMetodoPago = $activo;
+    function  setIdMetodoPago($id) {
+        $this->idMetodoPago = $id;
     }
 
     function getIdMetodoPago        (){ return $this->idMetodoPago;     }

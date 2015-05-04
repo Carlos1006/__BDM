@@ -12,7 +12,7 @@
             $result     = mysqli_query(mysql::getConexion(),$query);
             $productos  = array();
             while($row = mysqli_fetch_object($result)) {
-                $producto = new Producto($row->pathImagen,$row->nombreProducto,$row->descripcionProducto,$row->precioProducto,$row->existenciaProducto,$row->vigenciaProducto,$row->caracteristicaProducto,$row->fechaProducto,$row->horaProducto,$row->activoProducto);
+                $producto = new Producto($row->pathImagen,$row->nombreProducto,$row->descripcionProducto,mysql::moneyFormat($row->precioProducto),$row->existenciaProducto,mysql::dateToString($row->vigenciaProducto),$row->caracteristicaProducto,$row->fechaProducto,$row->horaProducto,$row->activoProducto);
                 $producto->setIdProducto($row->idProducto);
                 $producto->setUsuarioProducto($row->nicknameUsuario);
                 array_push($productos,$producto);

@@ -21,7 +21,8 @@ class Producto{
 		$this->descripcionProducto    = $descripcion;
 		$this->precioProducto         = $precio;
 		$this->existenciaProducto     = $existencia;
-		$this->vigenciaProducto       = $caracteristica;
+		$this->vigenciaProducto       = $vigencia;
+		$this->caracteristicaProducto = $caracteristica;
 		$this->fechaProducto          = $fecha;
 		$this->horaProducto           = $hora;
 		$this->activoProducto         = $activo;

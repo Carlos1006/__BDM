@@ -72,7 +72,7 @@
             $result = mysqli_query(mysql::getConexion(),$query);
             $avisos = array();
             while($row = mysqli_fetch_object($result)) {
-                $aviso = new Aviso($row->pathImagen,$row->cantidadAviso,$row->descripcionCortaAviso,mysql::dateToString($row->fechaAviso),$row->horaAviso,$row->activoAviso,$row->precioAviso,$row->descripcionAviso);
+                $aviso = new Aviso($row->pathImagen,$row->cantidadAviso,$row->descripcionCortaAviso,mysql::dateToString($row->fechaAviso),$row->horaAviso,$row->activoAviso,mysql::moneyFormat($row->precioAviso),$row->descripcionAviso);
                 $aviso->setIdAviso($row->idAviso);
                 $aviso->setProducto($row->idProductoAviso);
                 $aviso->setUsuario($row->nicknameUsuario);

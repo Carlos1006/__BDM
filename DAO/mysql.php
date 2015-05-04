@@ -127,6 +127,10 @@
             return $devolver;
         }
 
+        static function moneyFormat($float) {
+            return number_format($float, 2, '.', '');
+        }
+
     }
 
 ?>

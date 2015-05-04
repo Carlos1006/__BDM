@@ -5,6 +5,12 @@
         <?php 
                 session_start();
                 include $_SESSION['raiz']."/__BDM/resources/php/include.php"; 
+                include $_SESSION['raiz']."/__BDM/model/Venta.php";
+                include $_SESSION['raiz']."/__BDM/model/Aviso.php";
+                include $_SESSION['raiz']."/__BDM/model/Usuario.php";
+                include $_SESSION['raiz']."/__BDM/model/MetodoPago.php";
+                include $_SESSION['raiz']."/__BDM/model/Pregunta.php";
+                include $_SESSION['raiz']."/__BDM/model/Producto.php";
         ?>
         <script src="/__BDM/resources/js/profile.js"></script>
         <script src="/__BDM/resources/js/validator/profile_validator.js"></script>
@@ -41,125 +47,46 @@
                                 <div class="actionsProfileAdHeader">        Acciones    </div>
                             </div>
                             <div class="profileAdContainer">
-                                <div class="profileAd" idAviso="1">
-                                    <div class="profileImageAd">
-                                        <img class="profileImageAdSrc" src="http://cdni.wired.co.uk/1240x826/g_j/ipod-nano-3.jpg"/>
-                                    </div>
-                                    <div class="profileDescriptionAd">Vendo Ipod Nano 16gb color azul</div>
-                                    <div class="profilePriceAd">2500.00</div>
-                                    <div class="profileDateAd">26/Octubre/2015</div>
-                                    <div class="profileActionAd">
-                                        <div class="viewAction">
-                                            <img class="viewImg" src="/__BDM/img/icons/view-128.png">
-                                        </div>
-                                        <div class="editAction">
-                                            <img class="editImg"  src="/__BDM/img/icons/editAd.png">
-                                        </div>
-                                        <div class="deleteAction">
-                                            <img class="deleteImg" src="/__BDM/img/icons/deleteAdd.png">
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="profileAd" idAviso="2">
-                                    <div class="profileImageAd">
-                                        <img class="profileImageAdSrc" src="http://guiamexico.com.mx/Imagenes/b/201139757-1-refri-mar.jpeg"/>
-                                    </div>
-                                    <div class="profileDescriptionAd">Refrigerador plateado nuevo, sin abrir.</div>
-                                    <div class="profilePriceAd">2500.00</div>
-                                    <div class="profileDateAd">26/Octubre/2015</div>
-                                    <div class="profileActionAd">
-                                        <div class="viewAction">
-                                            <img class="viewImg" src="/__BDM/img/icons/view-128.png">
-                                        </div>
-                                        <div class="editAction">
-                                            <img class="editImg"  src="/__BDM/img/icons/editAd.png">
-                                        </div>
-                                        <div class="deleteAction">
-                                            <img class="deleteImg" src="/__BDM/img/icons/deleteAdd.png">
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="profileAd" idAviso="3">
-                                    <div class="profileImageAd">
-                                        <img class="profileImageAdSrc" src="http://www.listofimages.com/wp-content/uploads/2013/08/mitsubishi-lancer-evo-x-red-car.jpg"/>
-                                    </div>
-                                    <div class="profileDescriptionAd">Automovil seminuevo, poco kilometraje.</div>
-                                    <div class="profilePriceAd">2500.00</div>
-                                    <div class="profileDateAd">26/Octubre/2015</div>
-                                    <div class="profileActionAd">
-                                        <div class="viewAction">
-                                            <img class="viewImg" src="/__BDM/img/icons/view-128.png">
-                                        </div>
-                                        <div class="editAction">
-                                            <img class="editImg"  src="/__BDM/img/icons/editAd.png">
-                                        </div>
-                                        <div class="deleteAction">
-                                            <img class="deleteImg" src="/__BDM/img/icons/deleteAdd.png">
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="profileAd" idAviso="4">
-                                    <div class="profileImageAd">
-                                        <img class="profileImageAdSrc" src="http://core0.staticworld.net/images/article/2013/05/microsoft_sculpt_mobile_mouse_left_2013-100038808-orig.jpg"/>
-                                    </div>
-                                    <div class="profileDescriptionAd">Mouse marca microsoft.</div>
-                                    <div class="profilePriceAd">2500.00</div>
-                                    <div class="profileDateAd">26/Octubre/2015</div>
-                                    <div class="profileActionAd">
-                                        <div class="viewAction">
-                                            <img class="viewImg" src="/__BDM/img/icons/view-128.png">
-                                        </div>
-                                        <div class="editAction">
-                                            <img class="editImg"  src="/__BDM/img/icons/editAd.png">
-                                        </div>
-                                        <div class="deleteAction">
-                                            <img class="deleteImg" src="/__BDM/img/icons/deleteAdd.png">
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="profileAd" idAviso="5">
-                                    <div class="profileImageAd">
-                                        <img class="profileImageAdSrc" src="http://www.kiabi.es/images/camisa-de-algodon-de-sarga-con-acabado-a-contraste-uva-joven-nino-et591_2_zc1.jpg"/>
-                                    </div>
-                                    <div class="profileDescriptionAd">Camisa casual color morado, talla chica.</div>
-                                    <div class="profilePriceAd">2500.00</div>
-                                    <div class="profileDateAd">26/Octubre/2015</div>
-                                    <div class="profileActionAd">
-                                        <div class="viewAction">
-                                            <img class="viewImg" src="/__BDM/img/icons/view-128.png">
-                                        </div>
-                                        <div class="editAction">
-                                            <img class="editImg"  src="/__BDM/img/icons/editAd.png">
-                                        </div>
-                                        <div class="deleteAction">
-                                            <img class="deleteImg" src="/__BDM/img/icons/deleteAdd.png">
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="profileAd" idAviso="6">
-                                    <div class="profileImageAd">
-                                        <img class="profileImageAdSrc" src="http://s3.amazonaws.com/rapgenius/filepicker%2F5jTDmubSTnCREE8BIe5w_nike_shoes.jpg"/>
-                                    </div>
-                                    <div class="profileDescriptionAd">Tennis nike color negro.</div>
-                                    <div class="profilePriceAd">2500.00</div>
-                                    <div class="profileDateAd">26/Octubre/2015</div>
-                                    <div class="profileActionAd">
-                                        <div class="viewAction">
-                                            <img class="viewImg" src="/__BDM/img/icons/view-128.png">
-                                        </div>
-                                        <div class="editAction">
-                                            <img class="editImg"  src="/__BDM/img/icons/editAd.png">
-                                        </div>
-                                        <div class="deleteAction">
-                                            <img class="deleteImg" src="/__BDM/img/icons/deleteAdd.png">
-                                        </div>
-                                    </div>
-                                </div>
+                                <?php
+                                    $avisos = null;
+                                    if(isset($_SESSION["misAvisos"])) {
+                                        $avisos = unserialize($_SESSION["misAvisos"]);
+                                        if(count($avisos) > 0) {
+                                            foreach($avisos as $aviso) {
+                                                if(file_exists ( $aviso->getPathThumbnail() )) {
+                                                    $url = $aviso->getPathThumbnail();
+                                                } else {
+                                                    $url = "/__BDM/img/404/dino.png";
+                                                }
+                                ?>
+                                                <div class="profileAd" idAviso="<?php echo $aviso->getIdAviso(); ?>">
+                                                    <div class="profileImageAd">
+                                                        <img class="profileImageAdSrc" src="<?php echo $url; ?>"/>
+                                                    </div>
+                                                    <div class="profileDescriptionAd"><?php echo $aviso->getDescripcionAviso(); ?></div>
+                                                    <div class="profilePriceAd"><?php echo $aviso->getPrecioAviso(); ?></div>
+                                                    <div class="profileDateAd"><?php echo $aviso->getFechaAviso(); ?></div>
+                                                    <div class="profileActionAd">
+                                                        <div class="viewAction">
+                                                            <img class="viewImg" verAviso="<?php echo $aviso->getIdAviso(); ?>" src="/__BDM/img/icons/view-128.png">
+                                                        </div>
+                                                        <div class="editAction">
+                                                            <img class="editImg" editaAviso="<?php echo $aviso->getIdAviso(); ?>"  src="/__BDM/img/icons/editAd.png">
+                                                        </div>
+                                                        <div class="deleteAction">
+                                                            <img class="deleteImg" borraAviso="<?php echo $aviso->getIdAviso(); ?>" src="/__BDM/img/icons/deleteAdd.png">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                <?php
+                                            }
+                                        } else {
+                                ?>
+                                            <div class='noResultAd'>Sin avisos</div>
+                                <?php
+                                        }
+                                    }
+                                ?>
                             </div>
                         </div>
                         <!--Pagina 2-->
@@ -176,67 +103,46 @@
                                 <div class="actionsProfileProductHeader">   Acciones    </div>
                             </div>
                             <div class="profileProductContainer">
-                                
-                                <div class="profileProduct" idProducto="1">
-                                    <div class="profileImageProduct">
-                                        <img class="profileImageProductSrc" src="http://cdni.wired.co.uk/1240x826/g_j/ipod-nano-3.jpg"/>
-                                    </div>
-                                    <div class="profileNameProduct">Ipod Nano</div>
-                                    <div class="profileStockProduct">1200</div>
-                                    <div class="profileDateProduct">26/Octubre/2015</div>
-                                    <div class="profileActionProduct">
-                                        <div class="viewAction">
-                                            <img class="viewImg" src="/__BDM/img/icons/view-128.png">
-                                        </div>
-                                        <div class="editAction">
-                                            <img class="editImg"  src="/__BDM/img/icons/editAd.png">
-                                        </div>
-                                        <div class="deleteAction">
-                                            <img class="deleteImg" src="/__BDM/img/icons/deleteAdd.png">
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="profileProduct" idProducto="1">
-                                    <div class="profileImageProduct">
-                                        <img class="profileImageProductSrc" src="http://s3.amazonaws.com/rapgenius/filepicker%2F5jTDmubSTnCREE8BIe5w_nike_shoes.jpg"/>
-                                    </div>
-                                    <div class="profileNameProduct">Tennis</div>
-                                    <div class="profileStockProduct">1200</div>
-                                    <div class="profileDateProduct">26/Octubre/2015</div>
-                                    <div class="profileActionProduct">
-                                        <div class="viewAction">
-                                            <img class="viewImg" src="/__BDM/img/icons/view-128.png">
-                                        </div>
-                                        <div class="editAction">
-                                            <img class="editImg"  src="/__BDM/img/icons/editAd.png">
-                                        </div>
-                                        <div class="deleteAction">
-                                            <img class="deleteImg" src="/__BDM/img/icons/deleteAdd.png">
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="profileProduct" idProducto="1">
-                                    <div class="profileImageProduct">
-                                        <img class="profileImageProductSrc" src="http://core0.staticworld.net/images/article/2013/05/microsoft_sculpt_mobile_mouse_left_2013-100038808-orig.jpg"/>
-                                    </div>
-                                    <div class="profileNameProduct">Mouse</div>
-                                    <div class="profileStockProduct">1200</div>
-                                    <div class="profileDateProduct">26/Octubre/2015</div>
-                                    <div class="profileActionProduct">
-                                        <div class="viewAction">
-                                            <img class="viewImg" src="/__BDM/img/icons/view-128.png">
-                                        </div>
-                                        <div class="editAction">
-                                            <img class="editImg"  src="/__BDM/img/icons/editAd.png">
-                                        </div>
-                                        <div class="deleteAction">
-                                            <img class="deleteImg" src="/__BDM/img/icons/deleteAdd.png">
-                                        </div>
-                                    </div>
-                                </div>
-                                
+                                <?php
+                                    $productos = null;
+                                    if(isset($_SESSION["misProductos"])) {
+                                        $productos = unserialize($_SESSION["misProductos"]);
+                                        if(count($productos) > 0) {
+                                            foreach($productos as $producto) {
+                                                if(file_exists ( $producto->getPathThumbnail() )) {
+                                                    $url = $producto->getPathThumbnail();
+                                                } else {
+                                                    $url = "/__BDM/img/404/dino.png";
+                                                }
+                                ?>
+                                                <div class="profileProduct" idProducto="<?php echo $producto->getIdProducto(); ?>">
+                                                    <div class="profileImageProduct">
+                                                        <img class="profileImageProductSrc" src="<?php echo $url; ?>"/>
+                                                    </div>
+                                                    <div class="profileNameProduct"><?php echo $producto->getNombreProducto(); ?></div>
+                                                    <div class="profileStockProduct"><?php echo $producto->getExistenciaProducto(); ?></div>
+                                                    <div class="profileDateProduct"><?php echo $producto->getVigenciaProducto(); ?></div>
+                                                    <div class="profileActionProduct">
+                                                        <div class="viewAction">
+                                                            <img class="viewImg" verProducto="<?php echo $producto->getIdProducto(); ?>" src="/__BDM/img/icons/view-128.png">
+                                                        </div>
+                                                        <div class="editAction">
+                                                            <img class="editImg" editaProducto="<?php echo $producto->getIdProducto(); ?>" src="/__BDM/img/icons/editAd.png">
+                                                        </div>
+                                                        <div class="deleteAction">
+                                                            <img class="deleteImg" borraProducto="<?php echo $producto->getIdProducto(); ?>" src="/__BDM/img/icons/deleteAdd.png">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                <?php
+                                            }
+                                        } else {
+                                ?>
+                                            <div class='noResultAd'>Sin productos</div>
+                                <?php
+                                        }
+                                    }
+                                ?>
                             </div>
                         </div>
                         <!--Pagina 3-->
@@ -248,25 +154,30 @@
                                 <div class="answerProfileQuestionHeader">       Contesta    </div>
                             </div>
                             <div class="profileQuestionContainer">
-                                <div class="profileQuestion">
-                                    <div class="profileQuestionUser">Carlos19</div>
-                                    <div class="profileQuestionDescription">De que color son?</div>
-                                    <div class="profileQuestionAd">Ipod Nano</div>
-                                    <div class="profileQuestionAnswer">
-                                        <input class="profileQuestionAnswerInput form-control" placeholder="Escribe tu respuesta..."/>
-                                        <div class="answerButton">Responde</div>
-                                    </div>
-                                </div>
-                                
-                                <div class="profileQuestion">
-                                    <div class="profileQuestionUser">Carlos19</div>
-                                    <div class="profileQuestionDescription">De que color son?</div>
-                                    <div class="profileQuestionAd">Ipod Nano</div>
-                                    <div class="profileQuestionAnswer">
-                                        <input class="profileQuestionAnswerInput form-control" placeholder="Escribe tu respuesta..."/>
-                                        <div class="answerButton">Responde</div>
-                                    </div>
-                                </div>
+                                <?php
+                                    if($_SESSION["misPreguntas"]) {
+                                        $preguntas = unserialize($_SESSION["misPreguntas"]);
+                                        if(count($preguntas) > 0) {
+                                            foreach($preguntas as $pregunta) {
+                                ?>
+                                                <div class="profileQuestion" idPregunta="<?php echo $pregunta->getIdPregunta(); ?>">
+                                                    <div class="profileQuestionUser"><?php echo $pregunta->getUsuarioPregunta(); ?></div>
+                                                    <div class="profileQuestionDescription"><?php echo $pregunta->getDescripcionPregunta(); ?></div>
+                                                    <div class="profileQuestionAd"><?php echo $pregunta->getAvisoPregunta(); ?></div>
+                                                    <div class="profileQuestionAnswer">
+                                                        <input class="profileQuestionAnswerInput form-control" placeholder="Escribe tu respuesta..."/>
+                                                        <div idPregunta="<?php echo $pregunta->getIdPregunta(); ?>" class="answerButton">Responde</div>
+                                                    </div>
+                                                </div>
+                                <?php
+                                            }
+                                        }else {
+                                ?>
+                                            <div class='noResultAd'>Sin preguntas</div>
+                                <?php
+                                        }
+                                    }
+                                ?>
                             </div>
                         </div>
                         <!--Pagina 4-->
@@ -279,19 +190,40 @@
                                 <div class="confirmProfileRequestHeader">    Confirma        </div>
                             </div>
                             <div class="profileRequestContainer">
-                                <div class="profileRequest">
-                                    <div class="profileRequestUser">Naker21</div>
-                                    <div class="profileRequestAd">Ipod Nano color rosa</div>
-                                    <div class="profileRequestQuantity">2</div>
-                                    <div class="profileRequestPay">Deposito bancario</div>
-                                    <div class="profileRequestConfirm">
-                                        <div class="confirmBottom">Confirmar venta</div>
-                                    </div>
-                                </div>
+                                <?php
+                                    if(isset($_SESSION["misSolicitudes"])) {
+                                        $solicitudes = unserialize($_SESSION["misSolicitudes"]);
+                                        if(count($solicitudes) > 0) {
+                                            foreach($solicitudes as $solicitud) {
+                                ?>
+                                                <div class="profileRequest" idVenta="<?php echo $solicitud->getIdVenta();?>">
+                                                    <div class="profileRequestUser"><?php echo $solicitud->getUsuarioVenta();?></div>
+                                                    <div class="profileRequestAd"><?php echo $solicitud->getAvisoVenta();?></div>
+                                                    <div class="profileRequestQuantity"><?php echo $solicitud->getCantidadVenta();?></div>
+                                                    <div class="profileRequestPay"><?php echo $solicitud->getMetodoPagoElegidoVenta();?></div>
+                                                    <div class="profileRequestConfirm">
+                                                        <div idVenta="<?php echo $solicitud->getIdVenta();?>" class="confirmBottom">Confirmar venta</div>
+                                                    </div>
+                                                </div>
+                                <?php
+                                            }
+                                        }else {
+                                ?>
+                                            <div class='noResultAd'>Sin solicitudes de compra</div>
+                                <?php
+                                        }
+                                    }
+                                ?>
                             </div>
                         </div>
                         <!--Pagina 5-->
                         <div class="profileSales">
+                            <?php
+                                $totalVentas = 0;
+                                if(isset($_SESSION["totalVentas"])) {
+                                    $totalVentas = $_SESSION["totalVentas"];
+                                }
+                            ?>
                             <div class="profileSalesHeader">
                                 <div class="dateProfileSaleHeader">        Fecha          </div>
                                 <div class="productProfileSaleHeader">     Producto       </div>
@@ -301,19 +233,34 @@
                                 <div class="subtotalProfileSaleHeader">    Subtotal       </div>
                                 <div class="payProfileSaleHeader">         Metodo de pago </div>
                                 <div class="userProfileSaleHeader">        Comprador      </div>
-                                <div class="totalProfileSale"> Total<div class="total">500.00</div> </div>
+                                <div class="totalProfileSale"> Total<div class="total"><?php echo $totalVentas; ?></div> </div>
                             </div>
                             <div class="profileSalesContainer">
-                                <div class="profileSale">
-                                    <div class="profileSaleDate">10/12/2019</div>
-                                    <div class="profileSaleProduct">iPod nano</div>
-                                    <div class="profileSaleDescription">iPod nano color rosa</div>
-                                    <div class="profileSaleQuantity">2</div>
-                                    <div class="profileSalePrice">2500.00</div>
-                                    <div class="profileSaleSubtotal">5000.00</div>
-                                    <div class="profileSalePay">Deposito bancario</div>
-                                    <div class="profileSaleUser">Naker21</div>
-                                </div>
+                                <?php
+                                    if(isset($_SESSION["misVentas"])) {
+                                        $ventas = unserialize($_SESSION["misVentas"]);
+                                        if(count($ventas) > 0) {
+                                            foreach($ventas as $venta) {
+                                ?>
+                                                <div class="profileSale" idVenta="<?php echo $venta->getIdVenta(); ?>">
+                                                    <div class="profileSaleDate"><?php echo $venta->getFechaVenta(); ?></div>
+                                                    <div class="profileSaleProduct"><?php echo $venta->getProductoVenta(); ?></div>
+                                                    <div class="profileSaleDescription"><?php echo $venta->getAvisoVenta(); ?></div>
+                                                    <div class="profileSaleQuantity"><?php echo $venta->getCantidadVenta(); ?></div>
+                                                    <div class="profileSalePrice"><?php echo $venta->getPrecioVenta(); ?></div>
+                                                    <div class="profileSaleSubtotal"><?php echo $venta->getSubtotal(); ?></div>
+                                                    <div class="profileSalePay"><?php echo $venta->getMetodoPagoElegidoVenta(); ?></div>
+                                                    <div class="profileSaleUser"><?php echo $venta->getUsuarioVenta(); ?></div>
+                                                </div>
+                                <?php
+                                            }
+                                        } else {
+                                ?>
+                                            <div class='noResultAd'>Sin ventas</div>
+                                <?php
+                                        }
+                                    }
+                                ?>
                             </div>
                         </div>
                         <!--Pagina 6-->
