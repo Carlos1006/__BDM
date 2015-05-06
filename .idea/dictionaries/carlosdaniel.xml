@@ -13,6 +13,7 @@
       <w>busca</w>
       <w>buscadora</w>
       <w>busqueda</w>
+      <w>cambio</w>
       <w>cantida</w>
       <w>cantidad</w>
       <w>cantidas</w>
@@ -33,6 +34,7 @@
       <w>contenido</w>
       <w>contraseña</w>
       <w>correctamente</w>
+      <w>corta</w>
       <w>corto</w>
       <w>cuerpo</w>
       <w>dbname</w>
@@ -40,6 +42,7 @@
       <w>descripcion</w>
       <w>destinatario</w>
       <w>destino</w>
+      <w>detalle</w>
       <w>devolver</w>
       <w>diciembre</w>
       <w>edicion</w>
@@ -56,6 +59,7 @@
       <w>fopen</w>
       <w>getimagesize</w>
       <w>imagen</w>
+      <w>imagenes</w>
       <w>imgfp</w>
       <w>insercion</w>
       <w>junio</w>
@@ -105,6 +109,7 @@
       <w>tiempo</w>
       <w>tienda</w>
       <w>todas</w>
+      <w>todos</w>
       <w>usuario</w>
       <w>valores</w>
       <w>vendedor</w>

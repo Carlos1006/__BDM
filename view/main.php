@@ -42,7 +42,7 @@
                         <?php
                             }
                             foreach($avisos as $aviso) {
-                                if(file_exists ( $aviso->getPathThumbnail() )) {
+                                if(file_exists ( $_SESSION['raiz'].$aviso->getPathThumbnail() )) {
                                     $url = $aviso->getPathThumbnail();
                                 } else {
                                     $url = "/__BDM/img/404/dino.png";

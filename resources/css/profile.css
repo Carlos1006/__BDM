@@ -1249,6 +1249,11 @@
     width:63%;
     background-color:rgb(22,22,22);
 }
+
+.productInput{
+   width:60%;
+}
+
 .verifyAdInput{
     float:left;
     height:100%;
@@ -1257,6 +1262,23 @@
     border-bottom-right-radius:5px;
     border-top-right-radius:5px;
 }
+
+.imgUpdateProduct{
+   float:left;
+   height:100%;
+   width:10%;
+}
+
+.imgUpdateProductSrc{
+   height:100%;
+   width:100%;
+   background:rgb(244,244,244);
+}
+
+.fileVerifyProduct{
+   width:2%;
+}
+
 .inputNewAd {
     height:100% !important;
     width:100%;
@@ -1455,6 +1477,7 @@ textarea {
     -webkit-transition: all 0.2s ease;
     -moz-transition:    all 0.2s ease;
     -o-transition:      all 0.2s ease;
+    -o-transition:      all 0.2s ease;
     -ms-transition:     all 0.2s ease;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -1480,4 +1503,10 @@ textarea {
 
 .pay:active{
     background-color:rgb(35,35,35);
+}
+
+.newForm {
+    background:transparent;
+    height:100%;
+    width:100%;
 }

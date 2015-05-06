@@ -12,6 +12,9 @@ class Producto{
     var $fechaProducto;
     var $horaProducto;
     var $activoProducto;
+
+    var $imagenesProducto;
+    var $videosProducto;
     
     var $usuario;
     
@@ -35,7 +38,16 @@ class Producto{
     function setUsuarioProducto($usuario) {
         $this->usuario = $usuario;
     }
-    
+
+    function setImagenesProducto($arrayImagenes) {
+        $this->imagenesProducto = array();
+        $this->imagenesProducto = $arrayImagenes;
+    }
+    function setVideosProducto($arrayVideo) {
+        $this->videosProducto = array();
+        $this->videosProducto = $arrayVideo;
+    }
+
     function getIdProducto          () { return $this->idProducto;			}
     function getNombreProducto      () { return $this->nombreProducto;		}
     function getDescripcionProducto () { return $this->descripcionProducto;	}
@@ -48,6 +60,9 @@ class Producto{
     function getUsuarioProducto     () { return $this->usuario;				}
     function getPathThumbnail       () { return $this->pathThumbnail;	    }
     function getProducto            () { return $this;						}
+    function getVideosProducto      () { return $this->videosProducto;		}
+    function getImagenesProducto    () { return $this->imagenesProducto;	}
+    function getCaracteristicaProducto () { return $this->caracteristicaProducto;	}
 }
 
 ?>

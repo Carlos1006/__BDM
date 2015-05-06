@@ -13,6 +13,7 @@
                 include $_SESSION['raiz']."/__BDM/model/Producto.php";
         ?>
         <script src="/__BDM/resources/js/profile.js"></script>
+        <script src="/__BDM/resources/js/actions/profile_actions.js"></script>
         <script src="/__BDM/resources/js/validator/profile_validator.js"></script>
     </head>
     <body>
@@ -53,7 +54,7 @@
                                         $avisos = unserialize($_SESSION["misAvisos"]);
                                         if(count($avisos) > 0) {
                                             foreach($avisos as $aviso) {
-                                                if(file_exists ( $aviso->getPathThumbnail() )) {
+                                                if(file_exists ( $_SESSION['raiz'].$aviso->getPathThumbnail() )) {
                                                     $url = $aviso->getPathThumbnail();
                                                 } else {
                                                     $url = "/__BDM/img/404/dino.png";
@@ -109,7 +110,7 @@
                                         $productos = unserialize($_SESSION["misProductos"]);
                                         if(count($productos) > 0) {
                                             foreach($productos as $producto) {
-                                                if(file_exists ( $producto->getPathThumbnail() )) {
+                                                if(file_exists ( $_SESSION['raiz'].$producto->getPathThumbnail() )) {
                                                     $url = $producto->getPathThumbnail();
                                                 } else {
                                                     $url = "/__BDM/img/404/dino.png";
@@ -124,13 +125,13 @@
                                                     <div class="profileDateProduct"><?php echo $producto->getVigenciaProducto(); ?></div>
                                                     <div class="profileActionProduct">
                                                         <div class="viewAction">
-                                                            <img class="viewImg" verProducto="<?php echo $producto->getIdProducto(); ?>" src="/__BDM/img/icons/view-128.png">
+                                                            <img class="viewImg viewProductBtn" verProducto="<?php echo $producto->getIdProducto(); ?>" src="/__BDM/img/icons/view-128.png">
                                                         </div>
                                                         <div class="editAction">
-                                                            <img class="editImg" editaProducto="<?php echo $producto->getIdProducto(); ?>" src="/__BDM/img/icons/editAd.png">
+                                                            <img class="editImg editProductBtn" editaProducto="<?php echo $producto->getIdProducto(); ?>" src="/__BDM/img/icons/editAd.png">
                                                         </div>
                                                         <div class="deleteAction">
-                                                            <img class="deleteImg" borraProducto="<?php echo $producto->getIdProducto(); ?>" src="/__BDM/img/icons/deleteAdd.png">
+                                                            <img class="deleteImg deleteProductBtn" borraProducto="<?php echo $producto->getIdProducto(); ?>" src="/__BDM/img/icons/deleteAdd.png">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -265,144 +266,164 @@
                         </div>
                         <!--Pagina 6-->
                         <div class="profileUpload_Product">
-                            <div class="headerUpload">Nuevo Producto</div>
-                            <div class="new">
-                                <div class="leftColumn">
-                                    <div class="verifyAd">
-                                        <div class="titleInput">Nombre</div>
-                                        <div class="adInput">
-                                            <input type="text" class="form-control inputNewAd" placeholder="Nombre..." id="pName"/>
+                            <form class="newForm" id="formUploadProduct" method="POST" enctype="multipart/form-data" action="/__BDM/controller/setProducto.php">
+                                <div class="headerUpload" id="headerNewP" idProducto="">Nuevo Producto</div>
+                                <div class="new">
+                                    <div class="leftColumn">
+                                        <div class="verifyAd">
+                                            <div class="titleInput">Nombre</div>
+                                            <div class="adInput">
+                                                <input type="text" class="form-control inputNewAd" placeholder="Nombre..." id="pName" name="upName"/>
+                                            </div>
+                                            <div class="verifyAdInput" id="vPName"></div>
                                         </div>
-                                        <div class="verifyAdInput" id="vPName"></div>
-                                    </div>
-                                    <div class="verifyAd">
-                                        <div class="titleInput">Precio</div>
-                                        <div class="adInput">
-                                            <input type="text" class="form-control inputNewAd" placeholder="15.00" id="pPrice"/>
+                                        <div class="verifyAd">
+                                            <div class="titleInput">Precio</div>
+                                            <div class="adInput">
+                                                <input type="text" class="form-control inputNewAd" placeholder="15.00" id="pPrice" name="upPrice"/>
+                                            </div>
+                                            <div class="verifyAdInput" id="vPPrice"></div>
                                         </div>
-                                        <div class="verifyAdInput" id="vPPrice"></div>
-                                    </div>
-                                    <div class="verifyAd">
-                                        <div class="titleInput">Vigencia</div>
-                                        <div class="adInput" style="position:relative;z-index:500;">
-                                            <div id="label-vigenciaProducto" class="form-control labelDate" style="padding-top:4%;font-weight:600;" title="Click para ajustar la fecha"></div>
-                                            <div id="fecha-vigenciaProducto" class="date">
-                                                <div class="ym">
-                                                    <div class="y">
-                                                        <select id="anio-vigenciaProducto" class="btn btn-white year">
-                                                        </select>
+                                        <div class="verifyAd">
+                                            <div class="titleInput">Vigencia</div>
+                                            <div class="adInput" style="position:relative;z-index:500;">
+                                                <div id="label-vigenciaProducto" class="form-control labelDate" style="padding-top:4%;font-weight:600;" title="Click para ajustar la fecha"></div>
+                                                <div id="fecha-vigenciaProducto" class="date">
+                                                    <div class="ym">
+                                                        <div class="y">
+                                                            <select id="anio-vigenciaProducto" class="btn btn-white year">
+                                                            </select>
+                                                        </div>
+                                                        <div class="m">
+                                                            <div id="mesAnterior-vigenciaProducto" class="btn-black prev">
+                                                                <img class="imgPrev" src="/__BDM/img/icons/left.png"/>
+                                                            </div>
+                                                            <div id="mesAnterior-vigenciaProducto" class="btn-white month">
+                                                                <div class="1vigenciaProducto"  dias="31">Enero</div>
+                                                                <div class="2vigenciaProducto"  dias="28">Febrero</div>
+                                                                <div class="3vigenciaProducto"  dias="31">Marzo</div>
+                                                                <div class="4vigenciaProducto"  dias="30">Abril</div>
+                                                                <div class="5vigenciaProducto"  dias="31">Mayo</div>
+                                                                <div class="6vigenciaProducto"  dias="30">Junio</div>
+                                                                <div class="7vigenciaProducto"  dias="31">Julio</div>
+                                                                <div class="8vigenciaProducto"  dias="31">Agosto</div>
+                                                                <div class="9vigenciaProducto"  dias="30">Septiembre</div>
+                                                                <div class="10vigenciaProducto" dias="31">Octubre</div>
+                                                                <div class="11vigenciaProducto" dias="30">Noviembre</div>
+                                                                <div class="12vigenciaProducto" dias="31">Diciembre</div>
+                                                            </div>
+                                                            <div id="mesSiguiente-vigenciaProducto" class="btn-black next">
+                                                                <img class="imgNext" src="/__BDM/img/icons/right.png"/>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                    <div class="m">
-                                                        <div id="mesAnterior-vigenciaProducto" class="btn-black prev">
-                                                            <img class="imgPrev" src="/__BDM/img/icons/left.png"/>
-                                                        </div>
-                                                        <div id="mesAnterior-vigenciaProducto" class="btn-white month">
-                                                            <div class="1vigenciaProducto"  dias="31">Enero</div>
-                                                            <div class="2vigenciaProducto"  dias="28">Febrero</div>
-                                                            <div class="3vigenciaProducto"  dias="31">Marzo</div>
-                                                            <div class="4vigenciaProducto"  dias="30">Abril</div>
-                                                            <div class="5vigenciaProducto"  dias="31">Mayo</div>
-                                                            <div class="6vigenciaProducto"  dias="30">Junio</div>
-                                                            <div class="7vigenciaProducto"  dias="31">Julio</div>
-                                                            <div class="8vigenciaProducto"  dias="31">Agosto</div>
-                                                            <div class="9vigenciaProducto"  dias="30">Septiembre</div>
-                                                            <div class="10vigenciaProducto" dias="31">Octubre</div>
-                                                            <div class="11vigenciaProducto" dias="30">Noviembre</div>
-                                                            <div class="12vigenciaProducto" dias="31">Diciembre</div>
-                                                        </div>
-                                                        <div id="mesSiguiente-vigenciaProducto" class="btn-black next">
-                                                            <img class="imgNext" src="/__BDM/img/icons/right.png"/>
-                                                        </div>
+                                                    <div id="dia-vigenciaProducto" class="d">
                                                     </div>
-                                                </div>
-                                                <div id="dia-vigenciaProducto" class="d">
                                                 </div>
                                             </div>
+                                            <div class="verifyAdInput" id="vPDate"></div>
                                         </div>
-                                        <div class="verifyAdInput" id="vPDate"></div>
-                                    </div>
-                                    <div class="verifyAd">
-                                        <div class="titleInput">Existencia</div>
-                                        <div class="adInput">
-                                            <input type="text" class="form-control inputNewAd" placeholder="Existencia..." id="pStock"/>
+                                        <div class="verifyAd">
+                                            <div class="titleInput">Existencia</div>
+                                            <div class="adInput">
+                                                <input type="text" class="form-control inputNewAd" placeholder="Existencia..." id="pStock" name="upStock"/>
+                                            </div>
+                                            <div class="verifyAdInput" id="vPStock"></div>
                                         </div>
-                                        <div class="verifyAdInput" id="vPStock"></div>
-                                    </div>
-                                    <div class="verifyAdExtend">
-                                        <div class="titleInputExtend">Descripcion</div>
-                                        <div class="adInputExtend">
-                                            <textarea class="form-control inputNewAd" placeholder="Esta descripcion sera visible en resultados de busqueda..." id="pShort"></textarea>
+                                        <div class="verifyAdExtend">
+                                            <div class="titleInputExtend">Descripcion</div>
+                                            <div class="adInputExtend">
+                                                <textarea class="form-control inputNewAd" placeholder="Esta descripcion sera visible en resultados de busqueda..." id="pShort" name="upShort"></textarea>
+                                            </div>
+                                            <div class="verifyAdInputExtend" id="vPShort"></div>
                                         </div>
-                                        <div class="verifyAdInputExtend" id="vPShort"></div>
-                                    </div>
-                                    <div class="verifyAdExtend">
-                                        <div class="titleInputExtend">Caracteristicas</div>
-                                        <div class="adInputExtend">
-                                            <textarea class="form-control inputNewAd" placeholder="Esta descripcion sera visible al visualizar tu anuncio..." id="pLong"></textarea>
+                                        <div class="verifyAdExtend">
+                                            <div class="titleInputExtend">Caracteristicas</div>
+                                            <div class="adInputExtend">
+                                                <textarea class="form-control inputNewAd" placeholder="Esta descripcion sera visible al visualizar tu anuncio..." id="pLong" name="upLong"></textarea>
+                                            </div>
+                                            <div class="verifyAdInputExtend" id="vPLong"></div>
                                         </div>
-                                        <div class="verifyAdInputExtend" id="vPLong"></div>
+                                        <div class="errorAds">
+                                            <div class="errorAdsBox" id="pErrors">
+                                                <!--<div class="errorAd">Error</div>-->
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="errorAds">
-                                        <div class="errorAdsBox" id="pErrors">
-                                            <!--<div class="errorAd">Error</div>-->
+                                    <div class="rightColumn">
+                                        <div class="verifyAd">
+                                            <div class="titleInput">Imagen 1</div>
+                                            <div class="adInput productInput">
+                                                <label class="fileInput" for="file_1" id="label1">Archivo...</label>
+                                                <input type="file" name="fileU1" class="pImage" id="file_1" number="1"/>
+                                            </div>
+                                           <div class="imgUpdateProduct">
+                                                <img class="imgUpdateProductSrc" id="imgP1" idImagen="">
+                                           </div>
+                                            <div class="verifyAdInput fileVerifyProduct" id="vPImage1"></div>
+                                        </div>
+                                        <div class="verifyAd">
+                                            <div class="titleInput">Imagen 2</div>
+                                            <div class="adInput productInput">
+                                                <label class="fileInput" for="file_2" id="label2">Archivo...</label>
+                                                <input type="file" name="fileU2" class="pImage" id="file_2" number="2"/>
+                                            </div>
+                                            <div class="imgUpdateProduct">
+                                                <img class="imgUpdateProductSrc" id="imgP2" idImagen="">
+                                           </div>
+                                            <div class="verifyAdInput fileVerifyProduct" id="vPImage2"></div>
+                                        </div>
+                                        <div class="verifyAd">
+                                            <div class="titleInput">Imagen 3</div>
+                                            <div class="adInput productInput">
+                                                <label class="fileInput" for="file_3" id="label3">Archivo...</label>
+                                                <input type="file" name="fileU3" class="pImage" id="file_3" number="3"/>
+                                            </div>
+                                            <div class="imgUpdateProduct">
+                                                <img class="imgUpdateProductSrc" id="imgP3" idImagen="">
+                                           </div>
+                                            <div class="verifyAdInput fileVerifyProduct" id="vPImage3"></div>
+                                        </div>
+                                        <div class="verifyAd">
+                                            <div class="titleInput">Imagen 4</div>
+                                            <div class="adInput productInput">
+                                                <label class="fileInput" for="file_4" id="label4">Archivo...</label>
+                                                <input type="file" name="fileU4" class="pImage" id="file_4" number="4"/>
+                                            </div>
+                                            <div class="imgUpdateProduct">
+                                                <img class="imgUpdateProductSrc" id="imgP4" idImagen="">
+                                           </div>
+                                            <div class="verifyAdInput fileVerifyProduct" id="vPImage4"></div>
+                                        </div>
+                                        <div class="verifyAd">
+                                            <div class="titleInput">Video 1</div>
+                                            <div class="adInput productInput">
+                                                <label class="fileInput" for="file_5" id="label5">Archivo...</label>
+                                                <input type="file" name="fileU5" class="pVideo" id="file_5" number="5"/>
+                                            </div>
+                                            <div class="imgUpdateProduct">
+                                                <img class="imgUpdateProductSrc" id="imgP5" idVideo="">
+                                           </div>
+                                            <div class="verifyAdInput fileVerifyProduct" id="vPVideo1"></div>
+                                        </div>
+                                        <div class="verifyAd">
+                                            <div class="titleInput">Video 2</div>
+                                            <div class="adInput productInput">
+                                                <label class="fileInput" for="file_6" id="label6">Archivo...</label>
+                                                <input type="file" name="fileU6" class="pVideo" id="file_6" number="6"/>
+                                            </div>
+                                            <div class="imgUpdateProduct">
+                                                <img class="imgUpdateProductSrc" id="imgP6" idVideo="">
+                                           </div>
+                                            <div class="verifyAdInput fileVerifyProduct" id="vPVideo2"></div>
+                                        </div>
+                                        <div class="actionsAd">
+                                            <div class="cancel btn" id="cancelNewProduct">Cancelar</div>
+                                            <div class="ok btn" id="okNewProduct">Crear producto</div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="rightColumn">
-                                    <div class="verifyAd">
-                                        <div class="titleInput">Imagen 1</div>
-                                        <div class="adInput">
-                                            <label class="fileInput" for="file_1" id="label1">Archivo...</label>
-                                            <input type="file" name="file" class="pImage" id="file_1" number="1"/>
-                                        </div>
-                                        <div class="verifyAdInput" id="vPImage1"></div>
-                                    </div>
-                                    <div class="verifyAd">
-                                        <div class="titleInput">Imagen 2</div>
-                                        <div class="adInput">
-                                            <label class="fileInput" for="file_2" id="label2">Archivo...</label>
-                                            <input type="file" name="file" class="pImage" id="file_2" number="2"/>
-                                        </div>
-                                        <div class="verifyAdInput" id="vPImage2"></div>
-                                    </div>
-                                    <div class="verifyAd">
-                                        <div class="titleInput">Imagen 3</div>
-                                        <div class="adInput">
-                                            <label class="fileInput" for="file_3" id="label3">Archivo...</label>
-                                            <input type="file" name="file" class="pImage" id="file_3" number="3"/>
-                                        </div>
-                                        <div class="verifyAdInput" id="vPImage3"></div>
-                                    </div>
-                                    <div class="verifyAd">
-                                        <div class="titleInput">Imagen 4</div>
-                                        <div class="adInput">
-                                            <label class="fileInput" for="file_4" id="label4">Archivo...</label>
-                                            <input type="file" name="file" class="pImage" id="file_4" number="4"/>
-                                        </div>
-                                        <div class="verifyAdInput" id="vPImage4"></div>
-                                    </div>
-                                    <div class="verifyAd">
-                                        <div class="titleInput">Video 1</div>
-                                        <div class="adInput">
-                                            <label class="fileInput" for="file_5" id="label5">Archivo...</label>
-                                            <input type="file" name="file" class="pVideo" id="file_5" number="5"/>
-                                        </div>
-                                        <div class="verifyAdInput" id="vPVideo1"></div>
-                                    </div>
-                                    <div class="verifyAd">
-                                        <div class="titleInput">Video 2</div>
-                                        <div class="adInput">
-                                            <label class="fileInput" for="file_6" id="label6">Archivo...</label>
-                                            <input type="file" name="file" class="pVideo" id="file_6" number="6"/>
-                                        </div>
-                                        <div class="verifyAdInput" id="vPVideo2"></div>
-                                    </div>
-                                    <div class="actionsAd">
-                                        <div class="cancel btn" id="cancelNewProduct">Cancelar</div>
-                                        <div class="ok btn" id="okNewProduct">Crear producto</div>
-                                    </div>
-                                </div>
-                            </div>
+                            </form>
                         </div>
                         <!--Pagina 7-->
                         <div class="profileUpload_Ad">

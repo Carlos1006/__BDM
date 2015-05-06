@@ -35,6 +35,12 @@ form {
     display:none;
 }
 
-input[name="file"]{
+input[name="file"],
+input[name="fileU1"],
+input[name="fileU2"],
+input[name="fileU3"],
+input[name="fileU4"],
+input[name="fileU5"],
+input[name="fileU6"] {
 	display:none;
 }

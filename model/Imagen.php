@@ -8,40 +8,18 @@ class Imagen {
     
     var $producto;
 	
-	function __construct($id,$path,$activo,$producto) {
+	function setIdImagen($id) {
 		$this->idImagen 	= $id;
-		$this->pathImagen 	= $path;
-		$this->activoImagen = $activo;
-		
-		$this->producto = new Producto(	$producto->idProducto,
-										$producto->nombreProducto,
-										$producto->descripcionProducto,
-										$producto->precioProducto,
-										$producto->existenciaProducto,
-										$producto->vigenciaProducto,
-										$producto->caracteristicaProducto,
-										$producto->fechaProducto,
-										$producto->horaProducto,
-										$producto->activoProducto,
-										$producto->usuario);
 	}
 	
-	function __construct($path,$activo,$producto) {
+	function __construct($path,$activo) {
 		$this->pathImagen 	= $path;
 		$this->activoImagen = $activo;
-		
-		$this->producto = new Producto(	$producto->idProducto,
-										$producto->nombreProducto,
-										$producto->descripcionProducto,
-										$producto->precioProducto,
-										$producto->existenciaProducto,
-										$producto->vigenciaProducto,
-										$producto->caracteristicaProducto,
-										$producto->fechaProducto,
-										$producto->horaProducto,
-										$producto->activoProducto,
-										$producto->usuario);
 	}
+
+    function setProductoImagen($producto) {
+        $this->producto = $producto;
+    }
     
     function getIdImagen		() { return $this->idImagen;	 }
     function getPathImagen		() { return $this->pathImagen;	 }

@@ -607,7 +607,7 @@ function getMonthNumber(month) {
             case"Julio":        devovler=7;  break;
             case"Agosto":       devovler=8;  break;
             case"Septiembre":   devovler=9;  break;
-            case"Ocubre":       devovler=10; break;
+            case"Octubre":       devovler=10; break;
             case"Noviembre":    devovler=11; break;
             case"Diciembre":    devovler=12; break;
     }
