@@ -69,12 +69,12 @@
                                                     <div class="profileDateAd"><?php echo $aviso->getFechaAviso(); ?></div>
                                                     <div class="profileActionAd">
                                                         <div class="viewAction">
-                                                            <img class="viewImg" verAviso="<?php echo $aviso->getIdAviso(); ?>" src="/__BDM/img/icons/view-128.png">
+                                                            <img class="viewImg viewAdBtn" verAviso="<?php echo $aviso->getIdAviso(); ?>" src="/__BDM/img/icons/view-128.png">
                                                         </div>
                                                         <div class="editAction">
-                                                            <img class="editImg" editaAviso="<?php echo $aviso->getIdAviso(); ?>"  src="/__BDM/img/icons/editAd.png">
+                                                            <img class="editImg editAdBtn" editaAviso="<?php echo $aviso->getIdAviso(); ?>"  src="/__BDM/img/icons/editAd.png">
                                                         </div>
-                                                        <div class="deleteAction">
+                                                        <div class="deleteAction deleteAdBtn">
                                                             <img class="deleteImg" borraAviso="<?php echo $aviso->getIdAviso(); ?>" src="/__BDM/img/icons/deleteAdd.png">
                                                         </div>
                                                     </div>
@@ -427,7 +427,7 @@
                         </div>
                         <!--Pagina 7-->
                         <div class="profileUpload_Ad">
-                            <div class="headerUpload">Nuevo Aviso</div>
+                            <div class="headerUpload" id="headerNewA" idAviso="">Nuevo Aviso</div>
                             <div class="new">
                                 <div class="leftColumn">
                                     <div class="verifyAd">
@@ -508,9 +508,29 @@
                                         <div class="titleInput">Producto</div>
                                         <div class="adInput">
                                             <select class="inputNewAd" id="aProduct">
-                                                <option value="" disabled selected>Elige un producto</option>
-                                                <option>carlos</option>
-                                                <option>daniel</option>
+                                                <?php
+                                                $productos = null;
+                                                if(isset($_SESSION["misProductos"])) {
+                                                    $productos = unserialize($_SESSION["misProductos"]);
+                                                    if(count($productos) > 0) {
+                                                        echo "<option value='' disabled selected>Elige un producto</option>";
+                                                        foreach($productos as $producto) {
+                                                            if(file_exists ( $_SESSION['raiz'].$producto->getPathThumbnail() )) {
+                                                                $url = $producto->getPathThumbnail();
+                                                            } else {
+                                                                $url = "/__BDM/img/404/dino.png";
+                                                            }
+                                                            ?>
+                                                            <option val="<?php echo $producto->getIdProducto(); ?>"><?php echo $producto->getNombreProducto(); ?></option>
+                                                        <?php
+                                                        }
+                                                    } else {
+                                                        ?>
+                                                        <option value="" disabled selected>Sin productos</option>
+                                                    <?php
+                                                    }
+                                                }
+                                                ?>
                                             </select>
                                         </div>
                                         <div class="verifyAdInput" id="vAProduct"></div>
@@ -520,8 +540,16 @@
                                         <div class="adInput">
                                             <select class="inputNewAd" id="aCategory">
                                                 <option value="" disabled selected>Elige una categoria</option>
-                                                <option>carlos</option>
-                                                <option>daniel</option>
+                                                <?php
+                                                $categorias = unserialize($_SESSION['categoria']);
+                                                foreach($categorias as $categoria) {
+                                                    if($categoria->activoCategoria==1) {
+                                                        ?>
+                                                        <option value="<?php echo $categoria->getIdCategoria(); ?>"><?php echo $categoria->getNombreCategoria() ?></option>
+                                                    <?php
+                                                    }
+                                                }
+                                                ?>
                                             </select>
                                         </div>
                                         <div class="verifyAdInput" id="vACategory"></div>
@@ -531,8 +559,6 @@
                                         <div class="adInput">
                                             <select class="inputNewAd" id="aSubcategory">
                                                 <option value="" disabled selected>Elige una subcategoria</option>
-                                                <option>carlos</option>
-                                                <option>daniel</option>
                                             </select>
                                         </div>
                                         <div class="verifyAdInput" id="vASubcategory"></div>
@@ -541,9 +567,16 @@
                                     <div class="payContainer">
                                         <div class="titlePay">Metodos de pago</div>
                                         <div class="payBody">
-                                            <div class="pay" idMetodoPago="1" check="false">Tarjeta</div>
-                                            <div class="pay" idMetodoPago="2" check="false">Deposito</div>
-                                            <div class="pay" idMetodoPago="3" check="false">Paypal</div>
+                                            <?php
+                                                if(isset($_SESSION["metodosPago"])) {
+                                                    $metodos = unserialize($_SESSION["metodosPago"]);
+                                                    foreach($metodos as $metodo) {
+                                            ?>
+                                                        <div class="pay" idMetodoPago="<?php echo $metodo->getIdMetodoPago(); ?>" check="false"><?php echo $metodo->getNombreMetodoPago(); ?></div>
+                                            <?php
+                                                    }
+                                                }
+                                            ?>
                                         </div>
                                         <div class="verifyAdPay" id="vAPay"></div>
                                     </div>

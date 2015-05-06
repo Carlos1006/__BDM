@@ -7,6 +7,7 @@ class Aviso {
     var $fechaAviso;
     var $horaAviso;
     var $activoAviso;
+    var $vigenciaAviso;
 
     var $precioAviso;
     var $descripcionLarga;
@@ -14,6 +15,9 @@ class Aviso {
     var $subcategoria   = null;
     var $producto       = null;
     var $usuario        = null;
+    var $categoria      = null;
+
+    var $metodosPago    = null;
     
 	function __construct($thumbnail,$cantida,$descripcion,$fecha,$hora,$activo,$precio,$descripcionLarga) {
         $this->pathThumbnail = $thumbnail;
@@ -39,6 +43,16 @@ class Aviso {
     function setUsuario($data) {
         $this->usuario = $data;
     }
+    function setCategoria($categoria) {
+        $this->categoria = $categoria;
+    }
+    function setVigenciaAviso($vigencia) {
+        $this->vigenciaAviso = $vigencia;
+    }
+    function setMetodosPago($metodos) {
+        $this->metodosPago = array();
+        $this->metodosPago = $metodos;
+    }
 
     function getPathThumbnail           () { return $this->pathThumbnail;       }
     function getIdAviso                 () { return $this->idAviso;				}
@@ -52,6 +66,9 @@ class Aviso {
     function getDescripcionLargaAviso   () { return $this->descripcionLarga;    }
     function getUsuarioAviso            () { return $this->usuario;             }
     function getProductoAviso           () { return $this->producto;            }
+    function getCategoriaAviso          () { return $this->categoria;           }
+    function getVigenciaAviso           () { return $this->vigenciaAviso;       }
+    function getMetodosPagoAviso        () { return $this->metodosPago;         }
     function getAviso                   () { return $this;						}
 }
 

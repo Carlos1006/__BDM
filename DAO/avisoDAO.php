@@ -1,6 +1,7 @@
 <?php
     include_once $_SERVER["DOCUMENT_ROOT"]."/__BDM/model/Aviso.php";
     include_once $_SERVER["DOCUMENT_ROOT"]."/__BDM/model/Busqueda.php";
+    include_once $_SERVER["DOCUMENT_ROOT"]."/__BDM/model/MetodoPago.php";
     include_once $_SERVER["DOCUMENT_ROOT"]."/__BDM/DAO/mysql.php";
 
     class avisoDao {
@@ -85,6 +86,44 @@
         static function getMisAvisos($id) {
             $query = "CALL misAvisos($id)";
             return avisoDao::execAvisosQuery($query);
+        }
+
+        static function getAviso($id) {
+            $query  = "CALL detalleAviso($id)";
+            $result = mysqli_query(mysql::getConexion(),$query);
+            $aviso  = null;
+            while($row = mysqli_fetch_object($result)) {
+                $id             = $row->idAviso;
+                $cantida        = $row->cantidadAviso;
+                $precio         = $row->precioAviso;
+                $corta          = $row->descripcionCortaAviso;
+                $larga          = $row->descripcionAviso;
+                $vigencia       = $row->vigenciaAviso;
+                $idCategoria    = $row->idCategoriaSubcategoria;
+                $idSubcategoria = $row->idSubcategoriaAviso;
+                $idProducto     = $row->idProductoAviso;
+                $activo         = $row->activoAviso;
+                $aviso          = new Aviso(null,$cantida,$corta,null,null,$activo,$precio,$larga);
+                $aviso->setProducto($idProducto);
+                $aviso->setSubcategoria($idSubcategoria);
+                $aviso->setCategoria($idCategoria);
+                $aviso->setVigenciaAviso($vigencia);
+                $aviso->setIdAviso($id);
+            }
+
+            $query   = "CALL metodosPagoAviso($id)";
+            $result  = mysqli_query(mysql::getConexion(),$query);
+            $metodos = array();
+            while($row = mysqli_fetch_object($result)) {
+                $id     = $row->idMetodoPago;
+                $nombre = $row->nombreMetodoPago;
+                $activo = $row->activoMetodoPago;
+                $metodo = new MetodoPago($nombre,$activo);
+                $metodo->setIdMetodoPago($id);
+                array_push($metodos,$metodo);
+            }
+            $aviso->setMetodosPago($metodos);
+            return $aviso;
         }
 
     }

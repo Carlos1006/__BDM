@@ -5,6 +5,7 @@
     include_once $_SERVER["DOCUMENT_ROOT"]."/__BDM/DAO/productoDAO.php";
     include_once $_SERVER["DOCUMENT_ROOT"]."/__BDM/DAO/preguntaDAO.php";
     include_once $_SERVER["DOCUMENT_ROOT"]."/__BDM/DAO/ventaDAO.php";
+    include_once $_SERVER["DOCUMENT_ROOT"]."/__BDM/DAO/metodoPagoDAO.php";
     session_start();
     $usuarioSesion = unserialize($_SESSION["sesion"]);
 
@@ -21,6 +22,15 @@
     $_SESSION["misSolicitudes"] = serialize($misSolicitudes);
     $_SESSION["misVentas"]      = serialize($misVentas);
     $_SESSION["totalVentas"]    = $miTotalVentas;
+
+    $todosMetodosPago        = metodoPagoDAO::getMetodosPago();
+    $todasCategorias         = null;
+    $todasSubcategorias      = null;
+
+    $_SESSION["metodosPago"] = serialize($todosMetodosPago);
+    //$_SESSION["categoria"]);
+    //$_SESSION["misProductos"];
+
 
     header('Location: /__BDM/view/profile.php');
 ?>

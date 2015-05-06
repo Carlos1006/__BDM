@@ -22,6 +22,7 @@ function setAll(){
     $(".profileQuestionContainer").perfectScrollbar({suppressScrollX:true});
     $(".profileRequestContainer").perfectScrollbar({suppressScrollX:true});
     $(".profileSalesContainer").perfectScrollbar({suppressScrollX:true});
+    $(".payBody").perfectScrollbar({suppressScrollX:true});
     $("#filterAds").on("textchange",filterAds);
     $("#filterProducts").on("textchange",filterProducts);
     /*-upload-*/
