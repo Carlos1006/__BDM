@@ -14,5 +14,5 @@
     $respuesta->setPreguntaRespuesta($idPregunta);
 
     respuestaDAO::setRespuesta($respuesta);
-
+    header('Location: /__BDM/controller/getProfile.php');
 ?>

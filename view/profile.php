@@ -14,6 +14,7 @@
         ?>
         <script src="/__BDM/resources/js/profile.js"></script>
         <script src="/__BDM/resources/js/actions/profile_actions.js"></script>
+        <script src="/__BDM/resources/js/actions/profile_actions_2.js"></script>
         <script src="/__BDM/resources/js/validator/profile_validator.js"></script>
     </head>
     <body>
