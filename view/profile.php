@@ -66,7 +66,7 @@
                                                     </div>
                                                     <div class="profileDescriptionAd"><?php echo $aviso->getDescripcionAviso(); ?></div>
                                                     <div class="profilePriceAd"><?php echo $aviso->getPrecioAviso(); ?></div>
-                                                    <div class="profileDateAd"><?php echo $aviso->getFechaAviso(); ?></div>
+                                                    <div class="profileDateAd"><?php echo $aviso->getVigenciaAviso(); ?></div>
                                                     <div class="profileActionAd">
                                                         <div class="viewAction">
                                                             <img class="viewImg viewAdBtn" verAviso="<?php echo $aviso->getIdAviso(); ?>" src="/__BDM/img/icons/view-128.png">
@@ -427,166 +427,168 @@
                         </div>
                         <!--Pagina 7-->
                         <div class="profileUpload_Ad">
-                            <div class="headerUpload" id="headerNewA" idAviso="">Nuevo Aviso</div>
-                            <div class="new">
-                                <div class="leftColumn">
-                                    <div class="verifyAd">
-                                        <div class="titleInput">Cantidad</div>
-                                        <div class="adInput">
-                                            <input type="text" class="form-control inputNewAd" placeholder="Cantidad..." id="aStock"/>
+                            <form class="newForm" id="formUploadAd" method="POST" enctype="multipart/form-data" action="/__BDM/controller/setAviso.php">
+                                <div class="headerUpload" id="headerNewA" idAviso="">Nuevo Aviso</div>
+                                <div class="new">
+                                    <div class="leftColumn">
+                                        <div class="verifyAd">
+                                            <div class="titleInput">Cantidad</div>
+                                            <div class="adInput">
+                                                <input type="text" class="form-control inputNewAd" placeholder="Cantidad..." id="aStock" old="0" name="upCantidad"/>
+                                            </div>
+                                            <div class="verifyAdInput" id="vAStock"></div>
                                         </div>
-                                        <div class="verifyAdInput" id="vAStock"></div>
-                                    </div>
-                                    <div class="verifyAd">
-                                        <div class="titleInput">Precio</div>
-                                        <div class="adInput">
-                                            <input type="text" class="form-control inputNewAd" placeholder="15.00" id="aPrice"/>
+                                        <div class="verifyAd">
+                                            <div class="titleInput">Precio</div>
+                                            <div class="adInput">
+                                                <input type="text" class="form-control inputNewAd" placeholder="15.00" id="aPrice" name="upPrecio"/>
+                                            </div>
+                                            <div class="verifyAdInput" id="vAPrice"></div>
                                         </div>
-                                        <div class="verifyAdInput" id="vAPrice"></div>
-                                    </div>
-                                    <div class="verifyAd">
-                                        <div class="titleInput">Vigencia</div>
-                                        <div class="adInput" style="position:relative;z-index:500;">
-                                            <div id="label-vigenciaAviso" class="form-control labelDate" style="padding-top:4%;font-weight:600;" title="Click para ajustar la fecha"></div>
-                                            <div id="fecha-vigenciaAviso" class="date">
-                                                <div class="ym">
-                                                    <div class="y">
-                                                        <select id="anio-vigenciaAviso" class="btn btn-white year">
-                                                        </select>
+                                        <div class="verifyAd">
+                                            <div class="titleInput">Vigencia</div>
+                                            <div class="adInput" style="position:relative;z-index:500;">
+                                                <div id="label-vigenciaAviso" class="form-control labelDate" style="padding-top:4%;font-weight:600;" title="Click para ajustar la fecha"></div>
+                                                <div id="fecha-vigenciaAviso" class="date">
+                                                    <div class="ym">
+                                                        <div class="y">
+                                                            <select id="anio-vigenciaAviso" class="btn btn-white year">
+                                                            </select>
+                                                        </div>
+                                                        <div class="m">
+                                                            <div id="mesAnterior-vigenciaAviso" class="btn-black prev">
+                                                                <img class="imgPrev" src="/__BDM/img/icons/left.png"/>
+                                                            </div>
+                                                            <div id="mesAnterior-vigenciaAviso" class="btn-white month">
+                                                                <div class="1vigenciaAviso"  dias="31">Enero</div>
+                                                                <div class="2vigenciaAviso"  dias="28">Febrero</div>
+                                                                <div class="3vigenciaAviso"  dias="31">Marzo</div>
+                                                                <div class="4vigenciaAviso"  dias="30">Abril</div>
+                                                                <div class="5vigenciaAviso"  dias="31">Mayo</div>
+                                                                <div class="6vigenciaAviso"  dias="30">Junio</div>
+                                                                <div class="7vigenciaAviso"  dias="31">Julio</div>
+                                                                <div class="8vigenciaAviso"  dias="31">Agosto</div>
+                                                                <div class="9vigenciaAviso"  dias="30">Septiembre</div>
+                                                                <div class="10vigenciaAviso" dias="31">Octubre</div>
+                                                                <div class="11vigenciaAviso" dias="30">Noviembre</div>
+                                                                <div class="12vigenciaAviso" dias="31">Diciembre</div>
+                                                            </div>
+                                                            <div id="mesSiguiente-vigenciaAviso" class="btn-black next">
+                                                                <img class="imgNext" src="/__BDM/img/icons/right.png"/>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                    <div class="m">
-                                                        <div id="mesAnterior-vigenciaAviso" class="btn-black prev">
-                                                            <img class="imgPrev" src="/__BDM/img/icons/left.png"/>
-                                                        </div>
-                                                        <div id="mesAnterior-vigenciaAviso" class="btn-white month">
-                                                            <div class="1vigenciaAviso"  dias="31">Enero</div>
-                                                            <div class="2vigenciaAviso"  dias="28">Febrero</div>
-                                                            <div class="3vigenciaAviso"  dias="31">Marzo</div>
-                                                            <div class="4vigenciaAviso"  dias="30">Abril</div>
-                                                            <div class="5vigenciaAviso"  dias="31">Mayo</div>
-                                                            <div class="6vigenciaAviso"  dias="30">Junio</div>
-                                                            <div class="7vigenciaAviso"  dias="31">Julio</div>
-                                                            <div class="8vigenciaAviso"  dias="31">Agosto</div>
-                                                            <div class="9vigenciaAviso"  dias="30">Septiembre</div>
-                                                            <div class="10vigenciaAviso" dias="31">Octubre</div>
-                                                            <div class="11vigenciaAviso" dias="30">Noviembre</div>
-                                                            <div class="12vigenciaAviso" dias="31">Diciembre</div>
-                                                        </div>
-                                                        <div id="mesSiguiente-vigenciaAviso" class="btn-black next">
-                                                            <img class="imgNext" src="/__BDM/img/icons/right.png"/>
-                                                        </div>
+                                                    <div id="dia-vigenciaAviso" class="d">
                                                     </div>
-                                                </div>
-                                                <div id="dia-vigenciaAviso" class="d">
                                                 </div>
                                             </div>
+                                            <div class="verifyAdInput" id="vADate"></div>
                                         </div>
-                                        <div class="verifyAdInput" id="vADate"></div>
-                                    </div>
-                                    <div class="verifyAdExtend">
-                                        <div class="titleInputExtend">Descripcion breve</div>
-                                        <div class="adInputExtend">
-                                            <textarea class="form-control inputNewAd" placeholder="Esta descripcion sera visible en resultados de busqueda..." id="aShort"></textarea>
+                                        <div class="verifyAdExtend">
+                                            <div class="titleInputExtend">Descripcion breve</div>
+                                            <div class="adInputExtend">
+                                                <textarea class="form-control inputNewAd" placeholder="Esta descripcion sera visible en resultados de busqueda..." id="aShort" name="upCorta"></textarea>
+                                            </div>
+                                            <div class="verifyAdInputExtend" id="vAShort"></div>
                                         </div>
-                                        <div class="verifyAdInputExtend" id="vAShort"></div>
-                                    </div>
-                                    <div class="verifyAdExtend">
-                                        <div class="titleInputExtend">Descripcion extendida</div>
-                                        <div class="adInputExtend">
-                                            <textarea class="form-control inputNewAd" placeholder="Esta descripcion sera visible al visualizar tu anuncio..." id="aLong"></textarea>
+                                        <div class="verifyAdExtend">
+                                            <div class="titleInputExtend">Descripcion extendida</div>
+                                            <div class="adInputExtend">
+                                                <textarea class="form-control inputNewAd" placeholder="Esta descripcion sera visible al visualizar tu anuncio..." id="aLong" name="upLarga"></textarea>
+                                            </div>
+                                            <div class="verifyAdInputExtend" id="vALong"></div>
                                         </div>
-                                        <div class="verifyAdInputExtend" id="vALong"></div>
-                                    </div>
-                                    <div class="errorAds">
-                                        <div class="errorAdsBox" id="aErrors">
-                                            <!--<div class="errorAd">Error</div>-->
+                                        <div class="errorAds">
+                                            <div class="errorAdsBox" id="aErrors">
+                                                <!--<div class="errorAd">Error</div>-->
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="rightColumn">
-                                    <div class="verifyAd">
-                                        <div class="titleInput">Producto</div>
-                                        <div class="adInput">
-                                            <select class="inputNewAd" id="aProduct">
-                                                <?php
-                                                $productos = null;
-                                                if(isset($_SESSION["misProductos"])) {
-                                                    $productos = unserialize($_SESSION["misProductos"]);
-                                                    if(count($productos) > 0) {
-                                                        echo "<option value='' disabled selected>Elige un producto</option>";
-                                                        foreach($productos as $producto) {
-                                                            if(file_exists ( $_SESSION['raiz'].$producto->getPathThumbnail() )) {
-                                                                $url = $producto->getPathThumbnail();
-                                                            } else {
-                                                                $url = "/__BDM/img/404/dino.png";
+                                    <div class="rightColumn">
+                                        <div class="verifyAd">
+                                            <div class="titleInput">Producto</div>
+                                            <div class="adInput">
+                                                <select class="inputNewAd" id="aProduct" name="upProductoAviso">
+                                                    <?php
+                                                    $productos = null;
+                                                    if(isset($_SESSION["misProductos"])) {
+                                                        $productos = unserialize($_SESSION["misProductos"]);
+                                                        if(count($productos) > 0) {
+                                                            echo "<option value='' disabled selected>Elige un producto</option>";
+                                                            foreach($productos as $producto) {
+                                                                if(file_exists ( $_SESSION['raiz'].$producto->getPathThumbnail() )) {
+                                                                    $url = $producto->getPathThumbnail();
+                                                                } else {
+                                                                    $url = "/__BDM/img/404/dino.png";
+                                                                }
+                                                                ?>
+                                                                <option stock="<?php echo $producto->getExistenciaProducto(); ; ?>" vigencia="<?php echo $producto->getVigenciaProducto() ; ?>" value="<?php echo $producto->getIdProducto(); ?>"><?php echo $producto->getNombreProducto(); ?></option>
+                                                            <?php
                                                             }
+                                                        } else {
                                                             ?>
-                                                            <option stock="<?php echo $producto->getExistenciaProducto(); ; ?>" vigencia="<?php echo $producto->getVigenciaProducto() ; ?>" val="<?php echo $producto->getIdProducto(); ?>"><?php echo $producto->getNombreProducto(); ?></option>
+                                                            <option value="" disabled selected>Sin productos</option>
                                                         <?php
                                                         }
-                                                    } else {
-                                                        ?>
-                                                        <option value="" disabled selected>Sin productos</option>
-                                                    <?php
                                                     }
-                                                }
-                                                ?>
-                                            </select>
+                                                    ?>
+                                                </select>
+                                            </div>
+                                            <div class="verifyAdInput" id="vAProduct"></div>
                                         </div>
-                                        <div class="verifyAdInput" id="vAProduct"></div>
-                                    </div>
-                                    <div class="verifyAd">
-                                        <div class="titleInput">Categoria</div>
-                                        <div class="adInput">
-                                            <select class="inputNewAd" id="aCategory">
-                                                <option value="" disabled selected>Elige una categoria</option>
+                                        <div class="verifyAd">
+                                            <div class="titleInput">Categoria</div>
+                                            <div class="adInput">
+                                                <select class="inputNewAd" id="aCategory">
+                                                    <option value="" disabled selected>Elige una categoria</option>
+                                                    <?php
+                                                    $categorias = unserialize($_SESSION['categoria']);
+                                                    foreach($categorias as $categoria) {
+                                                        if($categoria->activoCategoria==1) {
+                                                            ?>
+                                                            <option value="<?php echo $categoria->getIdCategoria(); ?>"><?php echo $categoria->getNombreCategoria() ?></option>
+                                                        <?php
+                                                        }
+                                                    }
+                                                    ?>
+                                                </select>
+                                            </div>
+                                            <div class="verifyAdInput" id="vACategory"></div>
+                                        </div>
+                                        <div class="verifyAd">
+                                            <div class="titleInput">Subcategoria</div>
+                                            <div class="adInput">
+                                                <select class="inputNewAd" id="aSubcategory" name="upSubcategoria">
+                                                    <option value="" disabled selected>Elige una subcategoria</option>
+                                                </select>
+                                            </div>
+                                            <div class="verifyAdInput" id="vASubcategory"></div>
+                                        </div>
+
+                                        <div class="payContainer">
+                                            <div class="titlePay">Metodos de pago</div>
+                                            <div class="payBody">
                                                 <?php
-                                                $categorias = unserialize($_SESSION['categoria']);
-                                                foreach($categorias as $categoria) {
-                                                    if($categoria->activoCategoria==1) {
-                                                        ?>
-                                                        <option value="<?php echo $categoria->getIdCategoria(); ?>"><?php echo $categoria->getNombreCategoria() ?></option>
-                                                    <?php
-                                                    }
-                                                }
+                                                    if(isset($_SESSION["metodosPago"])) {
+                                                        $metodos = unserialize($_SESSION["metodosPago"]);
+                                                        foreach($metodos as $metodo) {
                                                 ?>
-                                            </select>
-                                        </div>
-                                        <div class="verifyAdInput" id="vACategory"></div>
-                                    </div>
-                                    <div class="verifyAd">
-                                        <div class="titleInput">Subcategoria</div>
-                                        <div class="adInput">
-                                            <select class="inputNewAd" id="aSubcategory">
-                                                <option value="" disabled selected>Elige una subcategoria</option>
-                                            </select>
-                                        </div>
-                                        <div class="verifyAdInput" id="vASubcategory"></div>
-                                    </div>
-                                    
-                                    <div class="payContainer">
-                                        <div class="titlePay">Metodos de pago</div>
-                                        <div class="payBody">
-                                            <?php
-                                                if(isset($_SESSION["metodosPago"])) {
-                                                    $metodos = unserialize($_SESSION["metodosPago"]);
-                                                    foreach($metodos as $metodo) {
-                                            ?>
-                                                        <div class="pay" idMetodoPago="<?php echo $metodo->getIdMetodoPago(); ?>" check="false"><?php echo $metodo->getNombreMetodoPago(); ?></div>
-                                            <?php
+                                                            <div class="pay" idMetodoPago="<?php echo $metodo->getIdMetodoPago(); ?>" check="false"><?php echo $metodo->getNombreMetodoPago(); ?></div>
+                                                <?php
+                                                        }
                                                     }
-                                                }
-                                            ?>
+                                                ?>
+                                            </div>
+                                            <div class="verifyAdPay" id="vAPay"></div>
                                         </div>
-                                        <div class="verifyAdPay" id="vAPay"></div>
-                                    </div>
-                                    
-                                    <div class="actionsAd">
-                                        <div class="cancel" id="cancelNewAd">Cancelar</div>
-                                        <div class="ok btn" id="okNewAd">Crear aviso</div>
+
+                                        <div class="actionsAd">
+                                            <div class="cancel" id="cancelNewAd">Cancelar</div>
+                                            <div class="ok btn" id="okNewAd">Crear aviso</div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>

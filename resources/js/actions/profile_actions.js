@@ -1,3 +1,6 @@
+var limitDate 	= "31/Diciembre/2100";
+var limitStock 	= 1500000000;
+
 $(function() {
    	//Producto
    	$("#newProduct").click(setInsertForm);
@@ -6,30 +9,35 @@ $(function() {
    	$("#okNewProduct").click(postFormProduct);
 	//Aviso
 	$("#cancelNewAd").click(reload);
+	$("#okNewAd").click(postFormAd);
 	$("#newAd").click(setInsertForm_2);
 	$("#aCategory").change(getSubcategoriasSelect);
 	$(".editAdBtn").click(setUpdateForm_2);
+	//Preguntas
+	//Solicitud
 });
 
 //Funciones de productos
 
 function setInsertForm() {
-   $("#pName").val("").trigger("textchange");
-   $("#pPrice").val("").trigger("textchange");
-   $("#label-vigenciaProducto").text(getStringCurrentDate());
-   $("#pStock").val("").trigger("textchange");
-   $("#pShort").text("").trigger("keyup");
-   $("#pLong").text("").trigger("keyup");
-   
-   $("#imgP1").attr("src","/__BDM/img/icons/spinner.gif").attr("idImagen",0);
-   $("#imgP2").attr("src","/__BDM/img/icons/spinner.gif").attr("idImagen",0);
-   $("#imgP3").attr("src","/__BDM/img/icons/spinner.gif").attr("idImagen",0);
-   $("#imgP4").attr("src","/__BDM/img/icons/spinner.gif").attr("idImagen",0);
-   $("#imgP5").attr("src","/__BDM/img/icons/spinner.gif").attr("idVideo",0);
-   $("#imgP6").attr("src","/__BDM/img/icons/spinner.gif").attr("idVideo",0);
-   
-   $("#headerNewP").text("Nuevo Producto").attr("idProducto",0);
-   $("#okNewProduct").text("Crear producto");
+   	$("#pName").val("").trigger("textchange");
+   	$("#pPrice").val("").trigger("textchange");
+   	$("#label-vigenciaProducto").text(getStringCurrentDate());
+   	$("#pStock").val("").trigger("textchange");
+   	$("#pShort").text("").trigger("keyup");
+   	$("#pLong").text("").trigger("keyup");
+   	
+   	$("#imgP1").attr("src","/__BDM/img/icons/spinner.gif").attr("idImagen",0);
+   	$("#imgP2").attr("src","/__BDM/img/icons/spinner.gif").attr("idImagen",0);
+   	$("#imgP3").attr("src","/__BDM/img/icons/spinner.gif").attr("idImagen",0);
+   	$("#imgP4").attr("src","/__BDM/img/icons/spinner.gif").attr("idImagen",0);
+   	$("#imgP5").attr("src","/__BDM/img/icons/spinner.gif").attr("idVideo",0);
+   	$("#imgP6").attr("src","/__BDM/img/icons/spinner.gif").attr("idVideo",0);
+   	
+   	$("#headerNewP").text("Nuevo Producto").attr("idProducto",0);
+   	$("#okNewProduct").text("Crear producto");
+	limitDate 	= "31/Diciembre/2045";
+	limitStock 	= 1500000000;
 }
 
 function setUpdateForm() {
@@ -134,13 +142,16 @@ function getSubcategoriasSelect() {
 	var request  = $.ajax(ajax);
 	request.done(function(responde) {
 		$("#aSubcategory").empty();
+		
 		var $optionMsg = $("<option value='' disabled='' selected=''>Elige una categoria</option>");
 		$("#aSubcategory").append($optionMsg);
 		responde.forEach(function(object) {
 			
-			var $option = $("<option>",{value:object.idSubcategoria});
-			$option.text(object.nombreSubcategoria);
-			$("#aSubcategory").append($option);
+		var $option = $("<option>",{value:object.idSubcategoria});
+		$option.text(object.nombreSubcategoria);
+
+		$("#aSubcategory").append($option);
+			
 		});
 	});
 	request.fail(function(jqXHR,textStatus) { console.log("Error al traer las subcategorias :"+textStatus);  });
@@ -169,19 +180,121 @@ function setUpdateForm_2() {
   	var request  = $.ajax(ajax);
   	request.done(function(responde) {
 		 	console.log(responde);
-			$("#aStock").val("").trigger("textchange");
-			$("#aPrice").val("").trigger("textchange");
-			$("#label-vigenciaAviso").text(getStringCurrentDate());
-			$("#aShort").text("").trigger("keyup");
-			$("#aLong").text("").trigger("keyup");
-			$("#headerNewA").attr("idAviso",0).text("Edita Aviso");
+			$("#aStock").val(responde.cantidadAviso).trigger("textchange");
+			$("#aStock").attr("old",responde.cantidadAviso);
+			$("#aPrice").val(responde.precioAviso).trigger("textchange");
+			$("#label-vigenciaAviso").text(responde.vigenciaAviso);
+			$("#aShort").text(responde.descripcionAviso).trigger("keyup");
+			$("#aLong").text(responde.descripcionLarga).trigger("keyup");
+			$("#headerNewA").attr("idAviso",responde.idAviso).text("Edita Aviso");
 			$("#okNewAd").text("Actualizar aviso");
-  	 	
+		
+			responde.metodosPago.forEach(function(mp){
+				$( ".pay[idMetodoPago='"+mp.idMetodoPago+"']" ).attr("check",true);
+				checkPay();
+			});
+			
+			$("#aProduct").find("option[value='"+responde.producto+"']").prop('selected', true).trigger("change");
+			$("#aCategory option[value='"+responde.categoria+"']" ).prop('selected', true).trigger("change");
+  	 		
+			
 		 	var $call = $("<div>");
 		 	$call.click({toggle:true},toggleNewAdTab);
 		 	$call.trigger("click");
 		 	$call = null;
   	});
   	request.fail(function(jqXHR,textStatus) { console.log("Error al traer el aviso :"+textStatus);  });
-  	request.always(function() { console.log("Aviso conseguido"); });
+  	request.always(function() { 
+			console.log("Aviso conseguido"); 
+			setLimitsAd(); 
+	});
+}
+
+function setLimitsAd() {
+	limitDate 	= $("#aProduct option:selected").attr("vigencia");
+	limitStock 	= $("#aProduct option:selected").attr("stock");
+}
+
+function postFormAd() {
+	var $idAviso 	= $("<input>",{type:"hidden",name:"upIdAviso"});
+	var $vigencia 	= $("<input>",{type:"hidden",name:"upVigencia"});
+	var $oldStock	= $("<input>",{type:"hidden",name:"oldStock"});
+	
+	$idAviso.val($("#headerNewA").attr("idAviso"));
+	$vigencia.val($("#label-vigenciaAviso").text());
+	$oldStock.val($("#aStock").attr("old"));
+	
+	$("#formUploadAd").append($idAviso,$vigencia,$oldStock);
+	
+	var contador = 0;
+	$(".pay[check='true']").each(function() {
+		contador++;
+		var name = "upMetodoPago["+contador+"]"; 
+		var $metodoPago = $("<input>",{type:"hidden",name:name});
+		$metodoPago.val( $(this).attr("idMetodoPago") );
+		$("#formUploadAd").append($metodoPago);
+	});
+	
+	
+	var vigencia_A 	= $("#label-vigenciaAviso").text();
+	var stock_A 	= parseInt($("#aStock").val());
+	if(stock_A <= parseInt(limitStock) ) {
+		if(compareDates(limitDate,vigencia_A)) {
+			$("#formUploadAd").submit();
+		}else {
+			alert("La vigencia supera la vigencia del producto");
+		}
+	} else{
+		alert("La cantidad supera la existencia disponible del producto");
+	}
+	
+}
+
+//compareDates
+function compareDates(date1,date2){
+    var regex = /(\d{1,2})\/([A-Z][a-z]+)\/(\d{4})/;
+	var devolve = false;
+	var matchDate1 = regex.exec(date1);
+	var matchDate2 = regex.exec(date2);
+
+	matchDate1[1] = parseInt(matchDate1[1]);
+	matchDate2[1] = parseInt(matchDate2[1]);
+	
+	matchDate1[2] = getMonthName(matchDate1[2]);
+	matchDate2[2] = getMonthName(matchDate2[2]);
+	
+	matchDate1[3] = parseInt(matchDate1[3]);
+	matchDate2[3] = parseInt(matchDate2[3]);
+	
+	if(matchDate1[3] > matchDate2[3]) {
+		devolve=true;
+	} else if(matchDate1[3] < matchDate2[3]) {
+		devolve=false;
+	} else if(matchDate1[3] == matchDate2[3]) {
+		if(matchDate1[2] > matchDate2[2]) {
+			devolve=true;
+		} else if(matchDate1[2] < matchDate2[2]) {
+			devolve=false;
+		} else if(matchDate1[2] == matchDate2[2]) {
+			if(matchDate1[1] > matchDate2[1]) {
+				devolve=true;
+			} else {
+				devolve=false;
+			}
+		}
+	}
+	return devolve;
+}
+
+function getMonthName(name) {
+	var devolve = 0;
+	switch(name) {
+		case "Enero": 		devolve = 1;  break; 	case "Febrero": 	devolve = 2;  break;
+		case "Marzo": 		devolve = 3;  break; 	case "Abril": 		devolve = 4;  break;
+		case "Mayo": 		devolve = 5;  break; 	case "Junio": 		devolve = 6;  break;
+		case "Julio": 		devolve = 7;  break; 	case "Agosto": 		devolve = 8;  break;
+		case "Septiembre": 	devolve = 9;  break; 	case "Octubre": 	devolve = 10; break;
+		case "Noviembre": 	devolve = 11; break; 	case "Diciembre": 	devolve = 12; break;
+	}
+	return devolve;
 }

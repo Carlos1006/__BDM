@@ -77,6 +77,9 @@
                 $aviso->setIdAviso($row->idAviso);
                 $aviso->setProducto($row->idProductoAviso);
                 $aviso->setUsuario($row->nicknameUsuario);
+                if(isset($row->vigenciaAviso)) {
+                    $aviso->setVigenciaAviso(mysql::dateToString($row->vigenciaAviso));
+                }
                 array_push($avisos,$aviso);
             }
             return $avisos;
@@ -98,14 +101,16 @@
                 $precio         = $row->precioAviso;
                 $corta          = $row->descripcionCortaAviso;
                 $larga          = $row->descripcionAviso;
-                $vigencia       = $row->vigenciaAviso;
+                $vigencia       = mysql::dateToString($row->vigenciaAviso);
                 $idCategoria    = $row->idCategoriaSubcategoria;
                 $idSubcategoria = $row->idSubcategoriaAviso;
                 $idProducto     = $row->idProductoAviso;
                 $activo         = $row->activoAviso;
+                $nombreSub      = $row->nombreSubcategoria;
                 $aviso          = new Aviso(null,$cantida,$corta,null,null,$activo,$precio,$larga);
                 $aviso->setProducto($idProducto);
                 $aviso->setSubcategoria($idSubcategoria);
+                $aviso->setNombreSub($nombreSub);
                 $aviso->setCategoria($idCategoria);
                 $aviso->setVigenciaAviso($vigencia);
                 $aviso->setIdAviso($id);
@@ -124,6 +129,39 @@
             }
             $aviso->setMetodosPago($metodos);
             return $aviso;
+        }
+
+        static function setAviso($aviso) {
+            $cantidad       = $aviso->getCantidadAviso();
+            $precio         = $aviso->getPrecioAviso();
+            $corta          = $aviso->getDescripcionAviso();
+            $fecha          = $aviso->getFechaAviso();
+            $hora           = $aviso->getHoraAviso();
+            $idSubcategoria = $aviso->getSubcategoriaAviso();
+            $idProducto     = $aviso->getProductoAviso();
+            $activo         = $aviso->getActivoAviso();
+            $vigencia       = $aviso->getVigenciaAviso();
+            $larga          = $aviso->getDescripcionLargaAviso();
+            $query  = "CALL altaAviso($cantidad,$precio,'$larga','$fecha','$hora',$idSubcategoria,$idProducto,$activo,'$vigencia','$corta')";
+            $result = mysqli_query(mysql::getConexion(),$query);
+            $idAviso = 0;
+            while($row = mysqli_fetch_object($result)) {
+                $idAviso = $row->ultimoId;
+            }
+            return $idAviso;
+        }
+
+        static function resetAviso($aviso) {
+            $idAviso        = $aviso->getIdAviso();
+            $cantidad       = $aviso->getCantidadAviso();
+            $precio         = $aviso->getPrecioAviso();
+            $corta          = $aviso->getDescripcionAviso();
+            $idSubcategoria = $aviso->getSubcategoriaAviso();
+            $idProducto     = $aviso->getProductoAviso();
+            $vigencia       = $aviso->getVigenciaAviso();
+            $larga          = $aviso->getDescripcionLargaAviso();
+            $query = "CALL cambioAviso($idAviso,$cantidad,$precio,'$larga',$idSubcategoria,$idProducto,'$vigencia','$corta')";
+            mysqli_query(mysql::getConexion(),$query);
         }
 
     }

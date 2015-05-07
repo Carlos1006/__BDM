@@ -357,11 +357,12 @@ function validatePay() {
     var object = $("#vAPay");
     if( $( ".pay[check='true']" ).length > 0 ) {
         object.css("background",colorResult.yes);
-        aValidator.metodo_pago==true;
+        aValidator.metodo_pago=true;
     } else {
         object.css("background",colorResult.wait);
-        aValidator.metodo_pago==false;
+        aValidator.metodo_pago=false;
     }
+	validateNewAd();
 }
 
 /*--------Funciones no validatorias---------*/

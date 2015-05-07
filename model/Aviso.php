@@ -13,6 +13,7 @@ class Aviso {
     var $descripcionLarga;
 
     var $subcategoria   = null;
+    var $nombreSub      = null;
     var $producto       = null;
     var $usuario        = null;
     var $categoria      = null;
@@ -53,6 +54,9 @@ class Aviso {
         $this->metodosPago = array();
         $this->metodosPago = $metodos;
     }
+    function setNombreSub($nombreSub) {
+        $this->nombreSub = $nombreSub;
+    }
 
     function getPathThumbnail           () { return $this->pathThumbnail;       }
     function getIdAviso                 () { return $this->idAviso;				}
@@ -70,6 +74,7 @@ class Aviso {
     function getVigenciaAviso           () { return $this->vigenciaAviso;       }
     function getMetodosPagoAviso        () { return $this->metodosPago;         }
     function getAviso                   () { return $this;						}
+    function getNombreSubAviso          () { return $this->nombreSub;			}
 }
 
 ?>
