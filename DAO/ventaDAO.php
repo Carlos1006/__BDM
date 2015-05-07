@@ -38,6 +38,11 @@
             }
             return $ventas;
         }
+
+        static function setVenta($idVenta) {
+            $query = "CALL confirmarVenta($idVenta)";
+            mysqli_query(mysql::getConexion(),$query);
+        }
     }
 
 ?>

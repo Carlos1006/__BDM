@@ -14,7 +14,9 @@ $(function() {
 	$("#aCategory").change(getSubcategoriasSelect);
 	$(".editAdBtn").click(setUpdateForm_2);
 	//Preguntas
-	//Solicitud
+	$(".answerButton").click(sendAnswer);
+	//AceptarSolicitud
+	$(".confirmBottom").click(confirmRequest);
 });
 
 //Funciones de productos
@@ -298,3 +300,42 @@ function getMonthName(name) {
 	}
 	return devolve;
 }
+
+//Preguntas
+function sendAnswer() {
+	var idPregunta 	= $(this).attr("idPregunta");
+	var answer 		= $(this).siblings(".profileQuestionAnswerInput").val();
+	if( $.trim(answer) != '' ) {
+		var parameters = {
+			method:"POST",
+			action:"/__BDM/controller/setRespuesta.php"
+		};
+		var $form = $("<form>",parameters);
+		
+		var $idPregunta = $("<input>",{type:"hidden",name:"idPregunta"});
+		var $respuesta 	= $("<input>",{type:"hidden",name:"respuesta"});
+		$idPregunta.val(idPregunta);
+		$respuesta.val(answer);
+		$form.append($idPregunta,$respuesta);
+		$form.submit();
+	} else {
+		alert("Escribe una respuesta");
+	}
+}
+
+//Aceptar Solicitud
+function confirmRequest() {
+	var idVenta 	= $(this).attr("idVenta");
+	var parameters 	= {
+		method:"POST",
+		action:"/__BDM/controller/setVenta.php"
+	};
+	
+	var $idVenta = $("<input>",{type:"hidden",name:"idVenta"}); 
+	$idVenta.val(idVenta);
+	
+	var $form = $("<form>",parameters);
+	$form.append($idVenta);
+	$form.submit();
+}
+

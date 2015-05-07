@@ -1,6 +1,5 @@
 <?php
 
-include_once "Pregunta.php";
 class Respuesta{
 	var $idRespuesta;
     var $descripcionRespuesta;
@@ -8,30 +7,21 @@ class Respuesta{
 	var $horaRespuesta;
     
 	var $pregunta;
-	
-	function __construct($id,$descripcion,$fecha,$hora,$pregunta) {
-		$this->idRespuesta 			= $id;
+
+	function __construct($descripcion,$fecha,$hora) {
 		$this->descripcionRespuesta = $descripcion;
 		$this->fechaRespuesta 		= $fecha;
 		$this->horaRespuesta 		= $hora;
-		
-		$this->pregunta = new Pregunta(	$pregunta->idPregunta,
-										$pregunta->fechaPregunta,
-										$pregunta->horaPregunta,
-										$pregunta->aviso);
 	}
-	
-	function __construct($descripcion,$fecha,$hora,$pregunta) {
-		$this->descripcionRespuesta = $descripcion;
-		$this->fechaRespuesta 		= $fecha;
-		$this->horaRespuesta 		= $hora;
-		
-		$this->pregunta = new Pregunta(	$pregunta->idPregunta,
-										$pregunta->fechaPregunta,
-										$pregunta->horaPregunta,
-										$pregunta->aviso);
-	}
-    
+
+    function setIdRespuesta($id) {
+        $this->idRespuesta = $id;
+    }
+
+    function setPreguntaRespuesta($pregunta) {
+        $this->pregunta = $pregunta;
+    }
+
     function getIdRespuesta				() { return $this->idRespuesta; 		 }
     function getDescripcionRespuesta	() { return $this->descripcionRespuesta; }
     function getFechaRespuesta			() { return $this->fechaRespuesta; 		 }
