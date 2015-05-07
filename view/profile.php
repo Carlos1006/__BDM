@@ -521,7 +521,7 @@
                                                                 $url = "/__BDM/img/404/dino.png";
                                                             }
                                                             ?>
-                                                            <option val="<?php echo $producto->getIdProducto(); ?>"><?php echo $producto->getNombreProducto(); ?></option>
+                                                            <option stock="<?php echo $producto->getExistenciaProducto(); ; ?>" vigencia="<?php echo $producto->getVigenciaProducto() ; ?>" val="<?php echo $producto->getIdProducto(); ?>"><?php echo $producto->getNombreProducto(); ?></option>
                                                         <?php
                                                         }
                                                     } else {
