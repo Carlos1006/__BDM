@@ -25,7 +25,8 @@
     $usuarioAviso   = usuarioDAO::getUsuarioAviso($idAviso);
     $user           = $usuario->getNicknameUsuario();
     $ad             = $aviso->getDescripcionAviso();
-    $url            = "http://localhost/__BDM/controller/root.php";
+    //$url            = "http://localhost/__BDM/controller/root.php";
+    $url            = "http://52.24.38.113/__BDM/controller/root.php";
     $emailEnviar    = $usuarioAviso->getEmailUsuario();
     $usuarioEnviar  = $usuarioAviso->getNicknameUsuario();
 

@@ -17,11 +17,12 @@
 
     $resultadoUsuario   = usuarioDAO::setUsuario($usuario);
     $resultadoMail      = mysql::sendEmail(  "Entra en el enlace para confirmar tu usuario",
-                                             mysql::createGetLink(array("email"=>$resultadoUsuario),"http://localhost/__BDM/controller/setConfirmation.php"),
-                                             "Confirmar email",
-                                             $usuario->getEmailUsuario(),
-                                             "Nuevo Usuario"
-                                          );
+    //mysql::createGetLink(array("email"=>$resultadoUsuario),"http://localhost/__BDM/controller/setConfirmation.php"),
+    mysql::createGetLink(array("email"=>$resultadoUsuario),"http://52.24.38.113/__BDM/controller/setConfirmation.php"),
+    "Confirmar email",
+    $usuario->getEmailUsuario(),
+    "Nuevo Usuario"
+);
 
     if($resultadoUsuario != 0 && $resultadoMail) {
         $_SESSION['insercion'] = 1;
