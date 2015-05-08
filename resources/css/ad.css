@@ -465,7 +465,11 @@
 }
 
 .headerSale:after{
-    content:"    (10) ";
+    content:attr(data-content);
+    color:rgb(0,134,134);   
+}
+.headerSale .change:after{
+    content:attr(data-content);
     color:rgb(0,134,134);   
 }
 

@@ -54,6 +54,18 @@
             return $stock;
         }
 
+        static function setSolicitud($venta) {
+            $cantidad  = $venta->getCantidadVenta();
+            $idAviso   = $venta->getAvisoVenta();
+            $idUsuario = $venta->getUsuarioVenta();
+            $idMetodo  = $venta->getMetodoPagoElegidoVenta();
+            $fecha     = $venta->getFechaVenta();
+            $hora      = $venta->getHoraVenta();
+            $query = "CALL altaVenta(0,$cantidad,$idAviso,$idUsuario,$idMetodo,'$fecha','$hora')";
+            echo $query;
+            mysqli_query(mysql::getConexion(),$query);
+        }
+
     }
 
 ?>

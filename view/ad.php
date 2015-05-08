@@ -10,6 +10,7 @@
                 include_once $_SESSION['raiz']."/__BDM/model/Aviso.php";
                 include_once $_SESSION['raiz']."/__BDM/model/Pregunta.php";
                 include_once $_SESSION['raiz']."/__BDM/model/Respuesta.php";
+                include_once $_SESSION['raiz']."/__BDM/model/MetodoPago.php";
                 $aviso = new Aviso(null,null,null,null,null,null,null,null,null);
                 if(isset($_SESSION["avisoVer"])) {
                     $aviso = unserialize($_SESSION["avisoVer"]);
@@ -44,8 +45,14 @@
                                 <div class="slideshow">
                                     <div class="absoluteSlide">
                                         <?php
+                                        $urlSale = "/__BDM/img/404/dino.png";
+                                        $once    = true;
                                         foreach($aviso->getImagenesAviso() as $imagen) {
                                             if($imagen->getIdImagen() != 0) {
+                                                if($once) {
+                                                    $once = false;
+                                                    $urlSale = $imagen->getPathImagen();
+                                                }
                                                 ?>
                                                 <div class="media">
                                                     <img class="mediaSrc" src="<?php echo $imagen->getPathImagen(); ?>"/>
@@ -72,7 +79,7 @@
                             </div>
                         </div>
                         <div class="descriptionAd_1">
-                            <div class="priceAd"><?php echo number_format($aviso->getPrecioAviso()); ?></div>
+                            <div class="priceAd" id="priceAdToBuy"><?php echo number_format($aviso->getPrecioAviso()); ?></div>
                             <div class="descriptionAd"><?php echo $aviso->getDescripcionLargaAviso(); ?></div>
                             <div class="dateAd"><?php echo $aviso->getVigenciaAviso(); ?></div>
                             <div class="buyAd">
@@ -87,13 +94,18 @@
                                         $usuario = unserialize($_SESSION["sesion"]);
                                         $idUsuarioSesion = $usuario->getIdUsuario();
                                         $idUsuarioAviso =  $aviso->getUsuarioAviso();
+                                        $stock = $aviso->getCantidadAviso();
                                         if($idUsuarioAviso == $idUsuarioSesion) {
                                     ?>
                                             <div class="buyButtonInput btn" disabled>Comprar</div>
                                     <?php
-                                        } else{
+                                        } else if($stock>0){
                                     ?>
-                                            <div class="buyButtonInput btn">Comprar</div>
+                                            <div class="buyButtonInput btn" id="buyAdBtn">Comprar</div>
+                                    <?php
+                                        } else {
+                                    ?>
+                                            <div class="buyButtonInput btn" disabled>Comprar</div>
                                     <?php
                                         }
                                     } else {
@@ -171,36 +183,45 @@
         </div>
         <div class="superSale" style="display:none;">
             <div class="saleContainer">
-                <div class="headerSale">Iphone 6</div>
+                <div class="headerSale" id="headerConfirmation"><?php echo $aviso->getDescripcionAviso(); ?>&nbsp;&nbsp;&nbsp;</div>
                 <div class="sale">
                     <div class="leftColumnSale">
                         <div class="imgSale">
-                            <img class="imgSaleSrc" src="http://upload.wikimedia.org/wikipedia/commons/3/3b/NASA-SpiralGalaxyM101-20140505.jpg" />
+                            <img class="imgSaleSrc" src="<?php echo $urlSale; ?>" />
                         </div>
                     </div>
                     <div class="rightColumnSale">
                         <div class="saleInfo">
                             <div class="body1SaleInfo">Cantidad</div>
-                            <div class="body2SaleInfo textSale">10</div>
+                            <div class="body2SaleInfo textSale" id="stockToBuy"></div>
                         </div>
                         <div class="saleInfo">
                             <div class="body1SaleInfo">Subtotal</div>
-                            <div class="body2SaleInfo textSale moneySale">120000</div>
+                            <div class="body2SaleInfo textSale moneySale"><?php echo $aviso->getPrecioAviso(); ?></div>
                         </div>
                         <div class="saleInfo">
                             <div class="body1SaleInfo">Total</div>
-                            <div class="body2SaleInfo textSale moneySale">150000</div>
+                            <div class="body2SaleInfo textSale moneySale" id="totalToPay"></div>
                         </div>
                         <div class="saleInfo">
                             <div class="body1SaleInfo">Metodo de pago</div>
                             <div class="body2SaleInfo">
-                                <select class="selectPay form-control"></select>
+                                <select class="selectPay form-control" id="paymentSelect">
+                                    <option value="0" selected disabled>Elige un metodo de pago</option>
+                                    <?php
+                                        foreach($aviso->getMetodosPagoAviso() as $metodo) {
+                                    ?>
+                                            <option value="<?php echo $metodo->getIdMetodoPago(); ?>"><?php echo $metodo->getNombreMetodoPago(); ?></option>
+                                    <?php
+                                        }
+                                    ?>
+                                </select>
                             </div>
                         </div>
                         
                         <div class="saleAction">
-                            <div class="action1SaleInfo">Cancelar</div>
-                            <div class="action2SaleInfo">Aceptar</div>
+                            <div class="action1SaleInfo" id="cancelBuyAd">Cancelar</div>
+                            <div class="action2SaleInfo" id="okBuyAd">Aceptar</div>
                         </div>
                     </div>
                 </div>
