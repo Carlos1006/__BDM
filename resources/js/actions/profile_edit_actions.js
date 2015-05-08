@@ -12,5 +12,8 @@ function actionEditUserForm() {
 }
 
 function unsetUsuario() {
-	$("<form>",{action:"/__BDM/controller/deleteUsuario.php"}).submit();
+	var confirmacion = confirm("¿Seguro de borrar tu usuario?");
+	if(confirmacion) {
+		$("<form>",{action:"/__BDM/controller/deleteUsuario.php"}).submit(); 
+	}
 }

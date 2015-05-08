@@ -6,7 +6,10 @@ $(function() {
 			var $input 	= $("#questionForm").clone();
 			var $form 	= $("<form>",{method:"POST",action:"/__BDM/controller/setPregunta.php"});
 			alert("Tu pregunta aparecera al ser contestada");
-			$form.append($input).submit();
+			var confirmacion = confirm("¿Seguro de enviar tu respuesta?");
+			if(confirmacion) {
+				$form.append($input).submit();
+			}
 		}
 	});
 	
