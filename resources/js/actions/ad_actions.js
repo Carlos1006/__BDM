@@ -8,4 +8,6 @@ $(function() {
 			$form.append($input).submit();
 		}
 	});
+	
+	
 });

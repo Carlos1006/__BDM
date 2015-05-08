@@ -11,7 +11,7 @@ class mediaDAO {
         $videos = array();
         while($row = mysqli_fetch_object($result)) {
             if(file_exists( $_SERVER["DOCUMENT_ROOT"].$row->pathVideo )) {
-                $url = $row->pathImagen;
+                $url = $row->pathVideo;
             } else {
                 $url = "/__BDM/img/404/404.mp4";
             }

@@ -60,7 +60,6 @@
                                                     <video class="mediaSrc" controls>
                                                         <source src="<?php echo $video->getPathVideo(); ?>" type="video/mp4">
                                                     </video>
-
                                                 </div>
                                             <?php
                                             }
@@ -83,7 +82,26 @@
                                     <div class="-Button_2">+</div>
                                 </div>
                                 <div class="buyButton">
-                                    <div class="buyButtonInput">Comprar</div>
+                                    <?php
+                                    if(isset($_SESSION["sesion"])) {
+                                        $usuario = unserialize($_SESSION["sesion"]);
+                                        $idUsuarioSesion = $usuario->getIdUsuario();
+                                        $idUsuarioAviso =  $aviso->getUsuarioAviso();
+                                        if($idUsuarioAviso == $idUsuarioSesion) {
+                                    ?>
+                                            <div class="buyButtonInput btn" disabled>Comprar</div>
+                                    <?php
+                                        } else{
+                                    ?>
+                                            <div class="buyButtonInput btn">Comprar</div>
+                                    <?php
+                                        }
+                                    } else {
+                                    ?>
+                                        <div class="buyButtonInput btn" disabled>Comprar</div>
+                                    <?php
+                                    }
+                                    ?>
                                 </div>
                             </div>
                         </div>

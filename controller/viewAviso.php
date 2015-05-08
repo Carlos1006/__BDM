@@ -14,6 +14,7 @@
     $aviso->setImagenesAviso($imagenes);
     $aviso->setPreguntasAviso($preguntas);
 
+    var_dump($videos);
     $nombreCat = categoriaDao::getCategoria($aviso->getSubcategoriaAviso());
     $aviso->setNombreCat($nombreCat);
     $_SESSION["avisoVer"] = serialize($aviso);
