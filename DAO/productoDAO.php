@@ -41,7 +41,7 @@
             $result     = mysqli_query(mysql::getConexion(),$query);
             $imagenes   = array();
             while($row = mysqli_fetch_object($result)) {
-                if(file_exists( $_SESSION['raiz'].$row->pathImagen )) {
+                if(file_exists( $_SERVER["DOCUMENT_ROOT"].$row->pathImagen )) {
                     $url = $row->pathImagen;
                 } else {
                     $url = "/__BDM/img/404/dino.png";
@@ -56,10 +56,10 @@
             $result     = mysqli_query(mysql::getConexion(),$query);
             $videos   = array();
             while($row = mysqli_fetch_object($result)) {
-                if(file_exists ( $_SESSION['raiz'].$row->pathVideo )) {
-                    $url = "/__BDM/img/icons/video.gif";
+                if(file_exists ( $_SERVER["DOCUMENT_ROOT"].$row->pathVideo )) {
+                    $url = $row->pathVideo;
                 } else {
-                    $url = "/__BDM/img/404/dino.png";
+                    $url = "/__BDM/img/404/404.mp4";
                 }
                 $video = new Video($url,$row->activoVideo);
                 $video->setIdVideo($row->idVideo);
@@ -163,6 +163,11 @@
 
         static function setNewStock($id,$newStock) {
             $query  = "CALL cambioStock($id,$newStock)";
+            mysqli_query(mysql::getConexion(),$query);
+        }
+
+        static function bajaProducto($id) {
+            $query = "CALL bajaProducto($id)";
             mysqli_query(mysql::getConexion(),$query);
         }
     }

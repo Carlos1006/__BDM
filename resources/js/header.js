@@ -70,7 +70,7 @@ $(function(){
 	});
 	
 	$(".logo").click(function(){
-		cambiaSitio("/__BDM/view/main.php");
+		cambiaSitio("/__BDM/controller/root.php");
 	});
 	
 	$(".login").click(function() {

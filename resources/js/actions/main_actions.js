@@ -11,6 +11,7 @@ $(function() {
     saveSesion();
     $(".ad").mouseenter(getUsuarioAjax);
     $(".adsContainer").mouseleave(resetSesion);
+	$(".ad").click(goTo);
 });
 
 function resetSesion() {
@@ -58,4 +59,13 @@ function getUsuarioAjax() {
     });
     request.fail(function(jqXHR,textStatus) { console.log("Error al traer el usuario :"+textStatus);  });
     request.always(function() { console.log("El usuario se ha conseguido"); });
+}
+
+function goTo() {
+	var idAviso = $(this).attr("idAviso");
+	var $form 	= $("<form>",{method:"POST",action:"/__BDM/controller/viewAviso.php"});
+	var $input 	= $("<input>",{type:"hidden",name:"idAviso"});
+	$input.val(idAviso);
+	$form.append($input);
+	$form.submit();
 }

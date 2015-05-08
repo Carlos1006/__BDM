@@ -14,5 +14,15 @@
             return $categorias;
         }
 
+        static function getCategoria($idSubcategoria) {
+            $query      = "CALL categoria($idSubcategoria)";
+            $result     = mysqli_query(mysql::getConexion(),$query);
+            $nombreCat  = null;
+            while($row  = mysqli_fetch_object($result)) {
+                $nombreCat = $row->nombreCategoria;
+            }
+            return $nombreCat;
+        }
+
     }
 ?>

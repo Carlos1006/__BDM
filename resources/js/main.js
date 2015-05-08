@@ -17,7 +17,6 @@ jQuery(function() {
     getAds();
     $('.adsContainer').perfectScrollbar({suppressScrollX: true});
     $(".headerImagen,.headerDescripcion,.headerPrecio,.headerNickname,.headerFecha,.headerHora").click(sortChange);
-    $(".ad").click(goTo);
     $("#returnBtn").click(goToMain);
 });
 
@@ -346,8 +345,4 @@ function setNewAds() {
         
         $(".adsContainer").append($ad);
     });
-}
-
-function goTo() {
-    alert($(this).attr("idAviso"));
 }

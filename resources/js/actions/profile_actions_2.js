@@ -1,4 +1,4 @@
-$(function(){
+$(function() {
 	$(".viewProductBtn").click(viewProductPost);
 	$(".viewAdBtn").click(viewAdPost);
 	$(".deleteProductBtn").click(deleteProductPost);
@@ -6,17 +6,37 @@ $(function(){
 });
 
 function viewProductPost() {
-	$(this).attr("verProducto");
+	var idProducto = $(this).attr("verProducto");
+	var $form 	= $("<form>",{method:"POST",action:"/__BDM/controller/viewProducto.php"});
+	var $input 	= $("<input>",{type:"hidden",name:"idProducto"});
+	$input.val(idProducto);
+	$form.append($input);
+	$form.submit();
 }
 
 function viewAdPost() {
-	$(this).attr("verAviso");
+	var idAviso = $(this).attr("verAviso");
+	var $form 	= $("<form>",{method:"POST",action:"/__BDM/controller/viewAviso.php"});
+	var $input 	= $("<input>",{type:"hidden",name:"idAviso"});
+	$input.val(idAviso);
+	$form.append($input);
+	$form.submit();
 }
 
 function deleteProductPost() {
-	$(this).attr("borraProducto");
+	var idProducto = $(this).attr("borraProducto");
+	var $form 	= $("<form>",{method:"POST",action:"/__BDM/controller/deleteProducto.php"});
+	var $input 	= $("<input>",{type:"hidden",name:"idProducto"});
+	$input.val(idProducto);
+	$form.append($input);
+	$form.submit();
 }
 
 function deleteAdPost() {
-	$(this).attr("borraAviso");
+	var idAviso = $(this).attr("borraAviso");
+	var $form 	= $("<form>",{method:"POST",action:"/__BDM/controller/deleteAviso.php"});
+	var $input 	= $("<input>",{type:"hidden",name:"idAviso"});
+	$input.val(idAviso);
+	$form.append($input);
+	$form.submit();
 }

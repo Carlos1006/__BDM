@@ -107,6 +107,7 @@
                 $idProducto     = $row->idProductoAviso;
                 $activo         = $row->activoAviso;
                 $nombreSub      = $row->nombreSubcategoria;
+                $idUsuario      = $row->idUsuario;
                 $aviso          = new Aviso(null,$cantida,$corta,null,null,$activo,$precio,$larga);
                 $aviso->setProducto($idProducto);
                 $aviso->setSubcategoria($idSubcategoria);
@@ -114,6 +115,7 @@
                 $aviso->setCategoria($idCategoria);
                 $aviso->setVigenciaAviso($vigencia);
                 $aviso->setIdAviso($id);
+                $aviso->setUsuario($idUsuario);
             }
 
             $query   = "CALL metodosPagoAviso($id)";
@@ -161,6 +163,11 @@
             $vigencia       = $aviso->getVigenciaAviso();
             $larga          = $aviso->getDescripcionLargaAviso();
             $query = "CALL cambioAviso($idAviso,$cantidad,$precio,'$larga',$idSubcategoria,$idProducto,'$vigencia','$corta')";
+            mysqli_query(mysql::getConexion(),$query);
+        }
+
+        static function bajaAviso($id) {
+            $query = "CALL bajaAviso($id)";
             mysqli_query(mysql::getConexion(),$query);
         }
 

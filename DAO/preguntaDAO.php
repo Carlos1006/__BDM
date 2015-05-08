@@ -8,6 +8,11 @@
             return preguntaDAO::execPreguntaQuery($query);
         }
 
+        static function getPreguntasAviso($id) {
+            $query = "CALL misPreguntas_2($id)";
+            return preguntaDAO::execPreguntaQuery($query);
+        }
+
         private static function execPreguntaQuery($query) {
             $result     = mysqli_query(mysql::getConexion(),$query);
             $preguntas  = array();
@@ -16,6 +21,7 @@
                 $pregunta->setIdPregunta($row->idPregunta);
                 $pregunta->setAvisoPregunta($row->descripcionCortaAviso);
                 $pregunta->setUsuarioPregunta($row->nicknameUsuario);
+                $pregunta->setRespuesta($row->descripcionRespuesta);
                 array_push($preguntas,$pregunta);
             }
             return $preguntas;

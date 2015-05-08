@@ -14,11 +14,16 @@ class Aviso {
 
     var $subcategoria   = null;
     var $nombreSub      = null;
+    var $nombreCat      = null;
     var $producto       = null;
     var $usuario        = null;
     var $categoria      = null;
 
     var $metodosPago    = null;
+
+    var $imagenes   = array();
+    var $videos     = array();
+    var $preguntas  = array();
     
 	function __construct($thumbnail,$cantida,$descripcion,$fecha,$hora,$activo,$precio,$descripcionLarga) {
         $this->pathThumbnail = $thumbnail;
@@ -57,6 +62,18 @@ class Aviso {
     function setNombreSub($nombreSub) {
         $this->nombreSub = $nombreSub;
     }
+    function setNombreCat($nombreCat) {
+        $this->nombreCat = $nombreCat;
+    }
+    function setVideosAviso($videoArray) {
+        $this->videos = $videoArray;
+    }
+    function setImagenesAviso($imagenesArray) {
+        $this->imagenes = $imagenesArray;
+    }
+    function setPreguntasAviso($preguntasArray) {
+        $this->preguntas = $preguntasArray;
+    }
 
     function getPathThumbnail           () { return $this->pathThumbnail;       }
     function getIdAviso                 () { return $this->idAviso;				}
@@ -75,6 +92,10 @@ class Aviso {
     function getMetodosPagoAviso        () { return $this->metodosPago;         }
     function getAviso                   () { return $this;						}
     function getNombreSubAviso          () { return $this->nombreSub;			}
+    function getNombreCatAviso          () { return $this->nombreCat;			}
+    function getImagenesAviso           () { return $this->imagenes;			}
+    function getVideosAviso             () { return $this->videos;			    }
+    function getPreguntasAviso          () { return $this->preguntas;		    }
 }
 
 ?>

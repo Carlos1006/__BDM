@@ -1,7 +1,7 @@
 <meta author="Carlos" description="Header proyecto final"/>
 <meta id="colorValidator" yes="#8dd456" no="#d45656" wait="#60addd"/>
 <meta charset="UTF-8"/>
-<link rel="icon" type="image/png" href="/__BDM/img/icons/favicon.png" />
+<link rel="icon" type="image/png" id="favicon" href="/__BDM/img/icons/favicon.png" />
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="/__BDM/resources/js/jquery-2.1.3.js"></script>

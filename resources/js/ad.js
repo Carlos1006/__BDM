@@ -3,11 +3,11 @@ var limitSlides = 1;
 var media = 0;
 var initialSlide;
 
-var stockLimit = 5; //hardcode
+var stockLimit;
 var stock = 1;
 
 $(function() {
-    
+	stockLimit = parseInt($("#mainStock").attr("maxstock"));
     initialSlide = $(".absoluteSlide").html();
     slideshow();
     setStock();

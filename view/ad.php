@@ -3,7 +3,17 @@
     <head>
         <?php 
                 session_start();
-                include $_SESSION['raiz']."/__BDM/resources/php/include.php"; 
+                include $_SESSION['raiz']."/__BDM/resources/php/include.php";
+                include_once $_SESSION['raiz']."/__BDM/model/Producto.php";
+                include_once $_SESSION['raiz']."/__BDM/model/Imagen.php";
+                include_once $_SESSION['raiz']."/__BDM/model/Video.php";
+                include_once $_SESSION['raiz']."/__BDM/model/Aviso.php";
+                include_once $_SESSION['raiz']."/__BDM/model/Pregunta.php";
+                include_once $_SESSION['raiz']."/__BDM/model/Respuesta.php";
+                $aviso = new Aviso(null,null,null,null,null,null,null,null,null);
+                if(isset($_SESSION["avisoVer"])) {
+                    $aviso = unserialize($_SESSION["avisoVer"]);
+                }
         ?>
         <title>Ad</title>
         <script src="/__BDM/resources/js/ad.js"></script>
@@ -18,32 +28,43 @@
                 <div class="superAd">
                     <div class="categoriePath">
                         <div class="categoriaAd">
-                            Electronicos&nbsp;&nbsp;&nbsp;
+                            <?php echo $aviso->getNombreCatAviso(); ?>&nbsp;&nbsp;&nbsp;
                         </div>
                         <div class="subcategorieAd">
-                            Celulares
+                            <?php echo $aviso->getNombreSubAviso(); ?>
                         </div>
                     </div>
                     <div class="mainTitleAd">
-                        Lorem ipsum dolor sit amet
+                        <?php echo $aviso->getDescripcionAviso(); ?>
                     </div>
                     <div class="infoAd">
                         <div class="mediaAd">
                             <div class="slideshowContainer">
                                 <div class="slideshow">
                                     <div class="absoluteSlide">
-                                        <div class="media">
-                                            <img class="mediaSrc" src="http://images.nationalgeographic.com/wpf/media-live/photos/000/010/cache/messier-81_1086_600x450.jpg"/>
-                                        </div>
-                                        <div class="media">
-                                            <img class="mediaSrc" src="http://www.ultimateuniverse.net/images/galaxy3.gif"/>
-                                        </div>
-                                        <div class="media">
-                                            <img class="mediaSrc" src="http://www.esa.int/var/esa/storage/images/esa_multimedia/videos/2013/11/guide_to_our_galaxy/13409760-3-eng-GB/Guide_to_our_Galaxy_video_production_full.png"/>
-                                        </div>
-                                        <div class="media">
-                                            <img class="mediaSrc" src="http://ewallpaperhub.com/wp-content/uploads/2015/01/galaxy-wallpaper-hd.jpg"/>
-                                        </div>
+                                        <?php
+                                        foreach($aviso->getImagenesAviso() as $imagen) {
+                                            if($imagen->getIdImagen() != 0) {
+                                                ?>
+                                                <div class="media">
+                                                    <img class="mediaSrc" src="<?php echo $imagen->getPathImagen(); ?>"/>
+                                                </div>
+                                            <?php
+                                            }
+                                        }
+                                        foreach($aviso->getVideosAviso() as $video) {
+                                            if($video->getIdVideo() != 0) {
+                                                ?>
+                                                <div class="media">
+                                                    <video class="mediaSrc" controls>
+                                                        <source src="<?php echo $video->getPathVideo(); ?>" type="video/mp4">
+                                                    </video>
+
+                                                </div>
+                                            <?php
+                                            }
+                                        }
+                                        ?>
                                     </div>
                                     <div class="rightSlide">&gt;</div>
                                     <div class="leftSlide">&lt;</div>
@@ -51,13 +72,13 @@
                             </div>
                         </div>
                         <div class="descriptionAd_1">
-                            <div class="priceAd">12,000</div>
-                            <div class="descriptionAd">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus a tellus semper, molestie arcu in, luctus risus. Nulla molestie est at eros auctor tincidunt. Interdum et malesuada fames ac ante ipsum primis in faucibus. Aliquam mollis bibendum ex eget fringilla. Nullam id accumsan velit. Nulla facilisi. Nulla sit amet magna id nunc sollicitudin pellentesque</div>
-                            <div class="dateAd">12/Octubre/2016</div>
+                            <div class="priceAd"><?php echo number_format($aviso->getPrecioAviso()); ?></div>
+                            <div class="descriptionAd"><?php echo $aviso->getDescripcionLargaAviso(); ?></div>
+                            <div class="dateAd"><?php echo $aviso->getVigenciaAviso(); ?></div>
                             <div class="buyAd">
                                 <div class="stockAd">
                                     <div class="-Button_1">-</div>
-                                    <div class="-stock"></div>
+                                    <div class="-stock" id="mainStock" maxStock="<?php echo $aviso->getCantidadAviso(); ?>"></div>
                                     <div class="-Button_2">+</div>
                                 </div>
                                 <div class="buyButton">
@@ -68,26 +89,55 @@
                         <!-- continuar aqui -->
                     </div>
                     <div class="questionHeader">
-                        <input type="text" class="form-control questionAdInput" placeholder="Pregunta al vendedor..."/>
+                        <?php
+                            if(isset($_SESSION["sesion"])) {
+                                $usuario = unserialize($_SESSION["sesion"]);
+                                $idUsuarioSesion = $usuario->getIdUsuario();
+                                $idUsuarioAviso =  $aviso->getUsuarioAviso();
+                                if($idUsuarioAviso == $idUsuarioSesion) {
+                        ?>
+                                    <input type="text" class="form-control questionAdInput" placeholder="No puedes hacer preguntas en tus avisos..." disabled/>
+                        <?php
+                                } else{
+                        ?>
+                                    <input type="text" class="form-control questionAdInput" placeholder="Pregunta al vendedor..."/>
+                        <?php
+                                }
+                            } else {
+                        ?>
+                                <input type="text" class="form-control questionAdInput" placeholder="Registrate o inicia sesion para hacer preguntas..." disabled/>
+                        <?php
+                            }
+                        ?>
                         <div class="questionButton">Enviar Pregunta</div>
                     </div>
                     <div class="questionsContainer">
-                        <div class="questionAd">
-                            <div class="question">
-                                Lorem ipsum dolor sit amet
-                            </div>
-                            <div class="answer">
-                                consectetur adipiscing elit
-                            </div>
-                        </div>
-                        <div class="questionAd">
-                            <div class="question">
-                                Lorem ipsum dolor sit amet
-                            </div>
-                            <div class="answer">
-                                consectetur adipiscing elit
-                            </div>
-                        </div>
+                        <?php
+                            foreach($aviso->getPreguntasAviso() as $pregunta) {
+                        ?>
+                                <div class="questionAd">
+                                    <div class="question">
+                                        <?php echo utf8_encode($pregunta->getDescripcionPregunta()); ?>
+                                    </div>
+                                    <div class="answer">
+                                        <?php echo utf8_encode($pregunta->getRespuesta()); ?>
+                                    </div>
+                                </div>
+                        <?php
+                            }
+                            if(count($aviso->getPreguntasAviso()) == 0) {
+                        ?>
+                                <div class="questionAd">
+                                    <div class="question">
+                                        Sin preguntas
+                                    </div>
+                                    <div class="answer">
+                                        Se el primero en realizar una pregunta
+                                    </div>
+                                </div>
+                        <?php
+                            }
+                        ?>
                     </div>
                 </div>
             </div>
