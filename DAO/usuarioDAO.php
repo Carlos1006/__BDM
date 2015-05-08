@@ -170,5 +170,26 @@
             $query = "CALL bajaUsuario($id)";
             mysqli_query(mysql::getConexion(),$query);
         }
+
+        static function getUsuarioPregunta($idPregunta) {
+            $query   = "CALL detalleUsuario_Pregunta($idPregunta)";
+            $con     = mysql::getConexion();
+            $result  = mysqli_query($con,$query);
+            $usuario = null;
+            while($row = mysqli_fetch_object($result)) {
+                $usuario = new Usuario( $row->emailUsuario,
+                    $row->passwordUsuario,
+                    $row->nicknameUsuario,
+                    $row->apellidoUsuario,
+                    $row->nombreUsuario,
+                    $row->telefonoUsuario,
+                    base64_encode($row->avatarUsuario),
+                    $row->confirmadoUsuario,
+                    $row->activoUsuario
+                );
+                $usuario->setIdUsuario($row->idUsuario);
+            }
+            return $usuario;
+        }
     }
 ?>

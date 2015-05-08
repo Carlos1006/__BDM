@@ -200,5 +200,34 @@
             mysqli_query(mysql::getConexion(),$query);
         }
 
+        static function getAvisoPregunta($id) {
+            $query  = "CALL detalleAviso_Pregunta($id)";
+            $result = mysqli_query(mysql::getConexion(),$query);
+            $aviso  = null;
+            while($row = mysqli_fetch_object($result)) {
+                $id             = $row->idAviso;
+                $cantida        = $row->cantidadAviso;
+                $precio         = $row->precioAviso;
+                $corta          = $row->descripcionCortaAviso;
+                $larga          = $row->descripcionAviso;
+                $vigencia       = mysql::dateToString($row->vigenciaAviso);
+                $idCategoria    = $row->idCategoriaSubcategoria;
+                $idSubcategoria = $row->idSubcategoriaAviso;
+                $idProducto     = $row->idProductoAviso;
+                $activo         = $row->activoAviso;
+                $nombreSub      = $row->nombreSubcategoria;
+                $idUsuario      = $row->idUsuario;
+                $aviso          = new Aviso(null,$cantida,$corta,null,null,$activo,$precio,$larga);
+                $aviso->setProducto($idProducto);
+                $aviso->setSubcategoria($idSubcategoria);
+                $aviso->setNombreSub($nombreSub);
+                $aviso->setCategoria($idCategoria);
+                $aviso->setVigenciaAviso($vigencia);
+                $aviso->setIdAviso($id);
+                $aviso->setUsuario($idUsuario);
+            }
+            return $aviso;
+        }
+
     }
 ?>

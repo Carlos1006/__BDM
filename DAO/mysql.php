@@ -131,7 +131,7 @@
             return number_format($float, 2, '.', '');
         }
 
-        static function sendEmail_2($aviso,$usuarioPregunta,$enlace,$asunto,$destino,$nombreDestino) {
+        static function sendEmail_2($aviso,$usuarioPregunta,$enlace,$asunto,$destino,$nombreDestino,$headerMail,$mensaje) {
             $devolver = null;
             $mail 				= new PHPMailer();
             $mail->IsSMTP();
@@ -144,8 +144,8 @@
             $mail->From 		= "cdgzz19@gmail.com";
             $mail->FromName 	= "Carlos Daniel";
             $mail->Subject 		= $asunto;
-            $mail->AltBody 		= mysql::createEmailMessage_2($aviso,$usuarioPregunta,$enlace);
-            $mail->MsgHTML(mysql::createEmailMessage_2($aviso,$usuarioPregunta,$enlace));
+            $mail->AltBody 		= mysql::createEmailMessage_2($aviso,$usuarioPregunta,$enlace,$headerMail,$mensaje);
+            $mail->MsgHTML(mysql::createEmailMessage_2($aviso,$usuarioPregunta,$enlace,$headerMail,$mensaje));
             $mail->AddAddress($destino,$nombreDestino);
             $mail->IsHTML(true);
 
@@ -157,12 +157,14 @@
             return $devolver;
         }
 
-        private static function createEmailMessage_2($usuario,$aviso,$enlace) {
+        private static function createEmailMessage_2($usuario,$aviso,$enlace,$headerMail,$mensaje) {
             $content = file_get_contents($_SERVER["DOCUMENT_ROOT"]."/__BDM/resources/html/question.html");
             $dom = new DOMDocument();
             $dom->loadHTML($content);
             $dom->getElementById("user")->appendChild( $dom->createTextNode($usuario) );
             $dom->getElementById("ad")->appendChild( $dom->createTextNode($aviso) );
+            $dom->getElementById("header")->appendChild( $dom->createTextNode($headerMail) );
+            $dom->getElementById("mensaje")->appendChild( $dom->createTextNode($mensaje) );
             $dom->getElementById("link")->setAttribute("href",$enlace);
             $html = $dom->saveHTML();
             return $html;

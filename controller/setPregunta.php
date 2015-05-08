@@ -29,13 +29,16 @@
     $url            = "http://52.24.38.113/__BDM/controller/root.php";
     $emailEnviar    = $usuarioAviso->getEmailUsuario();
     $usuarioEnviar  = $usuarioAviso->getNicknameUsuario();
-
+    $headerMail = "Te hicieron una pregunta";
+    $msg = "pregunto en tu aviso (";
     mysql::sendEmail_2( $user,
                         $ad,
                         $url,
                         "Te hicieron una pregunta",
                         $emailEnviar,
-                        $usuarioEnviar
+                        $usuarioEnviar,
+                        $headerMail,
+                        $msg
                     );
 
     header('Location: /__BDM/view/ad.php');
