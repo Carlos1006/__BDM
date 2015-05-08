@@ -204,7 +204,8 @@
                                                     <div class="profileRequestQuantity"><?php echo $solicitud->getCantidadVenta();?></div>
                                                     <div class="profileRequestPay"><?php echo $solicitud->getMetodoPagoElegidoVenta();?></div>
                                                     <div class="profileRequestConfirm">
-                                                        <div idVenta="<?php echo $solicitud->getIdVenta();?>" class="confirmBottom">Confirmar venta</div>
+                                                        <div idVenta="<?php echo $solicitud->getIdVenta();?>" class="confirmBottom">Confirmar</div>
+                                                        <div idVenta="<?php echo $solicitud->getIdVenta();?>" class="cancelBottom">Cancelar</div>
                                                     </div>
                                                 </div>
                                 <?php

@@ -17,6 +17,8 @@ $(function() {
 	$(".answerButton").click(sendAnswer);
 	//AceptarSolicitud
 	$(".confirmBottom").click(confirmRequest);
+	//CancelarSolicitud
+	$(".cancelBottom").click(cancelRequest);
 });
 
 //Funciones de productos
@@ -329,6 +331,20 @@ function confirmRequest() {
 	var parameters 	= {
 		method:"POST",
 		action:"/__BDM/controller/setVenta.php"
+	};
+	
+	var $idVenta = $("<input>",{type:"hidden",name:"idVenta"}); 
+	$idVenta.val(idVenta);
+	
+	var $form = $("<form>",parameters);
+	$form.append($idVenta);
+	$form.submit();
+}
+function cancelRequest() {
+	var idVenta 	= $(this).attr("idVenta");
+	var parameters 	= {
+		method:"POST",
+		action:"/__BDM/controller/deleteVenta.php"
 	};
 	
 	var $idVenta = $("<input>",{type:"hidden",name:"idVenta"}); 

@@ -944,11 +944,13 @@
 }
 
 .confirmBottom{
+	float:left;
     height:100%;
-    width:100%;
+    width:50%;
     background-color:rgb(0,250,134);
     color:rgb(22,22,22);
-    border-radius:7px;
+    border-top-left-radius:7px;
+    border-bottom-left-radius:7px;
     text-align:center;
     padding-top:2.5%;
     -webkit-transition: all 0.2s ease;
@@ -970,6 +972,38 @@
 }
 
 .confirmBottom:active{
+    filter:brightness(90%);
+    -webkit-filter:brightness(90%);
+    -moz-filter:brightness(90%);
+}
+.cancelBottom{
+	float:left;
+    height:100%;
+    width:50%;
+    background-color:rgb(250,70,70);
+    border-top-right-radius:7px;
+    border-bottom-right-radius:7px;
+    text-align:center;
+    padding-top:2.5%;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition:    all 0.2s ease;
+    -o-transition:      all 0.2s ease;
+    -ms-transition:     all 0.2s ease;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.cancelBottom:hover{
+    cursor:pointer;
+    filter:brightness(110%);
+    -webkit-filter:brightness(110%);
+    font-size:95%;
+}
+
+.cancelBottom:active{
     filter:brightness(90%);
     -webkit-filter:brightness(90%);
     -moz-filter:brightness(90%);

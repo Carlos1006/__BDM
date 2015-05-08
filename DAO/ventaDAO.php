@@ -62,7 +62,11 @@
             $fecha     = $venta->getFechaVenta();
             $hora      = $venta->getHoraVenta();
             $query = "CALL altaVenta(0,$cantidad,$idAviso,$idUsuario,$idMetodo,'$fecha','$hora')";
-            echo $query;
+            mysqli_query(mysql::getConexion(),$query);
+        }
+
+        static function deleteSolicitud($idVenta) {
+            $query = "CALL borraSolicitud($idVenta)";
             mysqli_query(mysql::getConexion(),$query);
         }
 
