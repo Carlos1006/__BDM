@@ -43,6 +43,17 @@
             $query = "CALL confirmarVenta($idVenta)";
             mysqli_query(mysql::getConexion(),$query);
         }
+
+        static function getStock($id) {
+            $query  = "CALL stockVenta($id)";
+            $result = mysqli_query(mysql::getConexion(),$query);
+            $stock  = 0;
+            while($row = mysqli_fetch_object($result)) {
+                $stock = $row->cantidadCompradaVenta;
+            }
+            return $stock;
+        }
+
     }
 
 ?>

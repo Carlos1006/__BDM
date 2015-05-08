@@ -75,8 +75,8 @@
                                                         <div class="editAction">
                                                             <img class="editImg editAdBtn" editaAviso="<?php echo $aviso->getIdAviso(); ?>"  src="/__BDM/img/icons/editAd.png">
                                                         </div>
-                                                        <div class="deleteAction deleteAdBtn">
-                                                            <img class="deleteImg" borraAviso="<?php echo $aviso->getIdAviso(); ?>" src="/__BDM/img/icons/deleteAdd.png">
+                                                        <div class="deleteAction">
+                                                            <img class="deleteImg deleteAdBtn" borraAviso="<?php echo $aviso->getIdAviso(); ?>" src="/__BDM/img/icons/deleteAdd.png">
                                                         </div>
                                                     </div>
                                                 </div>

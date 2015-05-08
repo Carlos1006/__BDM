@@ -4,4 +4,5 @@
     include_once $_SERVER["DOCUMENT_ROOT"]."/__BDM/model/Producto.php";
     $idProducto = $_POST["idProducto"];
     productoDAO::bajaProducto($idProducto);
+    header('Location: /__BDM/controller/getProfile.php');
 ?>

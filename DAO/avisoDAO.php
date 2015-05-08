@@ -171,5 +171,34 @@
             mysqli_query(mysql::getConexion(),$query);
         }
 
+        static function getStock($id) {
+            $query  = "CALL stockAviso($id)";
+            $result = mysqli_query(mysql::getConexion(),$query);
+            $stock  = 0;
+            while($row = mysqli_fetch_object($result)) {
+                $stock = $row->cantidadAviso;
+            }
+            return $stock;
+        }
+
+        static function getStock_Venta($id) {
+            $query   = "CALL stockAvisoVenta($id)";
+            $result  = mysqli_query(mysql::getConexion(),$query);
+            $stock   = 0;
+            $idAviso = 0;
+            while($row = mysqli_fetch_object($result)) {
+                $stock   = $row->cantidadAviso;
+                $idAviso = $row->idAviso;
+            }
+            $aviso = new Aviso(null,$stock,null,null,null,null,null,null,null);
+            $aviso->setIdAviso($idAviso);
+            return $aviso;
+        }
+
+        static function setNewStock($idAviso,$newStock) {
+            $query  = "CALL cambioStockAviso($idAviso,$newStock)";
+            mysqli_query(mysql::getConexion(),$query);
+        }
+
     }
 ?>

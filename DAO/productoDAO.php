@@ -161,6 +161,20 @@
             return $stock;
         }
 
+        static function getStock_Aviso($id) {
+            $query  = "CALL stockProductoAviso($id)";
+            $result = mysqli_query(mysql::getConexion(),$query);
+            $stock  = 0;
+            $idProducto = 0;
+            while($row = mysqli_fetch_object($result)) {
+                $stock = $row->existenciaProducto;
+                $idProducto = $row->idProducto;
+            }
+            $producto = new Producto(null,null,null,null,$stock,null,null,null,null,null,1);
+            $producto->setIdProducto($idProducto);
+            return $producto;
+        }
+
         static function setNewStock($id,$newStock) {
             $query  = "CALL cambioStock($id,$newStock)";
             mysqli_query(mysql::getConexion(),$query);
