@@ -17,5 +17,5 @@
     $usuario->setIdUsuario($_POST['updateId']);
     var_dump($usuario);
     usuarioDAO::resetUsuario($usuario);
-    //header('Location: /__BDM/view/main.php');
+    header('Location: /__BDM/view/main.php');
 ?>

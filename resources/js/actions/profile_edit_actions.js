@@ -1,5 +1,6 @@
 $(function(){
     $("#okNewUser").click(actionEditUserForm);
+	$("#unsetUser").click(unsetUsuario);
 });
 
 function actionEditUserForm() {
@@ -8,4 +9,8 @@ function actionEditUserForm() {
     $hidden.val(idUsuario);
     $("#editUserForm").append($hidden);
     $("#editUserForm").submit();
+}
+
+function unsetUsuario() {
+	$("<form>",{action:"/__BDM/controller/deleteUsuario.php"}).submit();
 }

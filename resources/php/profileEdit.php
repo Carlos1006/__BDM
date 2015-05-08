@@ -67,7 +67,7 @@
                 <div class="ok btn" id="okNewUser">Guardar</div>
             </div>
             <div class="actionEditUser">
-                <div class="deleteUser">Dar de baja usuario</div>
+                <div class="deleteUser" id="unsetUser">Dar de baja usuario</div>
             </div>
         </form>
     <?php

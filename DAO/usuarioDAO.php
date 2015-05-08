@@ -166,6 +166,9 @@
             return $usuario;
         }
 
-
+        static function deleteUsuario($id) {
+            $query = "CALL bajaUsuario($id)";
+            mysqli_query(mysql::getConexion(),$query);
+        }
     }
 ?>
