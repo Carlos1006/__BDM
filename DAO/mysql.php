@@ -131,6 +131,43 @@
             return number_format($float, 2, '.', '');
         }
 
+        static function sendEmail_2($aviso,$usuarioPregunta,$enlace,$asunto,$destino,$nombreDestino) {
+            $devolver = null;
+            $mail 				= new PHPMailer();
+            $mail->IsSMTP();
+            $mail->SMTPAuth 	= true;
+            $mail->SMTPSecure 	= "ssl";
+            $mail->Host 		= "smtp.gmail.com";
+            $mail->Port 		= 465;
+            $mail->Username 	= "cdgzz19@gmail.com";
+            $mail->Password 	= "carlos06";
+            $mail->From 		= "cdgzz19@gmail.com";
+            $mail->FromName 	= "Carlos Daniel";
+            $mail->Subject 		= $asunto;
+            $mail->AltBody 		= mysql::createEmailMessage_2($aviso,$usuarioPregunta,$enlace);
+            $mail->MsgHTML(mysql::createEmailMessage_2($aviso,$usuarioPregunta,$enlace));
+            $mail->AddAddress($destino,$nombreDestino);
+            $mail->IsHTML(true);
+
+            if(!$mail->Send()) {
+                $devolver = false;
+            }else {
+                $devolver = true;
+            }
+            return $devolver;
+        }
+
+        private static function createEmailMessage_2($usuario,$aviso,$enlace) {
+            $content = file_get_contents($_SERVER["DOCUMENT_ROOT"]."/__BDM/resources/html/question.html");
+            $dom = new DOMDocument();
+            $dom->loadHTML($content);
+            $dom->getElementById("user")->appendChild( $dom->createTextNode($usuario) );
+            $dom->getElementById("ad")->appendChild( $dom->createTextNode($aviso) );
+            $dom->getElementById("link")->setAttribute("href",$enlace);
+            $html = $dom->saveHTML();
+            return $html;
+        }
+
     }
 
 ?>

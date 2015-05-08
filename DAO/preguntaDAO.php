@@ -26,6 +26,16 @@
             }
             return $preguntas;
         }
+
+        static function altaPregunta($pregunta) {
+            $descripcion = $pregunta->getDescripcionPregunta();
+            $fecha       = $pregunta->getFechaPregunta();
+            $hora        = $pregunta->getHoraPregunta();
+            $idUsuario   = $pregunta->getUsuarioPregunta();
+            $idAviso     = $pregunta->getAvisoPregunta();
+            $query = "CALL altaPregunta('$descripcion','$fecha','$hora',$idUsuario,$idAviso)";
+            mysqli_query(mysql::getConexion(),$query);
+        }
     }
 ?>
 

@@ -17,6 +17,7 @@
         ?>
         <title>Ad</title>
         <script src="/__BDM/resources/js/ad.js"></script>
+        <script src="/__BDM/resources/js/actions/ad_actions.js"></script>
     </head>
     <body>
         <?php  include $_SESSION['raiz']."/__BDM//resources/php/header.php"; ?>
@@ -100,7 +101,7 @@
                         <?php
                                 } else{
                         ?>
-                                    <input type="text" class="form-control questionAdInput" placeholder="Pregunta al vendedor..."/>
+                                    <input type="text" name="pregunta" id="questionForm" class="form-control questionAdInput" placeholder="Pregunta al vendedor..."/>
                         <?php
                                 }
                             } else {
@@ -109,7 +110,7 @@
                         <?php
                             }
                         ?>
-                        <div class="questionButton">Enviar Pregunta</div>
+                        <div class="questionButton" id="sendAnswer">Enviar Pregunta</div>
                     </div>
                     <div class="questionsContainer">
                         <?php
@@ -117,10 +118,10 @@
                         ?>
                                 <div class="questionAd">
                                     <div class="question">
-                                        <?php echo utf8_encode($pregunta->getDescripcionPregunta()); ?>
+                                        <?php echo $pregunta->getDescripcionPregunta(); ?>
                                     </div>
                                     <div class="answer">
-                                        <?php echo utf8_encode($pregunta->getRespuesta()); ?>
+                                        <?php echo $pregunta->getRespuesta(); ?>
                                     </div>
                                 </div>
                         <?php
